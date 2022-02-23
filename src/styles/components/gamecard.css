@@ -1,0 +1,9 @@
+.gamecard{
+    background-color: #52545D;
+    color: white;
+    border-radius: 1em;
+    margin-left: 3em;
+    width: 30%;
+    padding: 1em 1.5em 1em 1.5em;
+}
+
