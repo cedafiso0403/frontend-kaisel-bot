@@ -1,0 +1,16 @@
+footer{
+    background-color: #272934;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #454751;
+    color: white;
+    padding: 0;
+}
+
+p{
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+}
