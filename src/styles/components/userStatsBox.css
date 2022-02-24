@@ -1,0 +1,45 @@
+.user-stats-box{
+    background-color: #52545D;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #52546F;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    padding: 1.5em 3em;
+}
+
+.user-stats-box h4, .user-stats-box p{
+    margin: 0;
+    padding: 0;
+}
+
+.stat-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.stat-container h4{
+    width: 35%;
+    text-align: right;
+    margin-right: 5%;
+}
+
+.stat-container p{
+    width: 60%;
+    text-align: left;
+}
+.user-stats-box img{
+    width: 90%;
+    border-radius: 50%;
+}
+
+.profile-picture-container{
+    width: 40%;
+}
+
+.stats-container{
+    padding-left: 0;
+    width: 60%;
+}
