@@ -1,6 +1,6 @@
 .content-page{
   height: 80vh;
-  background-color: #272934;
+  background-image: linear-gradient(#272934, #272934, #20222b);
   color: white;
   padding: 3em 0 3em 0;
   justify-content: center;
@@ -16,49 +16,10 @@
   flex-direction: row;
   justify-content: center;
   margin-top: 3em;
-}
-
-.form-box{
-  display: flex;
-  flex-direction: column;
-  margin: 1.5em auto;
-  width: 50%;
-}
-
-.form-container{
-  height: 2em;
-  display: flex;
-  flex-direction: row;
-}
-
-.form-container select{
-  height: 100%;
-  width: 10%;
-  border-radius: 5px;
-  margin: 0;
-}
-
-.form-container input[type=text] {
-  padding-left: .5em;
-  height: 100%;
-  width: 90%;
-  border: none;
-  margin-right: 0px;
-  border-radius: 5px;
-}
-
-.form-container2{
-  margin: .5em;
-  display: flex;
-  justify-content: center;
-}
-
-.form-container2 select{
-  height: 2em;
-  width: 40%;
-  border-radius: 5px;
+  margin-bottom: 4em;
 }
 
 hr{
+  width: 90% ;
   margin-top: 1.5em;
 }

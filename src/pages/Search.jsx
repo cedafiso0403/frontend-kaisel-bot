@@ -5,7 +5,9 @@ function Search() {
   return (
     <div>
       <Header></Header>
-      <div>Search</div>
+      <div className="content-page">
+          
+        </div>
       <Footer/>
     </div>
   );

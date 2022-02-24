@@ -1,9 +1,69 @@
 .gamecard{
-    background-color: #52545D;
     color: white;
-    border-radius: 1em;
+    border-radius: 30px;
     margin-left: 3em;
+    max-width: 275px;
     width: 30%;
-    padding: 1em 1.5em 1em 1.5em;
+    height: 350px;
+    box-shadow: 4px 4px #20222b;
+    overflow: hidden;
+    position: relative;
+}
+
+.gamecard-background{
+    opacity: 0.55;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gamecard-background-league-of-legends{
+    background-image: url("../../../public/images/LeagueCard.jpg");
+    background-repeat: no-repeat;
+    background-color: #087CA7;
+    background-size: 100% 100%;
+}
+
+.gamecard-background-valorant{
+    background-image: url("../../../public/images/ValorantCard.png");
+    background-repeat: no-repeat;
+    background-color: #087CA7;
+    background-size: 100% 100%;
+}
+
+.gamecard-information{
+    background-color: #087CA7;
+    position: absolute;
+    bottom: -210px;
+    width: 100%;
+    opacity: 0.9;
+    padding: 1em 0em 1em 0.75em;
+    border-radius: 50px 0 0 0;
+    transition: all 0.3s ease 0s;
+}
+
+.gamecard-information:hover{
+    background-color: #087CA7;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1em 0em 1em 0.75em;
+    border-radius: 60px 0 0 0;
+    opacity: 1;
+}
+
+.gamecard ul{
+    padding-left: 2.5em;
+}
+
+.gamecard-container{
+    border: none;
+    margin-bottom: 0.5em;
+}
+
+h4, span{
+    padding-left: 1em;
 }
 

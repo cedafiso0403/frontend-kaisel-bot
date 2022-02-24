@@ -1,6 +1,6 @@
 footer{
-    height: 10vh;
-    background-color: #272934;
+    height: 8vh;
+    background-image: linear-gradient(#272934, #272934, #20222b);
     display: flex;
     flex-direction: row;
     justify-content: space-between;

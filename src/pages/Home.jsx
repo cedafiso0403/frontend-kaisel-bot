@@ -20,7 +20,6 @@ function Home() {
       <Header />
       <div className="content-page">
         <h1>Kaisel: All-in-one gaming bot</h1>
-        <h2>Connecting Twitch to Popular Games</h2>
         <hr></hr>
         <div className="gamecards">
           <GameCard {...propsForGameCardLeague} />

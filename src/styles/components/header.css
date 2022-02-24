@@ -1,11 +1,11 @@
 header{
-    height: 10vh;
-    background-color: #272934;
+    height: 8vh;
+    background-image: linear-gradient(#272934, #272934, #20222b);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #454751;
+    border-bottom: 1px solid #1e2028;
 }
 
 .nav-container{
@@ -31,6 +31,11 @@ header{
 .navbar-item{
     color: white;
     text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.navbar-item:hover{
+    opacity: 0.5;
 }
 
 img{
@@ -39,10 +44,19 @@ img{
 
 .navbar-item-button{
     display: flex;
-    background-color: #0076FF;
-    width: 8em;
-    height: 3em;
-    border-radius: 5px;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease 0s
+}
+
+.navbar-item-button a{
+    background-color: #087CA7;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+}
+
+.navbar-item-button:hover{
+    opacity: 0.8;
 }

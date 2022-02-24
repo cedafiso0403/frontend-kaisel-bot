@@ -5,7 +5,9 @@ function Commands() {
   return (
     <div>
       <Header></Header>
-      <div>Commands</div>
+      <div className="content-page">
+          
+        </div>
       <Footer/>
     </div>
   );
