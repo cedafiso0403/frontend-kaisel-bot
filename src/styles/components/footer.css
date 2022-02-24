@@ -4,7 +4,7 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #454751;
+    border-top: 1px solid #454751;
     color: white;
     padding: 0;
 }
