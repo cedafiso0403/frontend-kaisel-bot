@@ -4,7 +4,7 @@ export default function SearchBar() {
     return (
         <div>
             <div className="form-box">
-                <form>
+                <form action="/TestStats" method="GET">
                     <div className="form-container">
                         <input type="text" placeholder="Search.." />
                         <select name="region" id="region">
