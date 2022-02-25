@@ -18,6 +18,8 @@ function Home() {
   return (
     <div>
       <Header />
+      <div className="content-page-background">
+      </div>
       <div className="content-page">
         <h1>Kaisel: All-in-one gaming bot</h1>
         <hr></hr>
