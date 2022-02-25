@@ -21,8 +21,15 @@ function Home() {
       <div className="content-page-background">
       </div>
       <div className="content-page">
-        <h1>Kaisel: All-in-one gaming bot</h1>
+        <h1 className="content-h1">PROJECT KAISEL</h1>
+        <p>
+          All-in-one discord gaming bot that displays stastics for a given username.
+        </p>
+        <p>
+          Kaisel will display the user's winrate, kill/death ratio and even their rank.
+        </p>
         <hr></hr>
+        <h2>Games Supported</h2>
         <div className="gamecards">
           <GameCard {...propsForGameCardLeague} />
           <GameCard {...propsForGameCardValorant} />

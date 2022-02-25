@@ -1,3 +1,8 @@
+.content-h1 {
+  color: #087CA7;
+  font-size: 4em;
+}
+
 .content-page{
   height: 80vh;
   background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
