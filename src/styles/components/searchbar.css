@@ -1,3 +1,9 @@
+/* creating a space around the search bar. */
+.searchBar {
+  background-color: lighten(#272934, 90%);
+  border: 2px solid white;
+  padding: 2em 2em 2em 2em;
+}
 
 .form-box{
     display: flex;
