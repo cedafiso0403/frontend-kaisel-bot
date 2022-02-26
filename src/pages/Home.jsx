@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
+import Twitch from "../components/Twitch";
 import { GameCard } from "../components/GameCard";
 
 const propsForGameCardLeague = {
@@ -9,6 +10,13 @@ const propsForGameCardLeague = {
   activePlayers: 1234567,
   topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
 }
+
+const propsForGameCardTFT = {
+  gameName: "Teamfight Tactics",
+  activePlayers: 1234567,
+  topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
+}
+
 const propsForGameCardValorant = {
   gameName: "Valorant",
   activePlayers: 1234567,
@@ -32,25 +40,39 @@ function Home() {
         <h1 className="content-h1">PROJECT KAISEL</h1>
       </div>
         <p className="home-subtitle">
-          All-in-one discord gaming bot
+          The all-in-one discord gaming bot
         </p>
-
-        <hr></hr>
-
-        <h2 className="content-h2">Games Supported</h2>
+        <p className="features-subtitle">
+          Integrated with the Riotgames and Twitch API,
+          Kaisel supports <br></br>statistics for <a href="https://www.leagueoflegends.com/" target="_blank" rel="noreferrer" >
+          League of Legends</a>, <a href="https://teamfighttactics.leagueoflegends.com/en-us/" target="_blank" rel="noreferrer">
+          TFT</a> and <a href="https://playvalorant.com/en-us/" target="_blank" rel="noreferrer">VALORANT</a>.
+          <br></br>
+          Access statistics for games, twitch alerts, server moderation, and more!
+        </p>
         <div className="gamecards">
           <GameCard {...propsForGameCardLeague} />
+          <GameCard {...propsForGameCardTFT} />
           <GameCard {...propsForGameCardValorant} />
         </div>
 
         <hr></hr>
 
-        <h2 className="content-h2">See your progress in your games</h2>
+        <Twitch />
+
+        <hr></hr>
+
+        <h2 className="content-h2">See the progress in your games</h2>
         <Features />
 
         <hr></hr>
 
-        <h2 className="content-h2">Instantly get statistics</h2>
+        <h2 className="content-h2">Search for a username</h2>
+        <p className="features-subtitle">
+          Test out how Kaisel can display your in game statistics.
+          <br></br>
+          View your KDA, winrate and other statistics for the current season.
+        </p>
         <SearchBar />
       </div>
       <Footer />
