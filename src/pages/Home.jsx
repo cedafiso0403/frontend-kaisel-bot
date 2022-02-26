@@ -40,7 +40,7 @@ function Home() {
         <h1 className="content-h1">PROJECT KAISEL</h1>
       </div>
         <p className="home-subtitle">
-          The all-in-one Discord gaming bot
+          All-in-one Discord gaming bot
         </p>
         <p className="features-subtitle">
           Integrated with the Riot games and Twitch API,
