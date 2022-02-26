@@ -1,6 +1,6 @@
 /* creating a space around the search bar. */
 .searchBar {
-  background-color: lighten(#272934, 90%);
+  background-color: #181A20;
   border: 2px solid white;
   padding: 2em 2em 2em 2em;
   border-radius: 10px;
@@ -12,7 +12,7 @@
   margin: 1.5em auto;
   max-width: 500px;
   width: 50%;
-  }
+}
 .form-box h2{
   margin-bottom: 1em;
 }
