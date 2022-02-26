@@ -6,7 +6,7 @@ export default function SearchBar() {
             <div className="form-box">
                 <form className="searchBar" action="/TestStats" method="GET">
                     <div className="form-container">
-                        <input type="text" placeholder="Search.." />
+                        <input type="text" placeholder="Search.." id="user" name="user"/>
                         <select name="region" id="region">
                             <option value="NA">NA</option>
                             <option value="LAN">LAN</option>

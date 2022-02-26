@@ -5,7 +5,7 @@ import Contact from './pages/Contact';
 import Home from "./pages/Home";
 import Search from './pages/Search';
 import Stats from './pages/Stats';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -18,9 +18,10 @@ function App() {
           <Route exact path="/Commands" element={<Commands />}></Route>
           <Route exact path="/Contact" element={<Contact />}></Route>
           <Route exact path="/Search" element={<Search />}></Route>
-          <Route exact path="/TestStats" element={<Stats />}></Route>
+          <Route path="/TestStats" element={<Stats />}>
+          </Route>
         </Routes>
-      </div>   
+      </div>
     </BrowserRouter>
   );
 }
