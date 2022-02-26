@@ -25,6 +25,7 @@ function Stats() {
         <div>
             <Header />
             <div className="content-page">
+                <h2 className="content-h2">Search for a username</h2>
                 <SearchBar />
                 <UserStatsBox {...data}/>
             </div>

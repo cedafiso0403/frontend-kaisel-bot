@@ -36,7 +36,16 @@
 
 .home-subtitle {
   color: lightgrey;
-  font-size: 1.45em;
+  font-size: 1.55em;
+}
+
+a {
+  color: #3BAFDA;
+  text-decoration: none;
+}
+
+a::visitied {
+  color: #3BAFDA;
 }
 
 hr{
