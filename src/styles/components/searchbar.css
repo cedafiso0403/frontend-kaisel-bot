@@ -43,6 +43,10 @@
     margin-right: 0px;
     border-radius: 10px;
   }
+
+  ::placeholder {
+    color: white;
+  }
   
   .form-container2{
     margin: .5em;
