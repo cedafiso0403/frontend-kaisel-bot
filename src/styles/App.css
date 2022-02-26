@@ -1,5 +1,14 @@
+.content-h1 {
+  color: #3BAFDA;
+  font-size: 4em;
+}
+
+.content-h2 {
+  font-size: 2em;
+}
+
 .content-page{
-  height: 80vh;
+  min-height: 80vh;
   background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
   color: white;
   padding: 3em 0 3em 0;
@@ -19,7 +28,19 @@
   margin-bottom: 4em;
 }
 
+.home-icon {
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+}
+
+.home-subtitle {
+  color: lightgrey;
+  font-size: 1.45em;
+}
+
 hr{
   width: 90% ;
-  margin-top: 1.5em;
+  margin-top: 1.75em;
+  margin-bottom: 1.75em;
 }

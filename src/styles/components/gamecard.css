@@ -1,4 +1,3 @@
-
 .gamecard{
     color: white;
     border-radius: 30px;
@@ -12,7 +11,7 @@
 }
 
 .gamecard-background{
-    opacity: 0.55;
+    opacity: 0.70;
     position: absolute;
     left: 0;
     top: 0;

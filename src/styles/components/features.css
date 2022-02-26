@@ -1,0 +1,27 @@
+.features-img {
+    text-align: center;
+}
+
+.features-img img{
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+    border-radius: 5%;
+}
+
+
+.features-subtitle {
+    color: lightgrey;
+    font-size: 1.25em;
+  }
+
+.features-ul {
+    display: table;
+    margin: 0 auto;
+    padding-bottom: 1em;
+}
+
+.features-li {
+    text-align: left;
+    list-style: inside;
+    padding: 0.75em;
+}

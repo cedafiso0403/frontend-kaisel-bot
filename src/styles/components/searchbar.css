@@ -24,6 +24,8 @@
   }
   
   .form-container select{
+    color: white;
+    background-color: #2E323D;
     height: 100%;
     width: 10%;
     border-radius: 5px;
@@ -31,12 +33,18 @@
   }
   
   .form-container input[type=text] {
+    color: white;
+    background-color: #2E323D;
     padding-left: .5em;
     height: 100%;
     width: 90%;
     border: none;
     margin-right: 0px;
     border-radius: 10px;
+  }
+
+  ::placeholder {
+    color: white;
   }
   
   .form-container2{
@@ -46,6 +54,8 @@
   }
   
   .form-container2 select{
+    color: white;
+    background-color: #2E323D;
     height: 2em;
     width: 40%;
     border-radius: 10px;
