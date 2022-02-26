@@ -40,15 +40,15 @@ function Home() {
         <h1 className="content-h1">PROJECT KAISEL</h1>
       </div>
         <p className="home-subtitle">
-          The all-in-one discord gaming bot
+          The all-in-one Discord gaming bot
         </p>
         <p className="features-subtitle">
-          Integrated with the Riotgames and Twitch API,
+          Integrated with the Riot games and Twitch API,
           Kaisel supports <br></br>statistics for <a href="https://www.leagueoflegends.com/" target="_blank" rel="noreferrer" >
           League of Legends</a>, <a href="https://teamfighttactics.leagueoflegends.com/en-us/" target="_blank" rel="noreferrer">
           TFT</a> and <a href="https://playvalorant.com/en-us/" target="_blank" rel="noreferrer">VALORANT</a>.
           <br></br>
-          Access statistics for games, twitch alerts, server moderation, and more!
+          Access statistics for supported games, Twitch alerts, server moderation, and more!
         </p>
         <div className="gamecards">
           <GameCard {...propsForGameCardLeague} />
