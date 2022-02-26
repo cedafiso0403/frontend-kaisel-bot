@@ -11,7 +11,7 @@
 }
 
 .gamecard-background{
-    opacity: 0.70;
+    opacity: 0.75;
     position: absolute;
     left: 0;
     top: 0;
@@ -27,7 +27,7 @@
 }
 
 .gamecard-background-teamfight-tactics{
-    background-image: url("./../../../public/images/tftCard.png");
+    background-image: url("./../../../public/images/tftCard2.png");
     background-repeat: no-repeat;
     background-color: #0C0E13;
     background-size: 100% 100%;
