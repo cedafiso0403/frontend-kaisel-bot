@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
+import Information from "../components/Information";
 import Twitch from "../components/Twitch";
 import { GameCard } from "../components/GameCard";
 
@@ -58,6 +59,11 @@ function Home() {
           <GameCard {...propsForGameCardLeague} />
           <GameCard {...propsForGameCardTFT} />
           <GameCard {...propsForGameCardValorant} />
+        </div>
+
+        <div>
+          <h2 className="content-h2">Easily search up a player&apos;s stats</h2>
+          <Information />
         </div>
 
         <div>
