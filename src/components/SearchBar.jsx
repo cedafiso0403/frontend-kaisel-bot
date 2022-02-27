@@ -8,16 +8,16 @@ export default function SearchBar() {
                     <div className="form-container">
                         <input type="text" placeholder="Search.." id="user" name="user"/>
                         <select name="region" id="region">
-                            <option value="NA">NA</option>
-                            <option value="LAN">LAN</option>
-                            <option value="LAS">LAS</option>
-                            <option value="EUN">EUN</option>
-                            <option value="EUW">EUW</option>
-                            <option value="OC">OC</option>
-                            <option value="TR">TR</option>
-                            <option value="RU">RU</option>
-                            <option value="JP">JP</option>
-                            <option value="KR">KR</option>
+                            <option value="na1">NA</option>
+                            <option value="la1">LAN</option>
+                            <option value="la2">LAS</option>
+                            <option value="eun1">EUN</option>
+                            <option value="euw1">EUW</option>
+                            <option value="oc1">OC</option>
+                            <option value="tr1">TR</option>
+                            <option value="ru">RU</option>
+                            <option value="jp1">JP</option>
+                            <option value="kr">KR</option>
                         </select>
                     </div>
                     <div className="form-container2">

@@ -2,31 +2,35 @@ import React from "react";
 import "../styles/components/userStatsBox.css"
 import axios from 'axios';
 
-const API_KEY = "RGAPI-055306a1-94a5-4a30-952a-d35829095d43"
+const API_KEY = "RGAPI-0d4db553-0647-4089-9e16-4a75d0d19ff8"
 
 export class UserStatsBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             player: null,
+            rankedStats: [],
             retrievedData: false
         };
     }
 
-    searchForPlayer(user) {
-        let ApiCallString = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${user}?api_key=${API_KEY}`;
+    searchForPlayer() {
+        let ApiCallString = `https://${this.props.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.props.user}?api_key=${API_KEY}`;
         axios.get(ApiCallString).then((response) => {
             this.setState((state, props) => {
                 return {
                     player: response.data,
-                    retrievedData: true
                 };
             });
-            console.log(this.state.player.puuid);
-            let ApiCallString2 = `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
-            axios.get(ApiCallString2).then((response2) =>{
-                console.log(response2.data);
-            }).catch((error)=>{
+            let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
+            axios.get(ApiCallString2).then((response2) => {
+                this.setState((prevState) => {
+                    return {
+                        rankedStats: [...prevState.rankedStats, ...response2.data],
+                        retrievedData: true
+                    };
+                });
+            }).catch((error) => {
                 console.log(error)
             })
         }).catch((error) => {
@@ -35,14 +39,21 @@ export class UserStatsBox extends React.Component {
     }
 
     componentDidMount() {
-        this.searchForPlayer(this.props.user);
+        this.searchForPlayer();
     }
 
     render() {
-        const { retrievedData, player } = this.state;
+        const { retrievedData, player, rankedStats } = this.state;
         return (
             <div className="user-stats-box">
                 <div className="profile-picture-container">
+                    <div className="stat-container">
+                        {
+                            retrievedData ?
+                                <h4>{player.name}</h4> :
+                                <h4>Loading</h4>
+                        }
+                    </div>
                     {
                         retrievedData ?
                             <img alt="For in game" src={`http://ddragon.leagueoflegends.com/cdn/12.4.1/img/profileicon/${player.profileIconId}.png`}></img> :
@@ -51,28 +62,36 @@ export class UserStatsBox extends React.Component {
                 </div>
                 <div className="stats-container">
                     <div className="stat-container">
-                        <h4>Username: </h4>
+                        <h4>Wins: </h4>
                         {
                             retrievedData ?
-                            <p>{player.name}</p> :
-                            <p>Loading</p>
+                                <p>{rankedStats[0].wins}</p> :
+                                <p>Loading</p>
                         }
                     </div>
                     <div className="stat-container">
-                        <h4>Games Played: </h4>
-                        <p>{this.props.gamesPlayed}</p>
+                        <h4>Losses: </h4>
+                        {
+                            retrievedData ?
+                                <p>{rankedStats[0].losses}</p> :
+                                <p>Loading</p>
+                        }
                     </div>
                     <div className="stat-container">
                         <h4>Win Rate: </h4>
-                        <p>{this.props.winRate}%</p>
+                        {
+                            retrievedData ?
+                                <p>{parseInt(rankedStats[0].wins * 100 / (rankedStats[0].losses + rankedStats[0].wins))}%</p> :
+                                <p>Loading</p>
+                        }
                     </div>
                     <div className="stat-container">
                         <h4>Rank: </h4>
-                        <p>{this.props.rank}</p>
-                    </div>
-                    <div className="stat-container">
-                        <h4>KDR: </h4>
-                        <p>{this.props.kdr}</p>
+                        {
+                            retrievedData ?
+                                <p>{rankedStats[0].tier}</p> :
+                                <p>Loading</p>
+                        }
                     </div>
                 </div>
             </div>

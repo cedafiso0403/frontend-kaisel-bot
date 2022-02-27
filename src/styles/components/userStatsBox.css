@@ -30,18 +30,32 @@
     width: 60%;
     text-align: left;
 }
-.user-stats-box img{
+
+.profile-picture-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-picture-container img{
+    margin: 0;
     max-width: 250px;
-    width: 90%;
+    width: 50%;
     border-radius: 50%;
     border: 2px solid white;
 }
 
-.profile-picture-container{
-    width: 40%;
-    display: flex;
-    justify-content: center;
+.profile-picture-container h4{
+    margin: 0;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 1em;
 }
+
 
 .stats-container{
     padding-left: 0;
