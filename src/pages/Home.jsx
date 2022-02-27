@@ -44,7 +44,7 @@ function Home() {
         </p>
         <p className="features-subtitle">
           Integrated with the Riot games and Twitch API,
-          Kaisel supports <br></br>statistics for <a href="https://www.leagueoflegends.com/" target="_blank" rel="noreferrer" >
+          Kaisel <br></br>supports statistics for <a href="https://www.leagueoflegends.com/" target="_blank" rel="noreferrer" >
           League of Legends</a>, <a href="https://teamfighttactics.leagueoflegends.com/en-us/" target="_blank" rel="noreferrer">
           TFT</a> and <a href="https://playvalorant.com/en-us/" target="_blank" rel="noreferrer">VALORANT</a>.
           <br></br>
@@ -56,17 +56,7 @@ function Home() {
           <GameCard {...propsForGameCardValorant} />
         </div>
 
-        <hr></hr>
-
-        <Twitch />
-
-        <hr></hr>
-
-        <h2 className="content-h2">See the progress in your games</h2>
-        <Features />
-
-        <hr></hr>
-
+        <div className="alt-content-page marginBottom">
         <h2 className="content-h2">Search for a username</h2>
         <p className="features-subtitle">
           Test out how Kaisel can display your in game statistics.
@@ -74,6 +64,19 @@ function Home() {
           View your KDA, winrate and other statistics for the current season.
         </p>
         <SearchBar />
+        </div>
+        
+        <div className="container">
+          <div>
+            <h2 className="content-h2">See the progress in your games</h2>
+            <Features />
+          </div>
+        </div>
+
+          <div className="alt-content-page">
+            <Twitch />
+          </div>
+
       </div>
       <Footer />
     </div>

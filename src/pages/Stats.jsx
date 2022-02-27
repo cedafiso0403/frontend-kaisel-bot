@@ -24,8 +24,12 @@ function Stats() {
     return (
         <div>
             <Header />
-            <div className="content-page">
+            <div className="content-page paddingBottom">
                 <h2 className="content-h2">Search for a username</h2>
+                <p className="features-subtitle">
+                    Search a username for League of Legends or Valorant. <br></br>
+                    Only current season statistics are shown.
+                </p>
                 <SearchBar />
                 <UserStatsBox {...data}/>
             </div>
