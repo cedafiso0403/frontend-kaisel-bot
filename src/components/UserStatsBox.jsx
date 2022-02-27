@@ -26,14 +26,28 @@ export class UserStatsBox extends React.Component {
             let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
             axios.get(ApiCallString2).then((response2) => {
                 this.setState((prevState) => {
-                    if (response2.data.length >= 0) {
+                    if (response2.data.length > 0) {
                         return {
                             rankedStats: [...response2.data],
                             retrievedData: true
                         };
                     } else {
                         return {
-                            rankedStats: [...prevState.rankedStats],
+                            rankedStats: [{
+                                queueType : "Ranked Solo 5x5",
+                                tier: "Unranked",
+                                rank: " ",
+                                leaguePoints: 0,
+                                wins: 0,
+                                losses: 0
+                            }, {
+                                queueType : "Ranked Flex",
+                                tier: "Unranked",
+                                rank: " ",
+                                leaguePoints: 0,
+                                wins: 0,
+                                losses: 0
+                            }],
                             retrievedData: true
                         };
                     }
@@ -76,6 +90,7 @@ export class UserStatsBox extends React.Component {
 
     render() {
         const { retrievedData, player, rankedStats } = this.state;
+        console.log(this.state.rankedStats);
         return (
             <div className="user-stats-box">
                 <div className="profile-picture-container">

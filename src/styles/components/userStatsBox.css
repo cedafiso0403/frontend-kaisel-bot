@@ -5,9 +5,11 @@
     align-items: center;
     border: 1px solid #52546F;
     border-radius: 10px;
+    min-height: 300px;
     width: 50%;
     margin: auto;
-    padding: 1.5em 3em;
+    padding: 2em 0;
+    justify-content: space-between;
 }
 
 .user-stats-box h4, .user-stats-box p{
