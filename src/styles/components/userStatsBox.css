@@ -7,7 +7,7 @@
     border-radius: 10px;
     min-height: 200px;
     width: 60%;
-    margin: auto;
+    margin: 4em auto auto auto;
     padding: 2em 0;
     justify-content: space-between;
 }

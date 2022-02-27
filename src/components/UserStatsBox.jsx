@@ -90,7 +90,7 @@ export class UserStatsBox extends React.Component {
                 return {
                     player: {
                         name: "Not found",
-                        profileIconId: 0
+                        profileIconId: 29
                     },
                     rankedStats: [{
                         queueType: "Ranked Flex",

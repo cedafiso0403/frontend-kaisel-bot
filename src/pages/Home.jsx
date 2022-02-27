@@ -56,6 +56,9 @@ function Home() {
           <GameCard {...propsForGameCardValorant} />
         </div>
 
+
+        <div className="alt-content-page marginBottom">
+
         <div className="content-space"></div>
 
         <Twitch />
@@ -76,6 +79,19 @@ function Home() {
           View your KDA, winrate and other statistics for the current season.
         </p>
         <SearchBar />
+        </div>
+        
+        <div className="container">
+          <div>
+            <h2 className="content-h2">See the progress in your games</h2>
+            <Features />
+          </div>
+        </div>
+
+          <div className="alt-content-page">
+            <Twitch />
+          </div>
+
       </div>
       <Footer />
     </div>
