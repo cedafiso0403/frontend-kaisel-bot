@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/components/userStatsBox.css"
 import axios from 'axios';
+import { RankedStatsBox } from "./RankedStatsBox";
 
 const API_KEY = "RGAPI-0d4db553-0647-4089-9e16-4a75d0d19ff8"
 
@@ -9,7 +10,7 @@ export class UserStatsBox extends React.Component {
         super(props);
         this.state = {
             player: null,
-            rankedStats: [],
+            rankedStats: [{}, {}],
             retrievedData: false
         };
     }
@@ -25,16 +26,47 @@ export class UserStatsBox extends React.Component {
             let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
             axios.get(ApiCallString2).then((response2) => {
                 this.setState((prevState) => {
-                    return {
-                        rankedStats: [...prevState.rankedStats, ...response2.data],
-                        retrievedData: true
-                    };
+                    if (response2.data.length >= 0) {
+                        return {
+                            rankedStats: [...response2.data],
+                            retrievedData: true
+                        };
+                    } else {
+                        return {
+                            rankedStats: [...prevState.rankedStats],
+                            retrievedData: true
+                        };
+                    }
                 });
             }).catch((error) => {
                 console.log(error)
             })
         }).catch((error) => {
-            console.log(error)
+            this.setState((prevState) => {
+                return {
+                    player: {
+                        name: "Not found",
+                        profileIconId: 0
+                    },
+                    rankedStats: [{
+                        queueType : "Ranked Solo 5x5",
+                        tier: "Unranked",
+                        rank: " ",
+                        leaguePoints: 0,
+                        wins: 0,
+                        losses: 0
+                    }, {
+                        queueType : "Ranked Flex",
+                        tier: "Unranked",
+                        rank: " ",
+                        leaguePoints: 0,
+                        wins: 0,
+                        losses: 0
+                    }],
+                    retrievedData: true
+                };
+            }
+            );
         })
     }
 
@@ -57,42 +89,21 @@ export class UserStatsBox extends React.Component {
                     {
                         retrievedData ?
                             <img alt="For in game" src={`http://ddragon.leagueoflegends.com/cdn/12.4.1/img/profileicon/${player.profileIconId}.png`}></img> :
-                            <img alt="For in game" src=""></img>
+                            <img alt="For in game" src="/images/Loading.gif"></img>
                     }
                 </div>
                 <div className="stats-container">
-                    <div className="stat-container">
-                        <h4>Wins: </h4>
-                        {
-                            retrievedData ?
-                                <p>{rankedStats[0].wins}</p> :
-                                <p>Loading</p>
-                        }
-                    </div>
-                    <div className="stat-container">
-                        <h4>Losses: </h4>
-                        {
-                            retrievedData ?
-                                <p>{rankedStats[0].losses}</p> :
-                                <p>Loading</p>
-                        }
-                    </div>
-                    <div className="stat-container">
-                        <h4>Win Rate: </h4>
-                        {
-                            retrievedData ?
-                                <p>{parseInt(rankedStats[0].wins * 100 / (rankedStats[0].losses + rankedStats[0].wins))}%</p> :
-                                <p>Loading</p>
-                        }
-                    </div>
-                    <div className="stat-container">
-                        <h4>Rank: </h4>
-                        {
-                            retrievedData ?
-                                <p>{rankedStats[0].tier}</p> :
-                                <p>Loading</p>
-                        }
-                    </div>
+                    {
+                        retrievedData ?
+                            rankedStats.map((elements) => {
+                                if (elements.queueType !== "RANKED_TFT_PAIRS") {
+                                    return (<RankedStatsBox key={elements.queueType} {...elements} />)
+                                };
+                            }) :
+                            <RankedStatsBox {...{
+                                queueType: "Loading"
+                            }} />
+                    }
                 </div>
             </div>
         )
