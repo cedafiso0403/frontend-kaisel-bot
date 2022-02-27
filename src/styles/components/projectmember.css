@@ -1,0 +1,17 @@
+.memberSection {
+    background-color: rgb(59, 55, 82);
+    border-radius: 10px;
+    box-shadow: 10px 10px 4px rgba(41, 41, 41, 0.5);
+    padding: 1em;
+    text-align: center;
+    width: 400px;
+}
+
+.memberSection img {
+    border-radius: 50%;
+}
+
+.memberSection img, h2, p {
+    /** DO NOT ADD PADDING otherwise it will create white space on the side
+    /* padding: 0.5rem; */
+}

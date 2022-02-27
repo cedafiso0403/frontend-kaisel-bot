@@ -10,7 +10,7 @@ export class GameCard extends React.Component {
                 <div className={"gamecard-background " + classNameForCards}></div>
                 <div className="gamecard-information">
                     <div className="gamecard-container">
-                        <h2>{this.props.gameName}</h2>
+                        <h2>Learn more</h2>
                     </div>
                     <div className="gamecard-container">
                         <h4>Active Players</h4>

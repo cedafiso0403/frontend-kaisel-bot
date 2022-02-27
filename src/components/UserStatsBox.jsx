@@ -1,79 +1,153 @@
 import React from "react";
 import "../styles/components/userStatsBox.css"
 import axios from 'axios';
+import { RankedStatsBox } from "./RankedStatsBox";
 
-const API_KEY = "RGAPI-055306a1-94a5-4a30-952a-d35829095d43"
+const API_KEY = "RGAPI-0d4db553-0647-4089-9e16-4a75d0d19ff8"
 
 export class UserStatsBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             player: null,
+            rankedStats: [{}, {}],
             retrievedData: false
         };
     }
 
-    searchForPlayer(user) {
-        let ApiCallString = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${user}?api_key=${API_KEY}`;
+    searchForPlayer() {
+        let ApiCallString = `https://${this.props.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.props.user}?api_key=${API_KEY}`;
         axios.get(ApiCallString).then((response) => {
             this.setState((state, props) => {
                 return {
                     player: response.data,
-                    retrievedData: true
                 };
             });
-            console.log(this.state.player.puuid);
-            let ApiCallString2 = `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
-            axios.get(ApiCallString2).then((response2) =>{
-                console.log(response2.data);
-            }).catch((error)=>{
+            let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
+            axios.get(ApiCallString2).then((response2) => {
+                this.setState((prevState) => {
+                    let indexTFT = response2.data.findIndex(object => {
+                        return object.queueType === "RANKED_TFT_PAIRS";
+                    })
+                    response2.data.splice(indexTFT, indexTFT+1);
+                    if (response2.data.length >= 2) {
+                        return {
+                            rankedStats: [...response2.data],
+                            retrievedData: true
+                        };
+                    } else if (response2.data.length >= 1) {
+                        if (response2.data[0].queueType === "RANKED_FLEX_SR") {
+                            return {
+                                rankedStats: [...response2.data, {
+                                    queueType: "Ranked Solo Duo 5x5",
+                                    tier: "Unranked",
+                                    rank: " ",
+                                    leaguePoints: 0,
+                                    wins: 0,
+                                    losses: 0
+                                }],
+                                retrievedData: true
+                            };
+                        } else {
+                            return {
+                                rankedStats: [...response2.data, {
+                                    queueType: "Ranked Flex",
+                                    tier: "Unranked",
+                                    rank: " ",
+                                    leaguePoints: 0,
+                                    wins: 0,
+                                    losses: 0
+                                }],
+                                retrievedData: true
+                            };
+                        }
+                    } else {
+                        return {
+                            rankedStats: [{
+                                queueType: "Ranked Solo 5x5",
+                                tier: "Unranked",
+                                rank: " ",
+                                leaguePoints: 0,
+                                wins: 0,
+                                losses: 0
+                            }, {
+                                queueType: "Ranked Flex",
+                                tier: "Unranked",
+                                rank: " ",
+                                leaguePoints: 0,
+                                wins: 0,
+                                losses: 0
+                            }],
+                            retrievedData: true
+                        };
+                    }
+                });
+            }).catch((error) => {
                 console.log(error)
             })
         }).catch((error) => {
-            console.log(error)
+            this.setState((prevState) => {
+                return {
+                    player: {
+                        name: "Not found",
+                        profileIconId: 29
+                    },
+                    rankedStats: [{
+                        queueType: "Ranked Flex",
+                        tier: "Unranked",
+                        rank: " ",
+                        leaguePoints: 0,
+                        wins: 0,
+                        losses: 0
+                    }, {
+                        queueType: "Ranked Solo Duo 5x5",
+                        tier: "Unranked",
+                        rank: " ",
+                        leaguePoints: 0,
+                        wins: 0,
+                        losses: 0
+                    }],
+                    retrievedData: true
+                };
+            }
+            );
         })
     }
 
     componentDidMount() {
-        this.searchForPlayer(this.props.user);
+        this.searchForPlayer();
     }
 
     render() {
-        const { retrievedData, player } = this.state;
+        const { retrievedData, player, rankedStats } = this.state;
         return (
             <div className="user-stats-box">
                 <div className="profile-picture-container">
+                    <div className="stat-container">
+                        {
+                            retrievedData ?
+                                <h4>{player.name}</h4> :
+                                <h4>Loading</h4>
+                        }
+                    </div>
                     {
                         retrievedData ?
                             <img alt="For in game" src={`http://ddragon.leagueoflegends.com/cdn/12.4.1/img/profileicon/${player.profileIconId}.png`}></img> :
-                            <img alt="For in game" src=""></img>
+                            <img alt="For in game" src="/images/Loading.gif"></img>
                     }
                 </div>
                 <div className="stats-container">
-                    <div className="stat-container">
-                        <h4>Username: </h4>
-                        {
-                            retrievedData ?
-                            <p>{player.name}</p> :
-                            <p>Loading</p>
-                        }
-                    </div>
-                    <div className="stat-container">
-                        <h4>Games Played: </h4>
-                        <p>{this.props.gamesPlayed}</p>
-                    </div>
-                    <div className="stat-container">
-                        <h4>Win Rate: </h4>
-                        <p>{this.props.winRate}%</p>
-                    </div>
-                    <div className="stat-container">
-                        <h4>Rank: </h4>
-                        <p>{this.props.rank}</p>
-                    </div>
-                    <div className="stat-container">
-                        <h4>KDR: </h4>
-                        <p>{this.props.kdr}</p>
-                    </div>
+                    {
+                        retrievedData ?
+                            rankedStats.map((elements) => {
+                                if (elements.queueType !== "RANKED_TFT_PAIRS") {
+                                    return (<RankedStatsBox key={elements.queueType} {...elements} />)
+                                };
+                            }) :
+                            <RankedStatsBox {...{
+                                queueType: "Loading"
+                            }} />
+                    }
                 </div>
             </div>
         )

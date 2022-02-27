@@ -11,7 +11,7 @@
 }
 
 .gamecard-background{
-    opacity: 0.70;
+    opacity: 0.75;
     position: absolute;
     left: 0;
     top: 0;
@@ -20,21 +20,28 @@
 }
 
 .gamecard-background-league-of-legends{
-    background-image: url("../../../public/images/LeagueCard.jpg");
+    background-image: url("./../../../public/images/LeagueCard.jpg");
     background-repeat: no-repeat;
-    background-color: #087CA7;
+    background-color: #0C0E13;
+    background-size: 100% 100%;
+}
+
+.gamecard-background-teamfight-tactics{
+    background-image: url("./../../../public/images/tftCard2.png");
+    background-repeat: no-repeat;
+    background-color: #0C0E13;
     background-size: 100% 100%;
 }
 
 .gamecard-background-valorant{
-    background-image: url("../../../public/images/ValorantCard.png");
+    background-image: url("./../../../public/images/ValorantCard.png");
     background-repeat: no-repeat;
-    background-color: #087CA7;
+    background-color: #0C0E13;
     background-size: 100% 100%;
 }
 
 .gamecard-information{
-    background-color: #087CA7;
+    background-color: #0C0E13;
     position: absolute;
     bottom: -210px;
     width: 100%;
@@ -45,7 +52,7 @@
 }
 
 .gamecard-information:hover{
-    background-color: #087CA7;
+    background-color: #0C0E13;
     position: absolute;
     bottom: 0;
     width: 100%;
