@@ -89,7 +89,7 @@ export class UserStatsBox extends React.Component {
                     {
                         retrievedData ?
                             <img alt="For in game" src={`http://ddragon.leagueoflegends.com/cdn/12.4.1/img/profileicon/${player.profileIconId}.png`}></img> :
-                            <img alt="For in game" src=""></img>
+                            <img alt="For in game" src="/images/Loading.gif"></img>
                     }
                 </div>
                 <div className="stats-container">
