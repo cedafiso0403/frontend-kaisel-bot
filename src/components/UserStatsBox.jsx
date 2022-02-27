@@ -26,12 +26,16 @@ export class UserStatsBox extends React.Component {
             let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
             axios.get(ApiCallString2).then((response2) => {
                 this.setState((prevState) => {
-                    if (response2.data.length >= 3) {
+                    let indexTFT = response2.data.findIndex(object => {
+                        return object.queueType === "RANKED_TFT_PAIRS";
+                    })
+                    response2.data.splice(indexTFT, indexTFT+1);
+                    if (response2.data.length >= 2) {
                         return {
                             rankedStats: [...response2.data],
                             retrievedData: true
                         };
-                    } else if (response2.data.length >= 2) {
+                    } else if (response2.data.length >= 1) {
                         if (response2.data[0].queueType === "RANKED_FLEX_SR") {
                             return {
                                 rankedStats: [...response2.data, {
