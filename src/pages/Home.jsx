@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
+import Information from "../components/Information";
 import { GameCard } from "../components/GameCard";
 
 const propsForGameCardLeague = {
@@ -47,6 +48,11 @@ function Home() {
 
         <h2 className="content-h2">See your progress in your games</h2>
         <Features />
+
+        <hr></hr>
+        
+        <h2 className="content-h2">Easily search up a player&apos;s stats</h2>
+        <Information />
 
         <hr></hr>
 
