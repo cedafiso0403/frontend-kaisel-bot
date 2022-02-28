@@ -12,34 +12,20 @@
   min-height: 80vh;
   display: flex;
   flex-direction: column;
-  row-gap: 4em;
+  row-gap: 2em;
+  min-height: 75vh;
   background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
   color: white;
   padding: 2em 0 0 0;
   justify-content: center;
 }
 
-.content-page>div {
-  padding: 1em 0;
+.content-page>section {
+  padding: 2em 0;
 }
 
-.content-page>div:nth-of-type(2n):not(:nth-of-type(2)) {
+.content-page>section:nth-of-type(2n-1):not(:nth-of-type(1)) {
   background-color: #181A1F;
-}
-
-.alt-content-page {
-  margin-top: 2em;
-  padding: 5em 0 5em 0;
-  background-image: linear-gradient(#181A1F, #181A1F, #181A1F);
-}
-
-
-.marginBottom {
-  margin-bottom: 2em;
-}
-
-.paddingTop {
-  padding-bottom: 4em;
 }
 
 .paddingBottom {
@@ -59,12 +45,13 @@
   text-align: center;
 }
 
-.gamecards{
+.gamecards-container{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 3em;
-  margin-bottom: 4em;
+  gap: 2em;
+  /* margin-top: 3em;
+  margin-bottom: 4em; */
 }
 
 .home-icon {
@@ -128,12 +115,11 @@ hr{
   margin-bottom: 1.75em;
 }
 
-
-.project-members {
+.project-members-list {
   display: grid;
-  grid-gap: 2em 0.5em;
+  grid-gap: 5em;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
-  justify-items: center;
+  justify-content: center;
   padding: 2em;
 }

@@ -30,16 +30,16 @@ function Contact() {
     return (
       <div>
           <Header />
-          <div className="content-page">
-            <article className="project-members">
+          <main className="content-page">
+            <h1>Team Members</h1>
+            <hr></hr>
+            <article className="project-members-list">
               <ProjectMember {...propsForCesar} />
               <ProjectMember {...propsForLeo} />
               <ProjectMember {...propsForLucas} />
               <ProjectMember {...propsForMartin} />  
             </article>
-          
-
-          </div>
+          </main>
           <Footer/>
       </div>
     );
