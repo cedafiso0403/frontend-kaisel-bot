@@ -102,6 +102,7 @@ function Home() {
         
       </main>
       <Footer />
+      </div>
     </div>
   );
 }
