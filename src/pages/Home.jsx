@@ -68,14 +68,14 @@ function Home() {
           </p>
           <SearchBar />  
         </section>
-        
-        <section>
-          <Twitch />
-        </section>
 
         <section>
           <h2 className="content-h2">See the progress in your games</h2>
           <Features />  
+        </section>
+        
+        <section>
+          <Twitch />
         </section>
       </main>
       <Footer />
