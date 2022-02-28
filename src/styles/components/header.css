@@ -1,11 +1,15 @@
-header{
+header {
     height: 8vh;
     background-image: linear-gradient(#0C0E13, #0C0E13, #0C0E13);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #1e2028;
+    border-bottom: 1px solid #454751;
+}
+
+header img {
+    margin-right: 2em;
 }
 
 .nav-container{
@@ -36,10 +40,6 @@ header{
 
 .navbar-item:hover{
     opacity: 0.5;
-}
-
-img{
-    margin-right: 2em;
 }
 
 .navbar-item-button{

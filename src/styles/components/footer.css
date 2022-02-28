@@ -1,4 +1,4 @@
-footer{
+footer {
     height: 8vh;
     background-image: linear-gradient(#0C0E13, #0C0E13, #0C0E13);
     display: flex;
@@ -10,7 +10,7 @@ footer{
     padding: 0;
 }
 
-p{
+main p, footer p {
     width: 100%;
     text-align: center;
     font-size: 1em;
