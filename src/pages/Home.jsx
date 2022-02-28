@@ -27,8 +27,6 @@ function Home() {
   return (
     <div>
       <Header />
-      <div className="content-page-background">
-      </div>
       <div className="content-page">
       <div className="home-icon">
         <img 
