@@ -28,7 +28,6 @@ function Home() {
     <div>
       <Header />
       <main className="content-page">
-    
             <div className="home-icon">
         <img 
           alt="Kaisel Circle" 
