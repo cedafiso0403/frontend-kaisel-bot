@@ -10,10 +10,21 @@
 
 .content-page{
   min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4em;
   background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
   color: white;
   padding: 2em 0 0 0;
   justify-content: center;
+}
+
+.content-page>div {
+  padding: 1em 0;
+}
+
+.content-page>div:nth-of-type(2n):not(:nth-of-type(2)) {
+  background-color: #181A1F;
 }
 
 .alt-content-page {
@@ -124,4 +135,5 @@ hr{
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   justify-items: center;
+  padding: 2em;
 }

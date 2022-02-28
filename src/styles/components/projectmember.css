@@ -12,5 +12,6 @@
 }
 
 .memberSection img, h2, p {
-    padding: 0.5rem;
+    /** DO NOT ADD PADDING otherwise it will create white space on the side
+    /* padding: 0.5rem; */
 }
