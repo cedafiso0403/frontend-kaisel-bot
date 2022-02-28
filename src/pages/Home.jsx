@@ -61,7 +61,6 @@ function Home() {
 
         <section>
           <h2 className="content-h2">Easily search up a player&apos;s stats</h2>
-          <Information />
         </section>
 
         <section>
@@ -85,7 +84,6 @@ function Home() {
       </main>
       <Footer />
       </div>
-    </div>
   );
 }
 
