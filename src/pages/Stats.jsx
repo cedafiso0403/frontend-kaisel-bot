@@ -4,14 +4,14 @@ import SearchBar from "../components/SearchBar";
 import { UserStatsBox } from "../components/UserStatsBox";
 import {useLocation} from "react-router-dom";
 
-let testStats = {
-    username : "Mighty",
-    gamesPlayed: 9856,
-    winRate: 34,
-    rank: "Iron",
-    kdr: 0.34,
-    imageSource: "/images/TestImages.jpg"
-}
+// let testStats = {
+//     username : "Mighty",
+//     gamesPlayed: 9856,
+//     winRate: 34,
+//     rank: "Iron",
+//     kdr: 0.34,
+//     imageSource: "/images/TestImages.jpg"
+// }
 
 function Stats() {
     const search = useLocation().search;
