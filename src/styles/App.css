@@ -9,7 +9,7 @@
 }
 
 .content-page{
-  min-height: 100vh;
+  min-height: 75vh;
   background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
   color: white;
   padding: 2em 0 0 0;
@@ -17,7 +17,7 @@
 }
 
 .alt-content-page {
-  margin-top: 2em;
+  margin-top: 2.5em;
   padding: 5em 0 5em 0;
   background-image: linear-gradient(#181A1F, #181A1F, #181A1F);
 }
