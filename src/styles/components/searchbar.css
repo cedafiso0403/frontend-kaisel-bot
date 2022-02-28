@@ -6,6 +6,12 @@
   border-radius: 10px;
 }
 
+.searchBarButton{
+  cursor: pointer;
+  background-image: linear-gradient(#1589B4, #1589B4, #1589B4);
+}
+
+
 .form-box{
   display: flex;
   flex-direction: column;

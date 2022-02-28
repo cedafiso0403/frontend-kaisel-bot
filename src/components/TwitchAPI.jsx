@@ -44,7 +44,7 @@ export default class TwitchAPI extends React.Component {
                 <h1>Twitch API</h1>
                 <p className="features-subtitle">Current Top League of Legends Streamers:</p>
                 {this.state.streamers.map((stream, index) => {
-                    return <p>{stream.user_name}</p>
+                    return <p key={index}>{stream.user_name}</p>
                 })}
             </div>
         );
