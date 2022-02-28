@@ -28,19 +28,18 @@ function Home() {
   return (
     <div>
       <Header />
-      {/* <div className="content-page-background">
-      </div> */}
       <main className="content-page">
-        <div className="home-icon">
-          <img 
-            alt="Kaisel Circle" 
-            src="images/KaiselCircle2.png"
-            height="75px"
-            width="75px" 
-          />
-          <h1 className="content-h1">PROJECT KAISEL</h1>
-        </div>
-        <div>
+    
+        <section>
+          <div className="home-icon">
+            <img 
+              alt="Kaisel Circle" 
+              src="images/KaiselCircle2.png"
+              height="75px"
+              width="75px" 
+            />
+            <h1 className="content-h1">PROJECT KAISEL</h1>
+          </div>
           <p className="home-subtitle">
             All-in-one Discord gaming bot
           </p>
@@ -53,20 +52,20 @@ function Home() {
             <br></br>
             Access statistics for supported games, Twitch alerts, server moderation, and more!
           </p>  
-        </div>
+        </section>
         
-        <div className="gamecards">
+        <section className="gamecards-container">
           <GameCard {...propsForGameCardLeague} />
           <GameCard {...propsForGameCardTFT} />
           <GameCard {...propsForGameCardValorant} />
-        </div>
+        </section>
 
-        <div>
+        <section>
           <h2 className="content-h2">Easily search up a player&apos;s stats</h2>
           <Information />
-        </div>
+        </section>
 
-        <div>
+        <section>
           <h2 className="content-h2">Search for a username</h2>
           <p className="features-subtitle">
             Test out how Kaisel can display your in game statistics.
@@ -74,18 +73,16 @@ function Home() {
             View your KDA, winrate and other statistics for the current season.
           </p>
           <SearchBar />  
-        </div>
+        </section>
         
-        <div>
+        <section>
           <Twitch />
-        </div>
+        </section>
 
-        <div>
+        <section>
           <h2 className="content-h2">See the progress in your games</h2>
           <Features />  
-        </div>
-      
-        
+        </section>
       </main>
       <Footer />
     </div>

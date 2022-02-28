@@ -1,3 +1,9 @@
-.center {
+.twitch-content {
     text-align: center;
+}
+
+.twitch-content img {
+    border-radius: 10px;
+    box-shadow: 0 0 25px white;
+    margin: 1em 0;
 }

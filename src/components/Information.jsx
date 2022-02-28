@@ -5,9 +5,9 @@ export default class Information extends React.Component {
     render() {
         return (
             <div>
-                <p>Kaisel lets you search up any username from</p>
-                <p>league of legend or valorant that shows your</p>
-                <p>stats like rank, kda, win rate, and games played.</p>
+                <p>Kaisel let's you search up any username from</p>
+                <p>League of Legends to Valorant that shows your</p>
+                <p>statistics like rank, KDA, win rate, and the number of games played.</p>
             </div>
         );
     }
