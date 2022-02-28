@@ -60,10 +60,7 @@ function Home() {
         </section>
 
         <section>
-          <h2 className="content-h2">Easily search up a player&apos;s stats</h2>
-        </section>
 
-        <section>
           <h2 className="content-h2">Search for a username</h2>
           <p className="features-subtitle">
             Test out how Kaisel can display your in game statistics.
