@@ -28,8 +28,7 @@ function Home() {
     <div>
       <Header />
       <main className="content-page">
-    
-      <div className="home-icon">
+            <div className="home-icon">
         <img 
           alt="Kaisel Circle" 
           src="images/KaiselCircle2.png"
@@ -56,7 +55,7 @@ function Home() {
           <GameCard {...propsForGameCardValorant} />
         </section>
 
-        <section className="alt-content-page">
+        <div className="alt-content-page">
           <h2 className="content-h2">Search for a username</h2>
           <p className="features-subtitle">
             Test out how Kaisel can display your in game statistics.
@@ -64,11 +63,15 @@ function Home() {
             View your KDA, winrate and other statistics for the current season.
           </p>
           <SearchBar />  
-        </section>
+        </div>
 
         <section>
-          <h2 className="content-h2">See the progress in your games</h2>
-          <Features />  
+          <div className="container">
+            <div>
+              <h2 className="content-h2">See the progress in your games</h2>
+              <Features />
+            </div>
+          </div>
         </section>
         
         <section>
