@@ -2,7 +2,6 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
-import Information from "../components/Information";
 import Twitch from "../components/Twitch";
 import { GameCard } from "../components/GameCard";
 

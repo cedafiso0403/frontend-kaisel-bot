@@ -1,4 +1,5 @@
 .content-h1 {
+  text-align: center;
   color: #3BAFDA;
   font-size: 4em;
 }
@@ -8,13 +9,14 @@
 }
 
 .content-page{
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   row-gap: 2em;
   min-height: 75vh;
   background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
   color: white;
-  padding: 4em 0;
+  padding: 2em 0 0 0;
   justify-content: center;
 }
 
@@ -61,6 +63,41 @@
 .home-subtitle {
   color: lightgrey;
   font-size: 1.55em;
+}
+
+.notFound-h1 {
+  text-align: center;
+  color: #3BAFDA;
+  font-size: 8em;
+  padding-bottom: .5em;
+}
+
+.notFound-h2 {
+  text-align: center;
+  color: #001641;
+  font-size: 3em;
+  padding-bottom: .5em;
+}
+
+.container-notFound {
+  margin-top: 3em;
+  padding-left: 15em;
+  padding-right: 15em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.beruSad{
+  margin-top: 1.7em;
+  min-width: 400px;
+  min-height: 550px;
+  background-image: url("../../public/images/beruSad.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  border: 3px solid black;
+  border-radius: 30px;  
 }
 
 a {
