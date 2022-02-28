@@ -60,6 +60,7 @@ function Home() {
         </section>
 
         <section>
+
           <h2 className="content-h2">Search for a username</h2>
           <p className="features-subtitle">
             Test out how Kaisel can display your in game statistics.
@@ -79,7 +80,7 @@ function Home() {
         </section>
       </main>
       <Footer />
-    </div>
+      </div>
   );
 }
 
