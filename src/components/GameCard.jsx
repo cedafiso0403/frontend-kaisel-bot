@@ -2,6 +2,17 @@ import React from "react";
 import NumberFormat from 'react-number-format';
 import "../styles/components/gamecard.css";
 
+/*
+ id: "21779"
+name: "League of Legends"
+
+id: "516575"
+name: "VALORANT"
+
+"id": "513143"
+"name": "Teamfight Tactics"
+ */
+
 export class GameCard extends React.Component {
     render() {
         let classNameForCards = "gamecard-background-"+this.props.gameName.toLowerCase().replaceAll(' ', '-');
