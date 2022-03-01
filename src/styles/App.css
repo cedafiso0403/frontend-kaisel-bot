@@ -1,10 +1,10 @@
 a {
-  color: #3BAFDA;
+  color: #3bafda;
   text-decoration: none;
 }
 
 a:visitied {
-  color: #3BAFDA;
+  color: #3bafda;
 }
 
 /** this is useless and changes nothing **/
@@ -15,7 +15,7 @@ a:visitied {
 } */
 
 .big-add-server-button {
-  background-color: #087CA7;
+  background-color: #087ca7;
   box-shadow: 0 0 20px rgb(8, 124, 167);
   border-radius: 20px;
   color: white;
@@ -30,7 +30,7 @@ a:visitied {
   transform: translate(0.2rem, 0.2rem);
 } */
 
-.beruSad{
+.beruSad {
   margin-top: 1.7em;
   min-width: 400px;
   min-height: 550px;
@@ -39,7 +39,7 @@ a:visitied {
   background-size: 100% 100%;
 
   border: 3px solid black;
-  border-radius: 30px;  
+  border-radius: 30px;
 }
 
 .container-notFound {
@@ -52,7 +52,7 @@ a:visitied {
 
 .container-notFound .notFound-h1 {
   text-align: center;
-  color: #3BAFDA;
+  color: #3bafda;
   font-size: 8em;
 }
 
@@ -71,7 +71,7 @@ a:visitied {
 
 .content-h1 {
   text-align: center;
-  color: #3BAFDA;
+  color: #3bafda;
   font-size: 4em;
 }
 
@@ -83,7 +83,7 @@ a:visitied {
   padding-bottom: 4em;
 } */
 
-.gamecards-container{
+.gamecards-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -104,28 +104,27 @@ a:visitied {
   font-size: 1.55em;
 }
 
-}
-
 main {
-  background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
+  background-image: linear-gradient(#0e1015, #0e1015, #0e1015);
   color: white;
   justify-content: center;
   min-height: 100vh;
   padding: 2em 0;
 }
 
-main h1, main h2{
+main h1,
+main h2 {
   margin: 0;
   text-align: center;
 }
 
-main>section {
+main > section {
   padding: 2em 0;
   margin: 2em 0;
 }
 
-main>section:nth-of-type(2n+1):not(:nth-of-type(1)) {
-  background-color: #181A1F;
+main > section:nth-of-type(2n + 1):not(:nth-of-type(1)) {
+  background-color: #181a1f;
   margin-top: 2em;
   padding: 5em 0;
 }
