@@ -7,8 +7,7 @@ export default function SearchBar() {
                 <form className="searchBar" action="/TestStats" method="GET">
                     <div className="form-container">
                         <input type="text" placeholder="[Input a username here]" id="user" name="user"/>
-                        
-                        <button><img src="images/search-icon.png" alt="search button" width="45" height="45"></img></button>
+                        <button className="searchBarButton"><img src="images/search-icon.png" alt="search button" width="35" height="35"></img></button>
                     </div>
                     <div className="form-container2">
                         <select name="game" id="game">
