@@ -39,7 +39,12 @@ header img {
 }
 
 .navbar-item:hover{
-    opacity: 0.5;
+    color: #3BAFDA;
+}
+
+#navbar-icon:hover{
+    color: #3BAFDA;
+    opacity: 0.6;
 }
 
 .navbar-item-button{
@@ -50,7 +55,7 @@ header img {
 }
 
 .navbar-item-button a{
-    background-color: #087CA7;
+    background-color: #2296C1;
     border-radius: 60px;
     display: flex;
     align-items: center;

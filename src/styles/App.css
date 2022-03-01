@@ -7,28 +7,34 @@ a:visitied {
   color: #3bafda;
 }
 
-/** this is useless and changes nothing **/
-/* .alt-content-page {
-  margin-top: 2.5em;
-  padding: 5em 0 5em 0;
-  background-image: linear-gradient(#181A1F, #181A1F, #181A1F);
-} */
+a:hover {
+  color: #55C9F4;
+}
+
 
 .big-add-server-button {
-  background-color: #087ca7;
+  background-color: #2296C1;
   box-shadow: 0 0 20px rgb(8, 124, 167);
   border-radius: 20px;
   color: white;
   text-align: center;
-  padding: 3em;
+  padding: 1.25em;
 }
 
-/** i tried **/
-/* .big-add-server-button:hover {
-  box-shadow: 0.2rem 0.2rem 0.4rem white;
+a.big-add-server-button{
+  color: white;
+  text-align: center;
+}
 
-  transform: translate(0.2rem, 0.2rem);
-} */
+a.big-add-server-button:hover{
+  color: white;
+  text-align: center;
+}
+
+.big-add-server-button:hover {
+  background-color: #087CA7;
+  box-shadow: 0 0 20px rgb(8, 124, 167);
+}
 
 .beruSad {
   margin-top: 1.7em;
@@ -37,7 +43,6 @@ a:visitied {
   background-image: url("../../public/images/beruSad.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-
   border: 3px solid black;
   border-radius: 30px;
 }
@@ -76,20 +81,15 @@ a:visitied {
 }
 
 .content-h2 {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
-/* .paddingBottom {
-  padding-bottom: 4em;
-} */
 
 .gamecards-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1em;
-  /* margin-top: 3em;
-  margin-bottom: 4em; */
 }
 
 .home-icon {
@@ -105,11 +105,15 @@ a:visitied {
 }
 
 main {
-  background-image: linear-gradient(#0e1015, #0e1015, #0e1015);
+  background-color: #0E1015;
+  background-image: url("../../public/images/bg7.png");
+  background-position-x: -45em;
+  background-position-y: 60em; 
+  filter: 0.85;
   color: white;
   justify-content: center;
   min-height: 100vh;
-  padding: 2em 0;
+  padding: 1.25em 0;
 }
 
 main h1,
