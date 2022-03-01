@@ -23,8 +23,8 @@ export default class Features extends React.Component {
                     </div>
                 </section>
 
-                <section className="navbar-item-button">
-                    <Link to="/Commands" className="navbar-item navbar-item-button">See Commands</Link>
+                <section className="form-box">
+                    <Link to="/Contact" className="big-add-server-button">See Commands</Link>
                 </section>
             </article>
         );

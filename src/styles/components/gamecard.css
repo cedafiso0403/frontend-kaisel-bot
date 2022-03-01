@@ -11,7 +11,7 @@
 }
 
 .gamecard-background{
-    opacity: 0.75;
+    filter: brightness(85%);
     position: absolute;
     left: 0;
     top: 0;

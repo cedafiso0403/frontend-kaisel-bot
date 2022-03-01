@@ -5,7 +5,7 @@ function Header() {
     return (
         <header>
             <nav className="nav-container">
-                <Link to="/" className="navbar-item"><img alt="Kaisel Logo" src="/images/KaiselCircle2.png" width="50"></img></Link>
+                <Link to="/" className="navbar-item"><img alt="Kaisel Logo" id="navbar-icon" src="/images/KaiselCircle2.png" width="50"></img></Link>
                 <ul>
                     <li><Link to="/" className="navbar-item">Home</Link></li>
                     <li><Link to="/Commands" className="navbar-item">Commands</Link></li>
@@ -14,7 +14,7 @@ function Header() {
             </nav>
             <div className="nav-container">
                 <div className="navbar-item-button">
-                    <Link to="/Contact" className="navbar-item navbar-item-button">Add to Server</Link>
+                    <Link to="/Contact" className="big-add-server-button">Add to Server</Link>
                 </div>
             </div>
         </header>
