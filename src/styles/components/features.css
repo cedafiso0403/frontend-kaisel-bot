@@ -1,3 +1,9 @@
+.features-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .features-img {
     padding-top: .5em;
     text-align: center;
@@ -9,21 +15,20 @@
     border-radius: 5%;
 }
 
+.features-li {
+    text-align: left;
+    list-style: inside;
+    padding: 0.75em;
+}
 
 .features-subtitle {
     text-align: center;
     color: grey;
     font-size: 1.25em;
-  }
+}
 
 .features-ul {
     display: table;
     margin: 0 auto;
     padding-bottom: 1em;
-}
-
-.features-li {
-    text-align: left;
-    list-style: inside;
-    padding: 0.75em;
 }

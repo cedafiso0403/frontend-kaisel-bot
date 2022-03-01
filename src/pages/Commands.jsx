@@ -5,9 +5,9 @@ function Commands() {
   return (
     <div>
       <Header></Header>
-      <div className="content-page">
-          
-        </div>
+      <main>
+          <h1>No commands here at the moment!</h1>
+      </main>
       <Footer/>
     </div>
   );

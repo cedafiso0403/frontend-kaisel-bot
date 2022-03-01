@@ -4,14 +4,15 @@
   border: 2px solid white;
   padding: 2em;
   border-radius: 10px;
+  width: 50vw;
 }
 
 .form-box{
+  align-items: center;
   display: flex;
   flex-direction: column;
   margin: 1.5em auto;
-  max-width: 500px;
-  width: 50%;
+  justify-items: center;
 }
 
 .form-box h2{
@@ -37,7 +38,7 @@
 }
 
 .form-container button {
-  background-color: #2e323d;
+  background-color: #087CA7;
   border: none;
   border-radius: 10px;
   height: 50px;
@@ -47,11 +48,7 @@
   filter: invert(100%);
 }
 
-::placeholder {
-  color: white;
-}
-
-.form-container2{
+.form-container2 {
   display: flex;
   flex-direction: row;
   column-gap: 1em;
@@ -63,7 +60,12 @@
   background-color: #2E323D;
   border-radius: 10px;
   color: white;
+  font-size: 1em;
   height: 2.5em;
   padding: 0 0.5rem;
   width: fit-content;
+}
+
+::placeholder {
+  color: white;
 }

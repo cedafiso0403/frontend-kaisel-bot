@@ -1,97 +1,34 @@
-.content-h1 {
-  text-align: center;
+a {
   color: #3BAFDA;
-  font-size: 4em;
+  text-decoration: none;
 }
 
-.content-h2 {
-  font-size: 2em;
+a:visitied {
+  color: #3BAFDA;
 }
 
-.content-page{
-  min-height: 75vh;
-  background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
-  color: white;
-  padding: 2em 0 0 0;
-  justify-content: center;
-}
-
-.alt-content-page {
+/** this is useless and changes nothing **/
+/* .alt-content-page {
   margin-top: 2.5em;
   padding: 5em 0 5em 0;
   background-image: linear-gradient(#181A1F, #181A1F, #181A1F);
-}
+} */
 
-.content-page>section {
-  padding: 2em 0;
-}
-
-.content-page>section:nth-of-type(2n-1):not(:nth-of-type(1)) {
-  margin-top: 2em;
-  padding: 5em 0 5em 0;
-  background-color: #181A1F;
-}
-
-.paddingBottom {
-  padding-bottom: 4em;
-}
-
-.container {
-  padding-left: 6em;
-  padding-right: 6em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.content-page h1, .content-page h2{
-  margin: 0;
+.big-add-server-button {
+  background-color: #087CA7;
+  box-shadow: 0 0 20px rgb(8, 124, 167);
+  border-radius: 20px;
+  color: white;
   text-align: center;
+  padding: 3em;
 }
 
-.gamecards-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1em;
-  /* margin-top: 3em;
-  margin-bottom: 4em; */
-}
+/** i tried **/
+/* .big-add-server-button:hover {
+  box-shadow: 0.2rem 0.2rem 0.4rem white;
 
-.home-icon {
-  display: flex;
-  justify-content: center;
-  /* text-align: center; */
-}
-
-.home-subtitle {
-  padding: 0.5em 0 0.5em 0;
-  color: lightgrey;
-  font-size: 1.55em;
-}
-
-.notFound-h1 {
-  text-align: center;
-  color: #3BAFDA;
-  font-size: 8em;
-  padding-bottom: .5em;
-}
-
-.notFound-h2 {
-  text-align: center;
-  color: #001641;
-  font-size: 3em;
-  padding-bottom: .5em;
-}
-
-.container-notFound {
-  margin-top: 3em;
-  padding-left: 15em;
-  padding-right: 15em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
+  transform: translate(0.2rem, 0.2rem);
+} */
 
 .beruSad{
   margin-top: 1.7em;
@@ -105,19 +42,96 @@
   border-radius: 30px;  
 }
 
-a {
-  color: #3BAFDA;
-  text-decoration: none;
+.container-notFound {
+  display: flex;
+  column-gap: 1em;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2em 15em;
 }
 
-a::visitied {
+.container-notFound .notFound-h1 {
+  text-align: center;
   color: #3BAFDA;
+  font-size: 8em;
 }
 
-hr{
+.container-notFound .notFound-h2 {
+  text-align: center;
+  color: white;
+  font-size: 3em;
+}
+
+.container-notFound section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1em;
+}
+
+.content-h1 {
+  text-align: center;
+  color: #3BAFDA;
+  font-size: 4em;
+}
+
+.content-h2 {
+  font-size: 2em;
+}
+
+/* .paddingBottom {
+  padding-bottom: 4em;
+} */
+
+.gamecards-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1em;
+  /* margin-top: 3em;
+  margin-bottom: 4em; */
+}
+
+.home-icon {
+  display: flex;
+  justify-content: center;
+  column-gap: 2em;
+}
+
+.home-subtitle {
+  padding: 0.5em 0 0.5em 0;
+  color: lightgrey;
+  font-size: 1.55em;
+}
+
+hr {
   width: 90% ;
   margin-top: 1.75em;
   margin-bottom: 1.75em;
+}
+
+main {
+  background-image: linear-gradient(#0E1015, #0E1015, #0E1015);
+  color: white;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2em 0;
+}
+
+main h1, main h2{
+  margin: 0;
+  text-align: center;
+}
+
+main>section {
+  padding: 2em 0;
+  margin: 2em 0;
+}
+
+main>section:nth-of-type(2n+1):not(:nth-of-type(1)) {
+  background-color: #181A1F;
+  margin-top: 2em;
+  padding: 5em 0;
 }
 
 .project-members-list {
