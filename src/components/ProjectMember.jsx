@@ -15,7 +15,7 @@ export class ProjectMember extends React.Component {
                     <h2>{memberName}</h2>
                     <p>{memberDescription}</p>
                     <div className="memberSocials">
-                        <a href={memberGithub}><img src="images/company-icons/github.png" alt="github" width="50" height="50"></img></a>
+                        <a href={memberGithub}><img src="images/company-icons/github.png" alt="github" width="35" height="35"></img></a>
                         <a href={memberLinkedIn}><img src="images/company-icons/linkedin.png" alt="linkedin" width="50" height="50"></img></a>
                     </div>
                 </section>

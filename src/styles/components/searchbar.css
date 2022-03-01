@@ -12,6 +12,10 @@
   background-image: linear-gradient(#1589B4, #1589B4, #1589B4);
 }
 
+.searchBarButton:hover{
+  background-image: linear-gradient(#00638E, #00638E, #00638E);
+}
+
 
 .form-box{
   align-items: center;
@@ -32,7 +36,7 @@
 }
 
 .form-container input[type=text] {
-  background-color: #2e323d;
+  background-color: #FDFDFD;
   border: none;
   border-radius: 10px;
   color: white;
@@ -41,6 +45,10 @@
   margin-right: 0.25rem;
   padding-left: .5em;
   width: 90%;
+}
+
+.form-container input[type=text]:hover {
+  background-color: #E4E4E4;
 }
 
 .form-container button {
@@ -63,9 +71,18 @@
 }
 
 .form-container2 select{
-  background-color: #2E323D;
+  background-color: #FDFDFD;
   border-radius: 10px;
-  color: white;
+  color: black;
+  font-size: 1em;
+  height: 2.5em;
+  padding: 0 0.5rem;
+  width: fit-content;
+}
+.form-container2 select:hover{
+  background-color: #E4E4E4;
+  border-radius: 10px;
+  color: black;
   font-size: 1em;
   height: 2.5em;
   padding: 0 0.5rem;
@@ -73,5 +90,5 @@
 }
 
 ::placeholder {
-  color: white;
+  color: black;
 }

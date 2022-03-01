@@ -4,34 +4,34 @@ import { ProjectMember } from '../components/ProjectMember';
 
 const propsForCesar = {
   name: "Cesar Figueroa Socrarras",
-  description: "big brain because salad is named after him",
-  picture: "images/TestImages.jpg",
+  description: "Responsible for Riot Games API and original webdesigner",
+  picture: "images/team/Cesar.png",
   githubLink: "",
   linkedInLink: "",
 }
 
 const propsForLeo = {
   name: "Leo Chung",
-  description: "can duplicate himself exactly once",
-  picture: "images/TestImages.jpg",
+  description: "Responsible for media queries",
+  picture: "images/team/Leo.png",
   githubLink: "",
   linkedInLink: "",
 }
 
 const propsForLucas = {
   name: "Lucas Lee",
-  description: "high chance of acheiving successful crossdressing",
-  picture: "images/TestImages.jpg",
+  description: "Webdesigner and responsible for animations",
+  picture: "images/team/lucas.png",
   githubLink: "",
   linkedInLink: "",
 }
 
 const propsForMartin = {
   name: "Martin Wong",
-  description: "absolute gamer and chess champion",
-  picture: "images/TestImages.jpg",
-  githubLink: "",
-  linkedInLink: "",
+  description: "Main webdesigner and responsible for the Twitch API",
+  picture: "images/team/Martin.png",
+  githubLink: "https://github.com/Mighty303",
+  linkedInLink: "https://www.linkedin.com/in/martin-wong-b05160230/",
 }
 
 function Contact() {

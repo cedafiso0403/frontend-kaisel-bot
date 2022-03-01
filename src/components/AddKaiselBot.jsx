@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
  */
 export default function AddKaiselBot() {
     return (
-        <div class="form-box">
+        <div className="form-box">
             <h2 className="content-h2">Add Kaisel Bot to your server</h2>
             <p className="features-subtitle">With a quick click of a button, invite Kaisel Bot to your Discord server!</p>
             <Link to="/Contact" className="big-add-server-button">Add to Server</Link>
