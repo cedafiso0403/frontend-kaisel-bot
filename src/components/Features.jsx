@@ -5,11 +5,11 @@ import './../styles/components/features.css';
 export default class Features extends React.Component {
     render() {
         return (
-            <div>
-                <div className="container">
+            <article>
+                <section className="features-container">
                     <div className="features-img">
-                        <img className="features-img" alt="ranks" height="175px" width="175px" src="images/challengerRank.png" />
-                        <img className="features-img" alt="ranks" height="175px" width="175px" src="images/radiant.png" />
+                        <img alt="ranks" height="175px" width="175px" src="images/challengerRank.png" />
+                        <img alt="ranks" height="175px" width="175px" src="images/radiant.png" />
                     </div>
 
                     <div>
@@ -21,13 +21,12 @@ export default class Features extends React.Component {
                             <li className="features-li">Moderates server</li>
                         </ul>
                     </div>
-                </div>
+                </section>
 
-                <div className="navbar-item-button">
-                    <Link to="/Contact" className="navbar-item navbar-item-button">See Commands</Link>
-                </div>
-
-            </div>
+                <section className="navbar-item-button">
+                    <Link to="/Commands" className="navbar-item navbar-item-button">See Commands</Link>
+                </section>
+            </article>
         );
     }
 }

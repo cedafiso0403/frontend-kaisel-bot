@@ -1,11 +1,13 @@
-.rankedstatsbox{
+.emblem-container{
     display: flex;
-    flex-direction: row;
+    justify-self: center;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1em;
+    width: 30%;
 }
 
+.emblem-container img{
+    width: 80%;
+}
 
 .info-container{
     text-align: left;
@@ -16,13 +18,11 @@
 .info-container p{
     text-align: left;
 }
-.emblem-container{
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    width: 30%;
-}
 
-.emblem-container img{
-    width: 80%;
+.rankedstatsbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
 }

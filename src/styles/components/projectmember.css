@@ -3,8 +3,6 @@
     background-color: rgb(59, 55, 82);
     border-radius: 10px;
     box-shadow: 10px 10px 4px rgba(41, 41, 41, 0.5);
-    display: flex;
-    flex-direction: column;
     height: 100%;
     padding: 0.5em;
     text-align: center;
@@ -12,7 +10,7 @@
 }
 
 .memberSection h2 {
-    padding: 1em 0;
+    padding: 1em 0 0 0;
 }
 
 .memberSection p {
@@ -21,4 +19,16 @@
 
 .memberSection img {
     border-radius: 50%;
+}
+
+.memberSection a>img:hover {
+    opacity: 0.5;
+}
+
+.memberSocials {
+    column-gap: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    float: right;
+    padding: 0.5em 0.5em 0.5em 0;
 }

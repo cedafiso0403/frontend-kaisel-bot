@@ -14,7 +14,7 @@ function Header() {
             </nav>
             <div className="nav-container">
                 <div className="navbar-item-button">
-                    <Link to="/Contact" className="navbar-item navbar-item-button">Add to server</Link>
+                    <Link to="/Contact" className="navbar-item navbar-item-button">Add to Server</Link>
                 </div>
             </div>
         </header>

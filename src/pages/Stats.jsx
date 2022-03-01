@@ -24,7 +24,7 @@ function Stats() {
     return (
         <div>
             <Header />
-            <div className="content-page paddingBottom">
+            <main>
                 <h2 className="content-h2">Search for a username</h2>
                 <p className="features-subtitle">
                     Search a username for League of Legends or Valorant. <br></br>
@@ -32,7 +32,7 @@ function Stats() {
                 </p>
                 <SearchBar />
                 <UserStatsBox {...data}/>
-            </div>
+            </main>
             <Footer />
         </div>
     );

@@ -5,17 +5,16 @@ function NotFound() {
     return (
         <div>
         <Header />
-        <div className="content-page">
-            <div className="container-notFound">
-                <div>
-                        <h1 className="notFound-h1">404</h1>
-                        <h1 className="notFound-h2">Sorry the page you are trying to <br></br>access does not exist.</h1>
-                        <h2 className="features-subtitle">Return to the <a href="/">home page</a>.</h2>
-                </div>
-                <div className="beruSad">
-                </div>
-            </div>
-        </div>
+        <main>
+            <article className="container-notFound">
+                <section>
+                    <h1 className="notFound-h1">404</h1>
+                    <h2 className="notFound-h2">Sorry the page you are trying to <br></br>access does not exist.</h2>
+                    <h2 className="features-subtitle">Return to the <a href="/">home page</a>.</h2>
+                </section>
+                <div className="beruSad"></div>
+            </article>
+        </main>
         <Footer />
         </div>
     );
