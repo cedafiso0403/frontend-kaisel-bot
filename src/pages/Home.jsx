@@ -4,7 +4,17 @@ import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
 import Twitch from "../components/Twitch";
 import AddKaiselBot from "../components/AddKaiselBot";
+
 import { GameCard } from "../components/GameCard";
+
+
+// import api from '../components/api/api'
+// const fetchData = async () => {
+//   const streams = await api.get('https://api.twitch.tv/helix/streams?first=3&game_id=21779');
+//   const topStreamers = streams.data.data.map(stream => `${stream.user_name}`);         
+//   return topStreamers;
+// };
+
 
 const propsForGameCardLeague = {
   gameName: "League of Legends",
