@@ -10,25 +10,25 @@
 }
 
 .memberSection h2 {
-    padding: 1em 0 0 0;
+  padding: 1em 0 0 0;
 }
 
 .memberSection p {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .memberSection img {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
-.memberSection a>img:hover {
-    opacity: 0.5;
+.memberSection a > img:hover {
+  opacity: 0.5;
 }
 
 .memberSocials {
-    column-gap: 0.25rem;
-    display: flex;
-    flex-direction: row;
-    float: right;
-    padding: 0.5em 0.5em 0.5em 0;
+  column-gap: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  float: right;
+  padding: 0.5em 0.5em 0.5em 0;
 }
