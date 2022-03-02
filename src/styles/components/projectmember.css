@@ -1,12 +1,12 @@
 .memberSection {
-  align-items: center;
-  background-color: rgb(59, 55, 82);
-  border-radius: 10px;
-  box-shadow: 10px 10px 4px rgba(41, 41, 41, 0.5);
-  height: 100%;
-  padding: 0.5em;
-  text-align: center;
-  width: 450px;
+    align-items: center;
+    background-color: rgb(59, 55, 82);
+    border-radius: 10px;
+    box-shadow: 10px 10px rgba(41, 41, 41, 0.75);
+    height: 100%;
+    padding: 0.5em;
+    text-align: center;
+    width: 450px;
 }
 
 .memberSection h2 {
