@@ -49,6 +49,7 @@
 
 .form-container input[type=text]:hover {
   background-color: #E4E4E4;
+  color: #181A20;
 }
 
 .form-container button {
