@@ -1,10 +1,10 @@
 a {
-  color: #3BAFDA;
+  color: #3bafda;
   text-decoration: none;
 }
 
 a:visitied {
-  color: #3BAFDA;
+  color: #3bafda;
 }
 
 a:hover {
@@ -36,7 +36,7 @@ a.big-add-server-button:hover{
   box-shadow: 0 0 20px rgb(8, 124, 167);
 }
 
-.beruSad{
+.beruSad {
   margin-top: 1.7em;
   min-width: 400px;
   min-height: 550px;
@@ -44,7 +44,7 @@ a.big-add-server-button:hover{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border: 3px solid black;
-  border-radius: 30px;  
+  border-radius: 30px;
 }
 
 .container-notFound {
@@ -57,7 +57,7 @@ a.big-add-server-button:hover{
 
 .container-notFound .notFound-h1 {
   text-align: center;
-  color: #3BAFDA;
+  color: #3bafda;
   font-size: 8em;
 }
 
@@ -76,7 +76,7 @@ a.big-add-server-button:hover{
 
 .content-h1 {
   text-align: center;
-  color: #3BAFDA;
+  color: #3bafda;
   font-size: 4em;
 }
 
@@ -85,7 +85,7 @@ a.big-add-server-button:hover{
 }
 
 
-.gamecards-container{
+.gamecards-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -109,7 +109,6 @@ main {
   background-image: url("../../public/images/bg7.png");
   background-position-x: -45em;
   background-position-y: 60em; 
-  /* filter: grayscale(50%); */
   filter: 0.85;
   color: white;
   justify-content: center;
@@ -117,18 +116,19 @@ main {
   padding: 1.25em 0;
 }
 
-main h1, main h2{
+main h1,
+main h2 {
   margin: 0;
   text-align: center;
 }
 
-main>section {
+main > section {
   padding: 2em 0;
   margin: 2em 0;
 }
 
-main>section:nth-of-type(2n+1):not(:nth-of-type(1)) {
-  background-color: #181A1F;
+main > section:nth-of-type(2n + 1):not(:nth-of-type(1)) {
+  background-color: #181a1f;
   margin-top: 2em;
   padding: 5em 0;
 }
