@@ -15,8 +15,8 @@ export class UserStatsBox extends React.Component {
             retrievedData: false,
             historyMatch: [],
             filterData: {
-                440: [0, 0, 0, { lane: [] }, { champions: [] }],
-                420: [0, 0, 0, { lane: [] }, { champions: [] }]
+                440: [0, 0, 0, { teamPosition: [] }, { champions: [] }],
+                420: [0, 0, 0, { teamPosition: [] }, { champions: [] }]
             },
             statsRetrieved: false
         };
@@ -150,7 +150,6 @@ export class UserStatsBox extends React.Component {
                             if (response.data.length < 100) {
                                 continueFlag = false;
                             }
-                            console.log('Request')
                             return {
                                 historyMatch: [...prevState.historyMatch, ...response.data]
                             }
@@ -162,7 +161,6 @@ export class UserStatsBox extends React.Component {
             }
             let callRequest = async (path) => {
                 do {
-                    console.log("Happening")
                     await requestFunction(path);
                     index += size;
                     path = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.state.player.puuid}/ids?queue=${queueId}&startTime=${SEASON_12_BEGINS_TIMESTAMP}&start=${index}&count=${size}&api_key=${API_KEY}`;
@@ -187,13 +185,13 @@ export class UserStatsBox extends React.Component {
                                 object[response.data.info.queueId].push(response.data.info.participants[index].kills);
                                 object[response.data.info.queueId].push(response.data.info.participants[index].deaths);
                                 object[response.data.info.queueId].push(response.data.info.participants[index].assists);
-                                object[response.data.info.queueId].push({ lane: [response.data.info.participants[index].lane] });
+                                object[response.data.info.queueId].push({ teamPosition: [response.data.info.participants[index].teamPosition] });
                                 object[response.data.info.queueId].push({ champions: [response.data.info.participants[index].championName] });
                             } else {
                                 object[response.data.info.queueId][0] += response.data.info.participants[index].kills
                                 object[response.data.info.queueId][1] += response.data.info.participants[index].deaths
                                 object[response.data.info.queueId][2] += response.data.info.participants[index].assists
-                                object[response.data.info.queueId][3].lane.push(response.data.info.participants[index].lane);
+                                object[response.data.info.queueId][3].teamPosition.push(response.data.info.participants[index].teamPosition);
                                 object[response.data.info.queueId][4].champions.push(response.data.info.participants[index].championName);
                             }
 
@@ -239,16 +237,13 @@ export class UserStatsBox extends React.Component {
                 let indexSolo = rankedStats.findIndex((element) => {
                     return element.queueType === "RANKED_SOLO_5x5"
                 })
-                let matchsFlex = rankedStats[indexFlex].wins + rankedStats[indexFlex].losses;
-                let matchsSolo = rankedStats[indexSolo].wins + rankedStats[indexSolo].losses;
-                console.log(filterData[440][3].lane.length + filterData[420][3].lane.length);
-                console.log(matchsFlex + matchsSolo);
-                if ((matchsFlex + matchsSolo) <= (filterData[440][3].lane.length + filterData[420][3].lane.length)) {
+                let matchsFlex = indexFlex >= 0 ? rankedStats[indexFlex].wins + rankedStats[indexFlex].losses : 0;
+                let matchsSolo = indexSolo >= 0 ? rankedStats[indexSolo].wins + rankedStats[indexSolo].losses : 0;
+                if ((matchsFlex + matchsSolo) <= (filterData[440][3].teamPosition.length + filterData[420][3].teamPosition.length)) {
                     statsRetrieved = true;
-                    console.log(statsRetrieved);
                 }
             } catch (error) {
-
+                console.log(error);
             }
         }
         return (
@@ -281,7 +276,7 @@ export class UserStatsBox extends React.Component {
 
                                     if (statsRetrieved) {
                                         console.log("Stats passed")
-                                        return (<RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} {...data} />)
+                                        return (<RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} stats= {data} />)
                                     } else {
                                         return (<RankedStatsBox key={elements.queueType} {...elements} />)
                                     }
