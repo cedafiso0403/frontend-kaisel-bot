@@ -3,7 +3,8 @@ import "../styles/components/userStatsBox.css"
 import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 
-const API_KEY = "RGAPI-0d4db553-0647-4089-9e16-4a75d0d19ff8"
+const API_KEY = "RGAPI-5748e0a2-13f9-462c-bbe7-6619df5ca4d8";
+const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
     constructor(props) {
@@ -11,25 +12,25 @@ export class UserStatsBox extends React.Component {
         this.state = {
             player: null,
             rankedStats: [{}, {}],
-            retrievedData: false
+            retrievedData: false,
+            historyMatch: [],
+            filterData: {
+                440: [0, 0, 0, { lane: [] }, { champions: [] }],
+                420: [0, 0, 0, { lane: [] }, { champions: [] }]
+            },
+            statsRetrieved: false
         };
     }
 
-    searchForPlayer() {
-        let ApiCallString = `https://${this.props.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.props.user}?api_key=${API_KEY}`;
-        axios.get(ApiCallString).then((response) => {
-            this.setState((state, props) => {
-                return {
-                    player: response.data,
-                };
-            });
+    searchPlayerStatistics() {
+        return new Promise((resolve, reject) => {
             let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
             axios.get(ApiCallString2).then((response2) => {
                 this.setState((prevState) => {
                     let indexTFT = response2.data.findIndex(object => {
                         return object.queueType === "RANKED_TFT_PAIRS";
                     })
-                    response2.data.splice(indexTFT, indexTFT+1);
+                    response2.data.splice(indexTFT, indexTFT + 1);
                     if (response2.data.length >= 2) {
                         return {
                             rankedStats: [...response2.data],
@@ -82,8 +83,30 @@ export class UserStatsBox extends React.Component {
                         };
                     }
                 });
+                resolve();
             }).catch((error) => {
                 console.log(error)
+                reject();
+            })
+        })
+    }
+
+    searchForPlayer() {
+        let ApiCallString = `https://${this.props.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.props.user}?api_key=${API_KEY}`;
+        axios.get(ApiCallString).then((response) => {
+            this.setState((state, props) => {
+                return {
+                    player: response.data,
+                };
+            });
+            this.searchPlayerStatistics().then(() => {
+                this.getAllStat(420).then(() => {
+
+                }).then(() => {
+                    this.getAllStat(440).then(() => {
+                        this.getAllInformationFromMatchs();
+                    });
+                })
             })
         }).catch((error) => {
             this.setState((prevState) => {
@@ -114,12 +137,120 @@ export class UserStatsBox extends React.Component {
         })
     }
 
+    getAllStat(queueId) {
+        return new Promise((resolve, reject) => {
+            let index = 0;
+            let size = 100;
+            let continueFlag = true;
+            let ApiCallString3 = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.state.player.puuid}/ids?queue=${queueId}&startTime=${SEASON_12_BEGINS_TIMESTAMP}&start=${index}&count=${size}&api_key=${API_KEY}`;
+            let requestFunction = (path) => {
+                return new Promise((resolve, reject) => {
+                    axios.get(path).then((response) => {
+                        resolve(this.setState((prevState) => {
+                            if (response.data.length < 100) {
+                                continueFlag = false;
+                            }
+                            console.log('Request')
+                            return {
+                                historyMatch: [...prevState.historyMatch, ...response.data]
+                            }
+                        }))
+                    }, (error) => {
+                        reject(error)
+                    });
+                })
+            }
+            let callRequest = async (path) => {
+                do {
+                    console.log("Happening")
+                    await requestFunction(path);
+                    index += size;
+                    path = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.state.player.puuid}/ids?queue=${queueId}&startTime=${SEASON_12_BEGINS_TIMESTAMP}&start=${index}&count=${size}&api_key=${API_KEY}`;
+                } while (continueFlag);
+                resolve();
+                reject();
+            }
+            callRequest(ApiCallString3);
+        })
+    }
+
+    getAllInformationFromMatchs() {
+        return new Promise((resolve, reject) => {
+            let requestFunction = (path) => {
+                return new Promise((resolve, reject) => {
+                    axios.get(path).then((response) => {
+                        this.setState((prevState) => {
+                            let object = { ...prevState.filterData }
+                            let index = response.data.info.participants.findIndex((elements) => elements.summonerName === this.state.player.name);
+                            if (!object.hasOwnProperty(response.data.info.queueId)) {
+                                object[response.data.info.queueId] = [];
+                                object[response.data.info.queueId].push(response.data.info.participants[index].kills);
+                                object[response.data.info.queueId].push(response.data.info.participants[index].deaths);
+                                object[response.data.info.queueId].push(response.data.info.participants[index].assists);
+                                object[response.data.info.queueId].push({ lane: [response.data.info.participants[index].lane] });
+                                object[response.data.info.queueId].push({ champions: [response.data.info.participants[index].championName] });
+                            } else {
+                                object[response.data.info.queueId][0] += response.data.info.participants[index].kills
+                                object[response.data.info.queueId][1] += response.data.info.participants[index].deaths
+                                object[response.data.info.queueId][2] += response.data.info.participants[index].assists
+                                object[response.data.info.queueId][3].lane.push(response.data.info.participants[index].lane);
+                                object[response.data.info.queueId][4].champions.push(response.data.info.participants[index].championName);
+                            }
+
+                            return {
+                                filterData: { ...object }
+                            }
+
+                        })
+                        resolve()
+                    }, (error) => {
+                        reject(error)
+                    });
+
+                })
+            }
+            let i = 1;
+            this.state.historyMatch.forEach(async (element) => {
+                let path = `https://americas.api.riotgames.com/lol/match/v5/matches/${element}?api_key=${API_KEY}`;
+                setTimeout(() => {
+                    requestFunction(path);
+                }, (2500) * i)
+                i += 1;
+            });
+            resolve();
+            reject();
+        })
+
+    }
+
     componentDidMount() {
         this.searchForPlayer();
     }
 
     render() {
-        const { retrievedData, player, rankedStats } = this.state;
+        const { retrievedData, player, rankedStats, filterData } = this.state;
+        let statsRetrieved = false;
+        if (rankedStats !== null) {
+            try {
+                let indexFlex = rankedStats.findIndex((element) => {
+                    return element.queueType === "RANKED_FLEX_SR"
+                })
+
+                let indexSolo = rankedStats.findIndex((element) => {
+                    return element.queueType === "RANKED_SOLO_5x5"
+                })
+                let matchsFlex = rankedStats[indexFlex].wins + rankedStats[indexFlex].losses;
+                let matchsSolo = rankedStats[indexSolo].wins + rankedStats[indexSolo].losses;
+                console.log(filterData[440][3].lane.length + filterData[420][3].lane.length);
+                console.log(matchsFlex + matchsSolo);
+                if ((matchsFlex + matchsSolo) <= (filterData[440][3].lane.length + filterData[420][3].lane.length)) {
+                    statsRetrieved = true;
+                    console.log(statsRetrieved);
+                }
+            } catch (error) {
+
+            }
+        }
         return (
             <div className="user-stats-box">
                 <div className="profile-picture-container">
@@ -141,7 +272,19 @@ export class UserStatsBox extends React.Component {
                         retrievedData ?
                             rankedStats.map((elements) => {
                                 if (elements.queueType !== "RANKED_TFT_PAIRS") {
-                                    return (<RankedStatsBox key={elements.queueType} {...elements} />)
+                                    let data;
+                                    if (elements.queueType === "RANKED_FLEX_SR" && statsRetrieved) {
+                                        data = filterData[440];
+                                    } else if (statsRetrieved) {
+                                        data = filterData[420];
+                                    }
+
+                                    if (statsRetrieved) {
+                                        console.log("Stats passed")
+                                        return (<RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} {...data} />)
+                                    } else {
+                                        return (<RankedStatsBox key={elements.queueType} {...elements} />)
+                                    }
                                 };
                             }) :
                             <RankedStatsBox {...{
