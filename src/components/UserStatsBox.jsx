@@ -3,7 +3,7 @@ import "../styles/components/userStatsBox.css"
 import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 
-const API_KEY = "RGAPI-fd224f61-3011-4c73-8168-4d91646e9a78";
+const API_KEY = "RGAPI-5748e0a2-13f9-462c-bbe7-6619df5ca4d8";
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
@@ -15,8 +15,8 @@ export class UserStatsBox extends React.Component {
             retrievedData: false,
             historyMatch: [],
             filterData: {
-                440: [0,0,0,{lane: []},{champions: []}],
-                420: [0,0,0,{lane: []},{champions: []}]
+                440: [0, 0, 0, { lane: [] }, { champions: [] }],
+                420: [0, 0, 0, { lane: [] }, { champions: [] }]
             },
             statsRetrieved: false
         };
@@ -179,7 +179,6 @@ export class UserStatsBox extends React.Component {
             let requestFunction = (path) => {
                 return new Promise((resolve, reject) => {
                     axios.get(path).then((response) => {
-                        console.log(response.data.info.gameId);
                         this.setState((prevState) => {
                             let object = { ...prevState.filterData }
                             let index = response.data.info.participants.findIndex((elements) => elements.summonerName === this.state.player.name);
@@ -231,27 +230,27 @@ export class UserStatsBox extends React.Component {
     render() {
         const { retrievedData, player, rankedStats, filterData } = this.state;
         let statsRetrieved = false;
-        console.log(this.state.historyMatch);
-        // if (rankedStats !== null) {
-        //     try {
-        //         let indexFlex = rankedStats.findIndex((element) => {
-        //             return element.queueType === "RANKED_FLEX_SR"
-        //         })
+        if (rankedStats !== null) {
+            try {
+                let indexFlex = rankedStats.findIndex((element) => {
+                    return element.queueType === "RANKED_FLEX_SR"
+                })
 
-        //         let indexSolo = rankedStats.findIndex((element) => {
-        //             return element.queueType === "RANKED_SOLO_5x5"
-        //         })
-        //         let matchsFlex = rankedStats[indexFlex].wins + rankedStats[indexFlex].losses;
-        //         let matchsSolo = rankedStats[indexSolo].wins + rankedStats[indexSolo].losses;
-        //         console.log(filterData[440][3].lane.length);
-        //         console.log(filterData[420][3].lane.length);
-        //         if (matchsFlex + matchsSolo === (filterData[440].length + filterData[420].length)) {
-        //             statsRetrieved = true;
-        //         }
-        //     } catch (error) {
-               
-        //     }
-        // }
+                let indexSolo = rankedStats.findIndex((element) => {
+                    return element.queueType === "RANKED_SOLO_5x5"
+                })
+                let matchsFlex = rankedStats[indexFlex].wins + rankedStats[indexFlex].losses;
+                let matchsSolo = rankedStats[indexSolo].wins + rankedStats[indexSolo].losses;
+                console.log(filterData[440][3].lane.length + filterData[420][3].lane.length);
+                console.log(matchsFlex + matchsSolo);
+                if ((matchsFlex + matchsSolo) <= (filterData[440][3].lane.length + filterData[420][3].lane.length)) {
+                    statsRetrieved = true;
+                    console.log(statsRetrieved);
+                }
+            } catch (error) {
+
+            }
+        }
         return (
             <div className="user-stats-box">
                 <div className="profile-picture-container">
@@ -281,6 +280,7 @@ export class UserStatsBox extends React.Component {
                                     }
 
                                     if (statsRetrieved) {
+                                        console.log("Stats passed")
                                         return (<RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} {...data} />)
                                     } else {
                                         return (<RankedStatsBox key={elements.queueType} {...elements} />)
