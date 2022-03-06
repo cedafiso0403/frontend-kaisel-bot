@@ -58,9 +58,19 @@ export class RankedStatsBox extends React.Component {
                     <p>Win rate: {parseInt(this.props.wins * 100 / (this.props.wins + this.props.losses))}%</p>
                 </section>
                 <section className="info-container">
+                    <h3>Most played lane</h3>
                     {
                         this.props.statsRetrieved ?
                             <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `/images/ranked-positions/Position_${this.props.tier}-${formatResult(getOcurrencies(this.props.stats[3].teamPosition))}.png` :
+                                `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
+                            <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                    }
+                </section>
+                <section className="info-container">
+                    <h3>Most played champion</h3>
+                    {
+                        this.props.statsRetrieved ?
+                            <img alt="Most played champ" width="50" src={this.props.tier !== "Unranked" ? `http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${(getOcurrencies(this.props.stats[4].champions))}.png` :
                                 `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
                             <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
                     }
