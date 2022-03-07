@@ -3,10 +3,15 @@ import "../styles/components/userStatsBox.css"
 import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 
-const API_KEY = "RGAPI-5748e0a2-13f9-462c-bbe7-6619df5ca4d8";
+const API_KEY = "RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee";
+const API_KEYS = ["RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee", "RGAPI-b1eb4310-6fb2-4a38-a0d1-db70e94357d1", "RGAPI-6b7e2768-fe08-4422-ad1b-568d4e07e6c0", "RGAPI-861c366d-3920-4c5f-81a0-aba183f5f35e"];
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
+
+    static counter = 1;
+    static index = 0;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,9 +27,23 @@ export class UserStatsBox extends React.Component {
         };
     }
 
+    static returnApiKey(){
+        console.log(this.counter);
+        console.log(this.index);
+        if(this.counter % 80 === 0){
+            this.index++;
+            this.counter = 1;
+        }
+        if(this.index >= API_KEYS.length){
+            this.index = 0;
+        }
+        this.counter ++;
+        return API_KEYS[this.index];
+    }
+
     searchPlayerStatistics() {
         return new Promise((resolve, reject) => {
-            let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${API_KEY}`;
+            let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${UserStatsBox.returnApiKey()}`;
             axios.get(ApiCallString2).then((response2) => {
                 this.setState((prevState) => {
                     let indexTFT = response2.data.findIndex(object => {
@@ -92,7 +111,7 @@ export class UserStatsBox extends React.Component {
     }
 
     searchForPlayer() {
-        let ApiCallString = `https://${this.props.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.props.user}?api_key=${API_KEY}`;
+        let ApiCallString = `https://${this.props.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${this.props.user}?api_key=${UserStatsBox.returnApiKey()}`;
         axios.get(ApiCallString).then((response) => {
             this.setState((state, props) => {
                 return {
@@ -142,7 +161,7 @@ export class UserStatsBox extends React.Component {
             let index = 0;
             let size = 100;
             let continueFlag = true;
-            let ApiCallString3 = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.state.player.puuid}/ids?queue=${queueId}&startTime=${SEASON_12_BEGINS_TIMESTAMP}&start=${index}&count=${size}&api_key=${API_KEY}`;
+            let ApiCallString3 = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.state.player.puuid}/ids?queue=${queueId}&startTime=${SEASON_12_BEGINS_TIMESTAMP}&start=${index}&count=${size}&api_key=${UserStatsBox.returnApiKey()}`;
             let requestFunction = (path) => {
                 return new Promise((resolve, reject) => {
                     axios.get(path).then((response) => {
@@ -163,7 +182,7 @@ export class UserStatsBox extends React.Component {
                 do {
                     await requestFunction(path);
                     index += size;
-                    path = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.state.player.puuid}/ids?queue=${queueId}&startTime=${SEASON_12_BEGINS_TIMESTAMP}&start=${index}&count=${size}&api_key=${API_KEY}`;
+                    path = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${this.state.player.puuid}/ids?queue=${queueId}&startTime=${SEASON_12_BEGINS_TIMESTAMP}&start=${index}&count=${size}&api_key=${UserStatsBox.returnApiKey()}`;
                 } while (continueFlag);
                 resolve();
                 reject();
@@ -200,19 +219,18 @@ export class UserStatsBox extends React.Component {
                             }
 
                         })
-                        resolve()
                     }, (error) => {
                         reject(error)
                     });
-
+                    resolve()
                 })
             }
             let i = 1;
             this.state.historyMatch.forEach(async (element) => {
-                let path = `https://americas.api.riotgames.com/lol/match/v5/matches/${element}?api_key=${API_KEY}`;
+                let path = `https://americas.api.riotgames.com/lol/match/v5/matches/${element}?api_key=${UserStatsBox.returnApiKey()}`;
                 setTimeout(() => {
                     requestFunction(path);
-                }, (2500) * i)
+                }, (200) * i)
                 i += 1;
             });
             resolve();
@@ -227,6 +245,7 @@ export class UserStatsBox extends React.Component {
 
     render() {
         const { retrievedData, player, rankedStats, filterData } = this.state;
+        console.log(filterData);
         let statsRetrieved = false;
         if (rankedStats !== null) {
             try {
