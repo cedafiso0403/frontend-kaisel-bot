@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x] #can add 12.x and 14.x but fsevents doesn't really work and it becomes too slow
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
