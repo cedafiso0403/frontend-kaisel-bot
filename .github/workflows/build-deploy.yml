@@ -1,8 +1,69 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-# Built following https://codeburst.io/deploying-a-react-app-using-github-pages-and-github-actions-7fc14d380796 tutorial
+# # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# # Built following https://codeburst.io/deploying-a-react-app-using-github-pages-and-github-actions-7fc14d380796 tutorial
 
-name: CI with Node JS
+# name: CI with Node JS
+
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+
+# jobs:
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [16.x] #can add 12.x and 14.x but fsevents doesn't really work and it becomes too slow
+#         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v2
+      
+#     - name: Set up Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: ${{ matrix.node-version }}
+        
+#     - name: Install NPM packages
+#       run: npm install #npm i fsevents@latest -f --save-optional
+
+#     - name: Build project
+#       run: npm run build --if-present
+      
+#     - name: Run Tests
+#       run: npm run test
+    
+#     - name: Upload production-ready build files
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: production-files
+#         path: ./build
+  
+#   deploy:
+#     name: Deploy
+#     needs: build
+#     runs-on: ubuntu-latest
+#     if: github.ref == 'refs/heads/main'
+    
+#     steps:
+#       - name: Download artifact
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: production-files
+#           path: ./build
+          
+#       - name: Deploy to gh-pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./build
+
+name: CI Using Node JS
 
 on:
   push:
@@ -12,57 +73,39 @@ on:
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
-
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install and build webpack
+        run: |
+          npm install
+          npm run build
+      - uses: actions/upload-artifact@main
+        with:
+          name: webpack artifacts
+          path: public/
+  test:
+    needs: build
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x] #can add 12.x and 14.x but fsevents doesn't really work and it becomes too slow
+        os: [ubuntu-latest, windows-2016]
+        node-version: [12.x, 14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@main
+      with:
+        name: webpack artifacts
+        path: public
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        
-    - name: Install NPM packages
-      run: npm i fsevents@latest -f --save-optional
-
-    - name: Build Project's Results
-      if: always()
-      uses: actions/upload-artifact@v1
-      with:
-        name: Build project
-        run: npm run build --if-present
-      
-    - name: Run Tests
-      run: npm run test
-    
-    - name: Upload production-ready build files
-      uses: actions/upload-artifact@v2
-      with:
-        name: production-files
-        path: ./build
-  
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./build
-          
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+    - name: npm install, and test
+      run: |
+        npm install
+        npm run build
+      env:
+        CI: true
