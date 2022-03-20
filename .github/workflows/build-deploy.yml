@@ -32,9 +32,12 @@ jobs:
     - name: Install NPM packages
       run: npm i fsevents@latest -f --save-optional
 
-    - name: Build project
+    - name: Build Project's Results
       if: always()
-      run: npm run build --if-present
+      uses: actions/upload-artifact@v1
+      with:
+        name: Build project
+        run: npm run build --if-present
       
     - name: Run Tests
       run: npm run test
