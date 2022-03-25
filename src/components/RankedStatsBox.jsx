@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/components/rankedStatsBox.css";
-import axios from 'axios';
+// import axios from 'axios';
 
 //string[0].toUpperCase() + string.substring(1)
 // let queueIds;
