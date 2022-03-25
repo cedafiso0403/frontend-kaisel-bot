@@ -3,10 +3,10 @@ import "../styles/components/rankedStatsBox.css";
 import axios from 'axios';
 
 //string[0].toUpperCase() + string.substring(1)
-let queueIds;
-axios.get('https://static.developer.riotgames.com/docs/lol/queues.json').then((response) => {
-    queueIds = response.data;
-})
+// let queueIds;
+// axios.get('https://static.developer.riotgames.com/docs/lol/queues.json').then((response) => {
+//     queueIds = response.data;
+// })
 
 const getOcurrencies = (dataArray) => {
     let count = {}
@@ -39,6 +39,8 @@ const formatResult = (dataToFormat) => {
             return "Mid";
         case "UNRANKED":
             return dataToFormat;
+        default:
+            return "Rank Cannot Be Compiled";
     }
 }
 
