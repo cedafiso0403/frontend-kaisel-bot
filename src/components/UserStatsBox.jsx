@@ -3,8 +3,8 @@ import "../styles/components/userStatsBox.css"
 import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 
-const API_KEY = "RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee";
-const API_KEYS = ["RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee", "RGAPI-b1eb4310-6fb2-4a38-a0d1-db70e94357d1", "RGAPI-6b7e2768-fe08-4422-ad1b-568d4e07e6c0", "RGAPI-861c366d-3920-4c5f-81a0-aba183f5f35e"];
+// const API_KEY = "RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee";
+const API_KEYS = ["RGAPI-18c5988e-e400-4f07-8424-9ab1999b0f31", "RGAPI-29edfb89-9c4e-46c6-b966-8dc3fbbf4cb0", "RGAPI-84cdfc8a-9491-449d-a008-993c68946a02", "RGAPI-b200ec8a-3124-4589-abd3-04fef64d7907"];
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
@@ -300,6 +300,7 @@ export class UserStatsBox extends React.Component {
                                         return (<RankedStatsBox key={elements.queueType} {...elements} />)
                                     }
                                 };
+                                return null; //default return value
                             }) :
                             <RankedStatsBox {...{
                                 queueType: "Loading"
