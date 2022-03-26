@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import { UserStatsBox } from "../components/UserStatsBox";
 import {useLocation} from "react-router-dom";
+import ValorantAPI from "../components/ValorantAPI";
 
 // let testStats = {
 //     username : "Mighty",
@@ -32,6 +33,7 @@ function Stats() {
                 </p>
                 <SearchBar />
                 <UserStatsBox {...data}/>
+                <ValorantAPI />
             </main>
             <Footer />
         </div>
