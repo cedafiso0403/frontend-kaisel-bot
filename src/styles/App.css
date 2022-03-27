@@ -1,10 +1,10 @@
 a {
-  color: #3BAFDA;
+  color: #3bafda;
   text-decoration: none;
 }
 
 a:visitied {
-  color: #3BAFDA;
+  color: #3bafda;
 }
 
 a:hover {
@@ -21,22 +21,13 @@ a:hover {
   padding: 1.25em;
 }
 
-a.big-add-server-button{
-  color: white;
-  text-align: center;
-}
-
-a.big-add-server-button:hover{
-  color: white;
-  text-align: center;
-}
-
 .big-add-server-button:hover {
   background-color: #087CA7;
+  color: white;
   box-shadow: 0 0 20px rgb(8, 124, 167);
 }
 
-.beruSad{
+.beruSad {
   margin-top: 1.7em;
   min-width: 400px;
   min-height: 550px;
@@ -44,7 +35,7 @@ a.big-add-server-button:hover{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border: 3px solid black;
-  border-radius: 30px;  
+  border-radius: 30px;
 }
 
 .container-notFound {
@@ -57,7 +48,7 @@ a.big-add-server-button:hover{
 
 .container-notFound .notFound-h1 {
   text-align: center;
-  color: #3BAFDA;
+  color: #3bafda;
   font-size: 8em;
 }
 
@@ -76,7 +67,7 @@ a.big-add-server-button:hover{
 
 .content-h1 {
   text-align: center;
-  color: #3BAFDA;
+  color: #3bafda;
   font-size: 4em;
 }
 
@@ -84,8 +75,7 @@ a.big-add-server-button:hover{
   font-size: 2.5em;
 }
 
-
-.gamecards-container{
+.gamecards-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -99,38 +89,52 @@ a.big-add-server-button:hover{
 }
 
 .home-subtitle {
-  padding: 0.5em 0 0.5em 0;
+  padding: 0.5em 0;
   color: lightgrey;
   font-size: 1.55em;
 }
 
 main {
   background-color: #0E1015;
-  background-image: url("../../public/images/bg7.png");
+  background-image: url("../../public/images/bg8.png");
   background-position-x: -45em;
-  background-position-y: 60em; 
-  /* filter: grayscale(50%); */
-  filter: 0.85;
+  background-position-y: 70em;
   color: white;
   justify-content: center;
   min-height: 100vh;
   padding: 1.25em 0;
 }
 
-main h1, main h2{
+main h1,
+main h2 {
   margin: 0;
   text-align: center;
 }
 
-main>section {
+main > section {
   padding: 2em 0;
   margin: 2em 0;
+  opacity: 0;
+  transform: translate(0, 10vh);
+  transition: all 1.5s;
+}
+
+main>section:nth-of-type(1), main>section:nth-of-type(2) {
+  transform: translate(0, 0);
+  opacity: 1;
 }
 
 main>section:nth-of-type(2n+1):not(:nth-of-type(1)) {
-  background-color: #181A1F;
+  background-color: rgb(24, 26, 31, 0.9);
   margin-top: 2em;
   padding: 5em 0;
+}
+
+main hr {
+  /* padding: 0.25em 0; */
+  border: 2px solid white;
+  background-color: white;
+  width: 80%;
 }
 
 .project-members-list {
@@ -140,4 +144,9 @@ main>section:nth-of-type(2n+1):not(:nth-of-type(1)) {
   grid-template-rows: auto auto;
   justify-content: center;
   padding: 2em;
+}
+
+.visible { /* used for the home section's fade in */
+  opacity: 1;
+  transform: translate(0, 0);
 }

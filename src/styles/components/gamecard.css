@@ -1,14 +1,14 @@
-.gamecard{
-    border-radius: 30px;
-    box-shadow: 10px 10px 10px #20222b;
-    color: white;
-    height: 350px;
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-    max-width: 275px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
+.gamecard {
+  border-radius: 30px;
+  box-shadow: 10px 10px 10px #20222b;
+  color: white;
+  height: 350px;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  max-width: 275px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .gamecard-background{
@@ -20,58 +20,58 @@
     height: 100%;
 }
 
-.gamecard-background-league-of-legends{
-    background-image: url("./../../../public/images/LeagueCard.jpg");
-    background-repeat: no-repeat;
-    background-color: #0C0E13;
-    background-size: 100% 100%;
+.gamecard-background-league-of-legends {
+  background-image: url("./../../../public/images/LeagueCard.jpg");
+  background-repeat: no-repeat;
+  background-color: #0c0e13;
+  background-size: 100% 100%;
 }
 
-.gamecard-background-teamfight-tactics{
-    background-image: url("./../../../public/images/tftCard2.png");
-    background-repeat: no-repeat;
-    background-color: #0C0E13;
-    background-size: 100% 100%;
+.gamecard-background-teamfight-tactics {
+  background-image: url("./../../../public/images/tftCard2.png");
+  background-repeat: no-repeat;
+  background-color: #0c0e13;
+  background-size: 100% 100%;
 }
 
-.gamecard-background-valorant{
-    background-image: url("./../../../public/images/ValorantCard.png");
-    background-repeat: no-repeat;
-    background-color: #0C0E13;
-    background-size: 100% 100%;
+.gamecard-background-valorant {
+  background-image: url("./../../../public/images/ValorantCard.png");
+  background-repeat: no-repeat;
+  background-color: #0c0e13;
+  background-size: 100% 100%;
 }
 
-.gamecard-information{
-    background-color: #0C0E13;
-    position: absolute;
-    bottom: -210px;
-    width: 100%;
-    opacity: 0.9;
-    padding: 1em 0em 1em 0.75em;
-    border-radius: 50px 0 0 0;
-    transition: all 0.3s ease 0s;
+.gamecard-information {
+  background-color: #0c0e13;
+  position: absolute;
+  bottom: -210px;
+  width: 100%;
+  opacity: 0.9;
+  padding: 1em 0.75em 1em 0.75em;
+  border-radius: 50px 0 0 0;
+  transition: all 0.3s ease 0s;
 }
 
-.gamecard-information:hover{
-    background-color: #0C0E13;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 1em 0em 1em 0.75em;
-    border-radius: 60px 0 0 0;
-    opacity: 1;
+.gamecard-information:hover {
+  background-color: #0c0e13;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1em 0em 1em 0.75em;
+  border-radius: 60px 0 0 0;
+  opacity: 1;
 }
 
-.gamecard ul{
-    padding-left: 2.5em;
+.gamecard ul {
+  padding-left: 2.5em;
 }
 
-.gamecard-container{
-    border: none;
-    margin-bottom: 0.5em;
+.gamecard-container {
+  border: none;
+  margin-bottom: 0.5em;
 }
 
-h4, span{
-    padding-left: 1em;
+h4,
+span {
+  padding-left: 1em;
 }
-

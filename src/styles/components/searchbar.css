@@ -39,7 +39,7 @@
   background-color: #FDFDFD;
   border: none;
   border-radius: 10px;
-  color: white;
+  color: black;
   height: 100%;
   font-size: 1em;
   margin-right: 0.25rem;
@@ -49,6 +49,7 @@
 
 .form-container input[type=text]:hover {
   background-color: #E4E4E4;
+  color: #181A20;
 }
 
 .form-container button {

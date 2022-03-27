@@ -15,6 +15,18 @@ import { GameCard } from "../components/GameCard";
 //   return topStreamers;
 // };
 
+// Event listener used for the sections fade in
+document.addEventListener("scroll", () => {
+  let mainSections = document.querySelectorAll("main>section");
+  let sectionPositions;
+  const screenSize = window.innerHeight;
+  for (let i = 0; i < mainSections.length; i++) {
+    sectionPositions=mainSections[i].getBoundingClientRect().top;
+    if(sectionPositions < screenSize && !mainSections[i].classList.contains("visible") ){
+      mainSections[i].classList.add("visible");
+    }    
+  }
+});
 
 const propsForGameCardLeague = {
   gameName: "League of Legends",
@@ -68,31 +80,31 @@ function Home() {
           <GameCard {...propsForGameCardValorant} />
         </section>
 
-          <section>{ /**  className="alt-content-page" */}
-            <h2 className="content-h2">Search for a username</h2>
-            <p className="features-subtitle">
-              Test out how Kaisel can display your in game statistics.
-              <br></br>
-              View your KDA, winrate and other statistics for the current season.
-            </p>
-            <SearchBar />  
-          </section>
+        <section>
+          <h2 className="content-h2">Search for a username</h2>
+          <p className="features-subtitle">
+            Test out how Kaisel can display your in game statistics.
+            <br></br>
+            View your KDA, winrate and other statistics for the current season.
+          </p>
+          <SearchBar />  
+        </section>
 
-          <section>
-            <h2 className="content-h2">See the progress in your games</h2>
-            <Features />
-          </section>
+        <section>
+          <h2 className="content-h2">See the progress in your games</h2>
+          <Features />
+        </section>
           
-          <section>
-            <Twitch />
-          </section>
+        <section>
+          <Twitch />
+        </section>
             
-          <section>
-            <AddKaiselBot />
-          </section>
-        </main>
-        <Footer />
-      </div>
+        <section>
+          <AddKaiselBot />
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
