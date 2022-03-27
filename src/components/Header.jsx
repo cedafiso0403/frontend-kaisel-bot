@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import "../styles/components/header.css"
+import "../styles/components/header.css";
+import "../styles/components/mediaquery.css";
 
 function Header() {
     return (
