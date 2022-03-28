@@ -115,6 +115,7 @@ function Home() {
               <input type="number" placeholder="5" name=""/>
             </form>
           </div>
+          
           <TwitchAPI />
         </section>
             
