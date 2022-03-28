@@ -20,7 +20,6 @@ export class ProjectMember extends React.Component {
                     </div>
                 </section>
             </article>
-            
         );
     }
 }
