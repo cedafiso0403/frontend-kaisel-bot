@@ -12,14 +12,14 @@ export default class ValorantAPI extends React.Component {
 	}
 
 	componentDidMount() {
-		const riotKeys=UserStatsBox.returnApiKey();
-		const region=this.props.region;
-		let playerMax=parseInt(this.props.user);
+		const riotKeys = UserStatsBox.returnApiKey();
+		const region = this.props.region;
+		let playerMax = parseInt(this.props.user);
 		
 		if(isNaN(playerMax) || playerMax=="")
 			playerMax=10;
 		
-		axios.get(`https://${region}.api.riotgames.com/val/ranked/v1/leaderboards/by-act/d929bc38-4ab6-7da4-94f0-ee84f8ac141e?size=${playerMax}&startIndex=0&api_key=RGAPI-36b789aa-28c9-4e23-b83d-182288d63fda`)
+		axios.get(`https://${region}.api.riotgames.com/val/ranked/v1/leaderboards/by-act/d929bc38-4ab6-7da4-94f0-ee84f8ac141e?size=${playerMax}&startIndex=0&api_key=${riotKeys}`)
 			.then(res => {
 			const usernames = res.data;
 			this.setState({ usernames: usernames });
@@ -35,7 +35,6 @@ export default class ValorantAPI extends React.Component {
 		for(let i = 0; i < listPlayers.length; i++) { //puts the list of players into a players array
 			players.push(listPlayers[i]);
 		}
-		// console.log(players);
 		return players;
 	}
 

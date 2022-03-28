@@ -1,44 +1,52 @@
 import "../styles/components/searchbar.css"
-import React, {useState} from "react";
-import ReactDOM from 'react-dom';
-
-var selectedGameRegions = ['NA', 'EUN', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'OC', 'RU', 'TR'];
-export default function SearchBar() {
-    
+import React from "react";
+// import { render } from "@testing-library/react";
+// var currentRegions = ['NA', 'EUN', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'OC', 'RU', 'TR'];
+export default class SearchBar extends React.Component {
+    constructor(props) {
+		super(props);
+		
+	}
+    state = {
+			selectedGameRegions: ['NA', 'EUN', 'EUW', 'JP', 'KR', 'LAN', 'LAS', 'OC', 'RU', 'TR'],
+            gameDefaultInput: "Input a username here"
+		}
     // let [selectedGame, setRegion] = useState({ gameName: '', region: '' });
+    
     // var t = "Unknown Game Chosen";
-    function swapGameRegions() {
+    swapGameRegions() {
         let chooseGames = document.querySelectorAll("select[name='game']");
-        let getSearchName = document.querySelector("input[name='user']");
-        console.log(getSearchName.placeholder);
+        // let getSearchName = document.querySelector("input[name='user']");
+        // console.log(getSearchName.placeholder);
+        
 
         chooseGames.forEach((gameOption) => {
-            // t = gameOption.value;
-            // this.forceUpdate();
-            console.log(selectedGameRegions);
-            selectedGameRegions = [];
-            let gameOptionValue = gameOption.value;
-            console.log("Gameoptionvalue: " + gameOptionValue);
+            console.log("bruh");
+            this.setState({ selectedGameRegions: [] })
+            let currentRegions = [];
+            // let gameOptionValue = gameOption.value;
+            // console.log("Gameoptionvalue: " + gameOptionValue);
             // console.log("Selected game: " + selectedGame);
-            switch(gameOptionValue) {
+            switch(gameOption) {
                 case 'valorant':
-                    getSearchName.placeholder = "Input the number of users you want to see";
+                    this.setState({ gameDefaultInput: "Input the number of users you want to see" });
                     // setRegion((g) => ({...g, region: 'AP'}));
                     // setRegion([...selectedGame, 'BR']);
                     // setRegion([...selectedGame, 'EU']);
                     // setRegion([...selectedGame, 'KR']);
                     // setRegion([...selectedGame, 'LATAM']);
                     // setRegion([...selectedGame, 'NA']);
-                    selectedGameRegions.push('AP');
-                    selectedGameRegions.push('BR');
-                    selectedGameRegions.push('EU');
-                    selectedGameRegions.push('KR');
-                    selectedGameRegions.push('LATAM');
-                    selectedGameRegions.push('NA');
-                    console.log(selectedGameRegions);
+                    currentRegions.push('AP');
+                    currentRegions.push('BR');
+                    currentRegions.push('EU');
+                    currentRegions.push('KR');
+                    currentRegions.push('LATAM');
+                    currentRegions.push('NA');
+                    console.log(currentRegions);
                     break;
                 default:
-                    getSearchName.placeholder = "Input a username here";
+                    this.setState({ gameDefaultInput: "Input a username here" });
+                    // this.state.gameDefaultInput = "Input a username here";
                     // setRegion([...selectedGame, 'NA']);
                     // setRegion([...selectedGame, 'EUN']);
                     // setRegion([...selectedGame, 'EUW']);
@@ -51,13 +59,7 @@ export default function SearchBar() {
                     // setRegion([...selectedGame, 'TR']);
                     break;
             }
-            this.forceUpdate();
-            // setRegion([selectedGame, gameOption.value]);
-            // selectedGame.map((item) => {
-            //     console.log(item);
-            // })
-            // selectedGame = gameOption.value;
-            // this.forceUpdate();
+            this.setState({ selectedGameRegions: currentRegions });
         })
     }
     
@@ -91,28 +93,31 @@ export default function SearchBar() {
     //             )
     //     }
     // }
-    return (
-        <div className="form-box">
-            <form className="searchBar" action="/TestStats" method="GET" name="search">
-                <div className="form-container">
-                    <input type="text" placeholder="Input a username here" id="user" name="user"/>
-                    
-                    <button className="searchBarButton"><img src="images/search-icon.png" alt="search button" width="30" height="30"></img></button>
-                </div>
-                <div className="form-container2">
-                    <select name="game" id="game" onChange={swapGameRegions}>
-                        <option value="league">League of Legends</option>
-                        <option value="tft">Teamfight Tactics</option>
-                        <option value="valorant">Valorant</option>
-                    </select>
-                    <select name="region" id="region">
-                        {selectedGameRegions.map(item => 
-                            <option key={item} value={item}>{item}</option>
-                        )}    
-                    </select>
-                    
-                </div>
-            </form>
-        </div>
-    )
+    render() {
+        return (
+            <div className="form-box">
+                <form className="searchBar" action="/TestStats" method="GET" name="search">
+                    <div className="form-container">
+                        <input type="text" placeholder={this.state.gameDefaultInput} id="user" name="user"/>
+                        
+                        <button className="searchBarButton"><img src="images/search-icon.png" alt="search button" width="30" height="30"></img></button>
+                    </div>
+                    <div className="form-container2">
+                        <select name="game" id="game" onChange={this.swapGameRegions}>
+                            <option value="league">League of Legends</option>
+                            <option value="tft">Teamfight Tactics</option>
+                            <option value="valorant">Valorant</option>
+                        </select>
+                        <select name="region" id="region">
+                            {this.state.selectedGameRegions.map(item => 
+                                <option key={item} value={item}>{item}</option>
+                            )}    
+                        </select>
+                        
+                    </div>
+                </form>
+            </div>
+        )    
+    }
+    
 }
