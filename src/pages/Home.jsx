@@ -3,7 +3,6 @@ import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
 import Twitch from "../components/Twitch";
-import AddKaiselBot from "../components/AddKaiselBot";
 
 import { GameCard } from "../components/GameCard";
 
@@ -99,9 +98,6 @@ function Home() {
           <Twitch />
         </section>
             
-        <section>
-          <AddKaiselBot />
-        </section>
       </main>
       <Footer />
     </div>
