@@ -13,11 +13,6 @@ function Header() {
                     <li><Link to="/Contact" className="navbar-item">Contact Us</Link></li>
                 </ul>
             </nav>
-            <div className="nav-container">
-                <div className="navbar-item-button">
-                    <Link to="/Contact" className="big-add-server-button">Add to Server</Link>
-                </div>
-            </div>
         </header>
     );
 }

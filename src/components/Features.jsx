@@ -13,18 +13,12 @@ export default class Features extends React.Component {
                     </div>
 
                     <div>
-                        <p className="features-subtitle">Kaisel Bot supports the following:</p>
+                        <p className="features-subtitle">Supported Features:</p>
                         <ul className="features-ul">
                             <li className="features-li">Displays statistics for games</li>
                             <li className="features-li">Displays top Twitch streamers</li>
-                            <li className="features-li">Notifies users of new streams</li>
-                            <li className="features-li">Moderates server</li>
                         </ul>
                     </div>
-                </section>
-
-                <section className="form-box">
-                    <Link to="/Contact" className="big-add-server-button">See Commands</Link>
                 </section>
             </article>
         );
