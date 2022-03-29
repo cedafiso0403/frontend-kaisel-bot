@@ -3,6 +3,7 @@ import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import { UserStatsBox } from "../components/UserStatsBox";
 import {useLocation} from "react-router-dom";
+import ValorantAPI from "../components/ValorantAPI";
 
 // let testStats = {
 //     username : "Mighty",
@@ -16,10 +17,18 @@ import {useLocation} from "react-router-dom";
 function Stats() {
     const search = useLocation().search;
     let data = {
-        user : new URLSearchParams(search).get('user'),
+        user: new URLSearchParams(search).get('user'),
         region: new URLSearchParams(search).get('region'),
         game: new URLSearchParams(search).get('game')
     };
+
+    function chosenGame() { //checks and returns which game should be displayed
+        let game = data.game;
+        if(game === 'valorant')
+            return <ValorantAPI {...data}/>
+        else
+            return <UserStatsBox {...data}/>
+    }
 
     return (
         <div>
@@ -31,7 +40,7 @@ function Stats() {
                     Only current season statistics are shown.
                 </p>
                 <SearchBar />
-                <UserStatsBox {...data}/>
+                {chosenGame()}
             </main>
             <Footer />
         </div>
