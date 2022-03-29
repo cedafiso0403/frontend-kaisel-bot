@@ -27,17 +27,17 @@ export class UserStatsBox extends React.Component {
         };
     }
 
-    static returnApiKey(){
+    static returnApiKey() {
         console.log(this.counter);
         console.log(this.index);
-        if(this.counter % 80 === 0){
+        if (this.counter % 80 === 0) {
             this.index++;
             this.counter = 1;
         }
-        if(this.index >= API_KEYS.length){
+        if (this.index >= API_KEYS.length) {
             this.index = 0;
         }
-        this.counter ++;
+        this.counter++;
         return API_KEYS[this.index];
     }
 
@@ -281,10 +281,10 @@ export class UserStatsBox extends React.Component {
                             <img alt="For in game" src="/images/Loading.gif"></img>
                     }
                 </div>
-                <div className="stats-container">
+                <div className="stats-container tabs-stats">
                     {
                         retrievedData ?
-                            rankedStats.map((elements) => {
+                            rankedStats.map((elements, i) => {
                                 if (elements.queueType !== "RANKED_TFT_PAIRS") {
                                     let data;
                                     if (elements.queueType === "RANKED_FLEX_SR" && statsRetrieved) {
@@ -292,12 +292,29 @@ export class UserStatsBox extends React.Component {
                                     } else if (statsRetrieved) {
                                         data = filterData[420];
                                     }
+                                    
+                                    let checkedAtt = i === 0 ? {"checked":'checked'} : {};
 
                                     if (statsRetrieved) {
-                                        console.log("Stats passed")
-                                        return (<RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} stats= {data} />)
+                                        return (
+                                            <>
+                                                <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs"  {...checkedAtt} key={"tab" + elements.queueType}></input>
+                                                <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
+                                                <div className="tab">
+                                                    <RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} stats={data} />
+                                                </div>
+                                            </>
+                                        )
                                     } else {
-                                        return (<RankedStatsBox key={elements.queueType} {...elements} />)
+                                        return (
+                                            <>
+                                                <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs"></input>
+                                                <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
+                                                <div className="tab">
+                                                    <RankedStatsBox key={elements.queueType} {...elements} />
+                                                </div>
+                                            </>
+                                        )
                                     }
                                 };
                                 return null; //default return value

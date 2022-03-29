@@ -1,15 +1,54 @@
 .user-stats-box{
-    background-color: #52545D;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    border: 1px solid #52546F;
+    align-items: flex-end;
     border-radius: 10px;
-    min-height: 200px;
+    min-height: 300px;
     width: 60%;
     margin: 4em auto auto auto;
-    padding: 2em 0;
-    justify-content: space-between;
+}
+
+.tabs-stats{
+    display: flex;
+    flex-wrap: wrap;
+    height: 22em;
+}
+
+.tabs-stats input[type="radio"]{
+    display: none;
+}
+
+.tabs-stats input[type="radio"]:checked + label + .tab{
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.tabs-stats label{
+    margin-right: 0.10em;
+    padding: 0.20em 1em;
+    display: flex;
+    align-items: center;
+    font-size: 1.25em;
+    border: 3px solid white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 7px;
+    border-bottom: none;
+    background-color: #52545D;
+}
+
+.tabs-stats .tab{
+    width: 100%;
+    order: 1;
+    display: none;
+    border: 3px solid white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    min-height: 200px;
+    background-color: #52545D;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .user-stats-box h4, .user-stats-box p{
@@ -20,6 +59,8 @@
 .stat-container{
     display: flex;
     flex-direction: row;
+    min-height: 5em;
+    align-items: center;
 }
 
 .stat-container h4{
@@ -34,18 +75,25 @@
 }
 
 .profile-picture-container{
+    background-color: #52545D;
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 20%;
     justify-content: center;
     align-items: center;
-    margin-right: 3em;
+    height: 21.6em;
+    border: 0.20em solid white;
+    border-right: none;
+    border-top: 0.20em solid white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .profile-picture-container img{
     margin: 0;
     max-width: 250px;
-    width: 50%;
+    width: 90%;
     border-radius: 50%;
     border: 2px solid white;
 }
@@ -62,5 +110,5 @@
 
 .stats-container{
     padding-left: 0;
-    width: 60%;
+    width: 80%;
 }
