@@ -24,7 +24,7 @@ function Stats() {
 
     function chosenGame() { //checks and returns which game should be displayed
         let game = data.game;
-        if(game == 'valorant')
+        if(game === 'valorant')
             return <ValorantAPI {...data}/>
         else
             return <UserStatsBox {...data}/>

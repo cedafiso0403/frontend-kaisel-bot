@@ -19,17 +19,17 @@ export default class ValorantAPI extends React.Component {
 		const region = this.props.region;
 		let playerMax = parseInt(this.props.user);
 		
-		if(isNaN(playerMax) || playerMax=="")
+		if(isNaN(playerMax) || playerMax==="")
 			playerMax=10;
 		
 		this.setState({ correctRegionChosen: false });
 		for(let i = 0; i < validRegions.length; i++) {
-			if(region.toUpperCase() == validRegions[i]) {
+			if(region.toUpperCase() === validRegions[i]) {
 				this.setState({ correctRegionChosen: true });
 				i = validRegions.length;
 			}
 		}
-		
+
 		axios.get(`https://${region}.api.riotgames.com/val/ranked/v1/leaderboards/by-act/d929bc38-4ab6-7da4-94f0-ee84f8ac141e?size=${playerMax}&startIndex=0&api_key=${riotKeys}`)
 			.then(res => {
 			const usernames = res.data;
