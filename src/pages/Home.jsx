@@ -101,20 +101,7 @@ function Home() {
         
         <section>
           <h1>Twitch API</h1>
-          <div className="twitch-form">
-            <form>
-              <label>Search for streamers by game</label>
-              <select onChange="" >
-                <option>League of Legends</option>
-                <option>VALORANT</option>
-                <option>TFT</option>
-              </select>
-              <label>Search for a channel</label>
-              <input type="text" placeholder="Search for a channel" name="channel" />
-              <label>View top games</label>
-              <input type="number" placeholder="5" name=""/>
-            </form>
-          </div>
+
           
           <TwitchAPI />
         </section>
