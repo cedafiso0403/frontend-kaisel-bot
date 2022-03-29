@@ -3,7 +3,7 @@ This is just a testing page so I can learn how to use the API
 */
 
 import React from "react";
-import axios from 'axios';
+// import axios from 'axios';
 import api from './api/api'
 
 /*
