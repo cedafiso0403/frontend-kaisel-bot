@@ -1,5 +1,6 @@
 .valorantUser {
-    background-color: #52545D;
+    background: linear-gradient(#52545D, #20222b);
+    box-shadow: 10px 10px 5px #181a1f;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -11,4 +12,8 @@
 
 .valorantUser>h3, .valorantUser>p {
     text-align: left;
+}
+
+.valorantUser>h3 {
+    border-bottom: 1px solid white;
 }

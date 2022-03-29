@@ -4,15 +4,15 @@ import { ProjectMember } from '../components/ProjectMember';
 
 const propsForCesar = {
   name: "Cesar Figueroa Socrarras",
-  description: "Responsible for Riot Games API and original webdesigner",
+  description: "Original webdesigner and responsible for the Riot Games API and integration tests.",
   picture: "images/team/Cesar.png",
-  githubLink: "",
+  githubLink: "https://github.com/cedafiso0403",
   linkedInLink: "",
 }
 
 const propsForLeo = {
   name: "Leo Chung",
-  description: "Responsible for media queries",
+  description: "Responsible for media queries and unit tests.",
   picture: "images/team/Leo.png",
   githubLink: "",
   linkedInLink: "",
@@ -20,15 +20,15 @@ const propsForLeo = {
 
 const propsForLucas = {
   name: "Lucas Lee",
-  description: "Webdesigner and responsible for animations",
+  description: "Webdesigner and responsible for the Valorant section of Riot Games API.",
   picture: "images/team/lucas.png",
-  githubLink: "",
-  linkedInLink: "",
+  githubLink: "https://github.com/LucasDLee",
+  linkedInLink: "https://www.linkedin.com/in/lucas-l-7b0bb3201/",
 }
 
 const propsForMartin = {
   name: "Martin Wong",
-  description: "Main webdesigner and responsible for the Twitch API",
+  description: "Idea conceiver, main webdesigner and responsible for the Twitch API",
   picture: "images/team/Martin.png",
   githubLink: "https://github.com/Mighty303",
   linkedInLink: "https://www.linkedin.com/in/martin-wong-b05160230/",
