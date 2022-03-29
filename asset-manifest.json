@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.6fc6eb76.css",
-    "main.js": "/static/js/main.cec31cb7.js",
+    "main.css": "/static/css/main.8a7ecc6f.css",
+    "main.js": "/static/js/main.1b32f180.js",
     "static/media/ValorantCard.png": "/static/media/ValorantCard.6e7719964025bcaac69e.png",
     "static/media/bg8.png": "/static/media/bg8.ba13d35205251ddbf6c9.png",
     "static/media/LeagueCard.jpg": "/static/media/LeagueCard.9902b7736cfdd595d36a.jpg",
     "static/media/tftCard2.png": "/static/media/tftCard2.25692db066b675c1a694.png",
     "static/media/beruSad.png": "/static/media/beruSad.ed55518c0c467510d30c.png",
     "index.html": "/index.html",
-    "main.6fc6eb76.css.map": "/static/css/main.6fc6eb76.css.map",
-    "main.cec31cb7.js.map": "/static/js/main.cec31cb7.js.map"
+    "main.8a7ecc6f.css.map": "/static/css/main.8a7ecc6f.css.map",
+    "main.1b32f180.js.map": "/static/js/main.1b32f180.js.map"
   },
   "entrypoints": [
-    "static/css/main.6fc6eb76.css",
-    "static/js/main.cec31cb7.js"
+    "static/css/main.8a7ecc6f.css",
+    "static/js/main.1b32f180.js"
   ]
 }
