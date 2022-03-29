@@ -10,11 +10,13 @@
 
 .twitch-form {
     padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-input[type=text], select, input[type=number] {
-    width: 100%;
-    padding: 12px 20px;
+.twitch-form input[type=text], .twitch-form select, input[type=number] {
+    padding: 5px 20px;
     margin: 8px 0;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
 }
