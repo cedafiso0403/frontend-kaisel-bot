@@ -4,12 +4,12 @@ import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 
 // const API_KEY = "RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee";
-const API_KEYS = ["RGAPI-18c5988e-e400-4f07-8424-9ab1999b0f31", "RGAPI-29edfb89-9c4e-46c6-b966-8dc3fbbf4cb0", "RGAPI-84cdfc8a-9491-449d-a008-993c68946a02", "RGAPI-b200ec8a-3124-4589-abd3-04fef64d7907"];
+const API_KEYS = ["RGAPI-544319fc-85fa-47ab-9499-270a21130ea1", "RGAPI-4ee3c749-e66d-4249-9825-45f10d646668", "RGAPI-a3cda100-54af-4d87-bd60-ce86660974ae", "RGAPI-cb423937-0b5a-444b-b637-71edb7976524"];
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
 
-    static counter = 1;
+    static counter = 0;
     static index = 0;
 
     constructor(props) {
@@ -28,11 +28,9 @@ export class UserStatsBox extends React.Component {
     }
 
     static returnApiKey() {
-        console.log(this.counter);
-        console.log(this.index);
-        if (this.counter % 80 === 0) {
+        if (this.counter % 10 === 0) {
             this.index++;
-            this.counter = 1;
+            this.counter = 0;
         }
         if (this.index >= API_KEYS.length) {
             this.index = 0;
@@ -201,12 +199,34 @@ export class UserStatsBox extends React.Component {
                             let index = response.data.info.participants.findIndex((elements) => elements.summonerName === this.state.player.name);
                             if (!object.hasOwnProperty(response.data.info.queueId)) {
                                 object[response.data.info.queueId] = [];
+                                let nameChamp = response.data.info.participants[index].championName;
+                                let objChamp = { };
+                                objChamp[nameChamp] = {
+                                    kills: response.data.info.participants[index].kills,
+                                    deaths: response.data.info.participants[index].deaths,
+                                    assists: response.data.info.participants[index].assists,
+                                    teamPosition: response.data.info.participants[index].teamPosition,
+                                    totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
+                                    matchLength : (response.data.info.gameEndTimestamp -response.data.info.gameStartTimestamp)/60000.0
+                                }
+                                console.log(objChamp);
                                 object[response.data.info.queueId].push(response.data.info.participants[index].kills);
                                 object[response.data.info.queueId].push(response.data.info.participants[index].deaths);
                                 object[response.data.info.queueId].push(response.data.info.participants[index].assists);
                                 object[response.data.info.queueId].push({ teamPosition: [response.data.info.participants[index].teamPosition] });
                                 object[response.data.info.queueId].push({ champions: [response.data.info.participants[index].championName] });
                             } else {
+                                let nameChamp = response.data.info.participants[index].championName;
+                                let objChamp = { };
+                                objChamp[nameChamp] = {
+                                    kills: response.data.info.participants[index].kills,
+                                    deaths: response.data.info.participants[index].deaths,
+                                    assists: response.data.info.participants[index].assists,
+                                    teamPosition: response.data.info.participants[index].teamPosition,
+                                    totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
+                                    matchLength : (response.data.info.gameEndTimestamp -response.data.info.gameStartTimestamp)/60000.0
+                                }
+                                console.log(objChamp);
                                 object[response.data.info.queueId][0] += response.data.info.participants[index].kills
                                 object[response.data.info.queueId][1] += response.data.info.participants[index].deaths
                                 object[response.data.info.queueId][2] += response.data.info.participants[index].assists
@@ -249,7 +269,7 @@ export class UserStatsBox extends React.Component {
 
     render() {
         const { retrievedData, player, rankedStats, filterData } = this.state;
-        console.log(filterData);
+        //console.log(filterData);
         let statsRetrieved = false;
         if (rankedStats !== null) {
             try {
@@ -312,7 +332,7 @@ export class UserStatsBox extends React.Component {
                                     } else {
                                         return (
                                             <>
-                                                <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs"></input>
+                                                <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs" {...checkedAtt} key={"tab" + elements.queueType}></input>
                                                 <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
                                                 <div className="tab">
                                                     <RankedStatsBox key={elements.queueType} {...elements} />
