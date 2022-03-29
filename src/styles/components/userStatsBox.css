@@ -24,18 +24,33 @@
     align-items: center;
 }
 
+.tabs-stats input[type="radio"]:hover{
+    cursor: pointer;
+}
+
 .tabs-stats label{
+    justify-content: center;
+    width: 12em;
     margin-right: 0.10em;
-    padding: 0.20em 1em;
+    padding: 0.10em 1em;
     display: flex;
     align-items: center;
-    font-size: 1.25em;
+    font-size: 1.15em;
     border: 3px solid white;
     border-top-right-radius: 15px;
     border-top-left-radius: 7px;
     border-bottom: none;
     background-color: #52545D;
 }
+
+.tabs-stats label:hover{
+    cursor: pointer;
+}
+
+.tabs-stats input[type="radio"]:checked + label{
+   background-color: #525DDD;
+}
+
 
 .tabs-stats .tab{
     width: 100%;
@@ -45,7 +60,7 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    min-height: 200px;
+    min-height: 290px;
     background-color: #52545D;
     padding-left: 3%;
     padding-right: 3%;

@@ -243,6 +243,10 @@ export class UserStatsBox extends React.Component {
         this.searchForPlayer();
     }
 
+    radioButtonHandlerer(e){
+
+    }
+
     render() {
         const { retrievedData, player, rankedStats, filterData } = this.state;
         console.log(filterData);
@@ -281,7 +285,7 @@ export class UserStatsBox extends React.Component {
                             <img alt="For in game" src="/images/Loading.gif"></img>
                     }
                 </div>
-                <div className="stats-container tabs-stats">
+                <div className="stats-container tabs-stats" onChange={e=> this.radioButtonHandlerer(e)}>
                     {
                         retrievedData ?
                             rankedStats.map((elements, i) => {
@@ -293,7 +297,7 @@ export class UserStatsBox extends React.Component {
                                         data = filterData[420];
                                     }
                                     
-                                    let checkedAtt = i === 0 ? {"checked":'checked'} : {};
+                                    let checkedAtt = i === 0 ? {"defaultChecked":"defaultChecked"} : {};
 
                                     if (statsRetrieved) {
                                         return (
