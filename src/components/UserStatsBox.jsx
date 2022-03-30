@@ -20,8 +20,8 @@ export class UserStatsBox extends React.Component {
             retrievedData: false,
             historyMatch: [],
             filterData: {
-                440: [0, 0, 0, { teamPosition: [] }, { champions: [] }],
-                420: [0, 0, 0, { teamPosition: [] }, { champions: [] }]
+                440: [],
+                420: []
             },
             statsRetrieved: false
         };
@@ -199,9 +199,9 @@ export class UserStatsBox extends React.Component {
                             let index = response.data.info.participants.findIndex((elements) => elements.summonerName === this.state.player.name);
                             if (!object.hasOwnProperty(response.data.info.queueId)) {
                                 object[response.data.info.queueId] = [];
-                                let nameChamp = response.data.info.participants[index].championName;
                                 let objChamp = { };
-                                objChamp[nameChamp] = {
+                                objChamp = {
+                                    championName: response.data.info.participants[index].championName,
                                     kills: response.data.info.participants[index].kills,
                                     deaths: response.data.info.participants[index].deaths,
                                     assists: response.data.info.participants[index].assists,
@@ -209,16 +209,11 @@ export class UserStatsBox extends React.Component {
                                     totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
                                     matchLength : (response.data.info.gameEndTimestamp -response.data.info.gameStartTimestamp)/60000.0
                                 }
-                                console.log(objChamp);
-                                object[response.data.info.queueId].push(response.data.info.participants[index].kills);
-                                object[response.data.info.queueId].push(response.data.info.participants[index].deaths);
-                                object[response.data.info.queueId].push(response.data.info.participants[index].assists);
-                                object[response.data.info.queueId].push({ teamPosition: [response.data.info.participants[index].teamPosition] });
-                                object[response.data.info.queueId].push({ champions: [response.data.info.participants[index].championName] });
+                                object[response.data.info.queueId].push(objChamp);
                             } else {
-                                let nameChamp = response.data.info.participants[index].championName;
                                 let objChamp = { };
-                                objChamp[nameChamp] = {
+                                objChamp = {
+                                    championName: response.data.info.participants[index].championName,
                                     kills: response.data.info.participants[index].kills,
                                     deaths: response.data.info.participants[index].deaths,
                                     assists: response.data.info.participants[index].assists,
@@ -226,14 +221,8 @@ export class UserStatsBox extends React.Component {
                                     totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
                                     matchLength : (response.data.info.gameEndTimestamp -response.data.info.gameStartTimestamp)/60000.0
                                 }
-                                console.log(objChamp);
-                                object[response.data.info.queueId][0] += response.data.info.participants[index].kills
-                                object[response.data.info.queueId][1] += response.data.info.participants[index].deaths
-                                object[response.data.info.queueId][2] += response.data.info.participants[index].assists
-                                object[response.data.info.queueId][3].teamPosition.push(response.data.info.participants[index].teamPosition);
-                                object[response.data.info.queueId][4].champions.push(response.data.info.participants[index].championName);
+                                object[response.data.info.queueId].push(objChamp);
                             }
-
                             return {
                                 filterData: { ...object }
                             }
@@ -282,7 +271,7 @@ export class UserStatsBox extends React.Component {
                 })
                 let matchsFlex = indexFlex >= 0 ? rankedStats[indexFlex].wins + rankedStats[indexFlex].losses : 0;
                 let matchsSolo = indexSolo >= 0 ? rankedStats[indexSolo].wins + rankedStats[indexSolo].losses : 0;
-                if ((matchsFlex + matchsSolo) <= (filterData[440][3].teamPosition.length + filterData[420][3].teamPosition.length)) {
+                if ((matchsFlex + matchsSolo) <= (filterData[440].length + filterData[420].length)){
                     statsRetrieved = true;
                 }
             } catch (error) {
