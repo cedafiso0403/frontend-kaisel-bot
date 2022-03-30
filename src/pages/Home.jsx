@@ -2,8 +2,7 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
-import Twitch from "../components/Twitch";
-import TwitchAPI from "../components/TwitchAPI";
+import TwitchIntro from "../components/TwitchIntro";
 
 import { GameCard } from "../components/GameCard";
 
@@ -96,15 +95,10 @@ function Home() {
         </section>
           
         <section>
-          <Twitch />
+          <TwitchIntro />
         </section>
         
-        <section>
-          <h1>Twitch API</h1>
 
-          
-          <TwitchAPI />
-        </section>
             
       </main>
       <Footer />

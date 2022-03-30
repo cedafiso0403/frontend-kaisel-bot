@@ -9,6 +9,8 @@ function Header() {
                 <Link to="/" className="navbar-item"><img alt="Kaisel Logo" id="navbar-icon" src="/images/KaiselCircle2.png" width="50"></img></Link>
                 <ul>
                     <li><Link to="/" className="navbar-item">Home</Link></li>
+                    <li><Link to="/Stats" className="navbar-item">Stats</Link></li>
+                    <li><Link to="/Twitch" className="navbar-item">Twitch</Link></li>
                     <li><Link to="/Contact" className="navbar-item">Contact Us</Link></li>
                 </ul>
             </nav>
