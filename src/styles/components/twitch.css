@@ -2,6 +2,12 @@
     text-align: center;
 }
 
+.twitch-h2 {
+    font-size: 1.75em;
+    padding: 15px;
+}
+
+
 .twitch-content img {
     border-radius: 10px;
     box-shadow: 0 0 25px white;
@@ -16,8 +22,9 @@
 
 .twitch-streamer {
     border: 1px solid white;
-    margin-left: 30em;
-    margin-right: 30em;
+    border-radius: 10px;
+    margin-left: 70vh;
+    margin-right: 70vh;
 }
 
 .twitch-thumbnail {
@@ -43,4 +50,11 @@
     margin: 8px 0;
     display: flex;
     flex-direction: column;
+}
+
+.games-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
 }

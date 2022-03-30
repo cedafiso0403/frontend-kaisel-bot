@@ -29,20 +29,17 @@ document.addEventListener("scroll", () => {
 
 const propsForGameCardLeague = {
   gameName: "League of Legends",
-  activePlayers: 1234567,
-  topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
+  features: ['View current rank', 'View current winrate', 'View current Season KDA', 'Most played role', 'Most played champion']
 }
 
 const propsForGameCardTFT = {
   gameName: "Teamfight Tactics",
-  activePlayers: 1234567,
-  topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
+  features: ['View current rank', 'View current winrate', 'View current Season KDA', 'Most played role', 'Most played champion']
 }
 
 const propsForGameCardValorant = {
   gameName: "Valorant",
-  activePlayers: 1234567,
-  topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
+  features: ['View current rank', 'View current winrate', 'View current Season KDA', 'Most played role', 'Most played champion']
 }
 
 function Home() {
