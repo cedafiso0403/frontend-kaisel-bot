@@ -1,10 +1,6 @@
-/*
-This is just a testing page so I can learn how to use the API 
-*/
-
 import React from "react";
 // import axios from 'axios';
-import api from './api/api';
+import api from '../api/api';
 import { useEffect, useState } from 'react';
 
 const thumbnail_width = '400'; 
@@ -79,7 +75,7 @@ const TwitchStreamers = props => {
         </div>
         <p className="features-subtitle">Current Top {gameName} Streamers:</p>
         {streamers.map((stream, index) => <div key={index} className="twitch-streamer">
-            <h2>{stream.user_name}</h2>
+            <h2 className="twitch-h2">{stream.user_name}</h2>
             <div className="twitch-thumbnail">
                 <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
             </div>
@@ -89,7 +85,7 @@ const TwitchStreamers = props => {
                     <img className="viewer-count-img" alt="viewer count icon" src="images/twitch/view-count.png" height="25" width="25" />
                 </div>
                 <div>
-                    <p className="viewer-count">{stream.viewer_count}</p>
+                    <p className="viewer-count">{stream.viewer_count.toLocaleString()}</p>
                 </div>
             </div>
         </div>)}

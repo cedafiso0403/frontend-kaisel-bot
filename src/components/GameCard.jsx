@@ -1,18 +1,6 @@
 import React from "react";
-import NumberFormat from 'react-number-format';
 import "../styles/components/gamecard.css";
 import "../styles/components/mediaquery.css";
-
-/*
- id: "21779"
-name: "League of Legends"
-
-id: "516575"
-name: "VALORANT"
-
-"id": "513143"
-"name": "Teamfight Tactics"
- */
 
 export class GameCard extends React.Component {
     render() {
@@ -26,18 +14,11 @@ export class GameCard extends React.Component {
                     </div>
                     <div className="gamecard-container">
                         <h4>Active Players</h4>
-                        <NumberFormat
-                            value={this.props.activePlayers}
-                            className="active-players"
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            prefix={''}
-                        />
                     </div>
                     <div className="gamecard-container">
-                        <h4>Top Streamers</h4>
+                        <h4>Features</h4>
                         <ul>{
-                            this.props.topStreamer.map((streamer, i) => {
+                            this.props.features.map((streamer, i) => {
                                 return (<li key={streamer + i}>{streamer}</li>)
                             })
                         }</ul>
