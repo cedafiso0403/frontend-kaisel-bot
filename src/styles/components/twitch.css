@@ -14,6 +14,30 @@
     justify-content: center;
 }
 
+.twitch-streamer {
+    border: 1px solid white;
+    margin-left: 30em;
+    margin-right: 30em;
+}
+
+.twitch-thumbnail {
+    display: block;
+    text-align: center;
+}
+
+.viewer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.viewer-count {
+    color: #FF7573;
+}
+
+.viewer-count-img  {
+    padding: 5px
+}
+
 .twitch-form input[type=text], .twitch-form select, input[type=number] {
     padding: 5px 20px;
     margin: 8px 0;
