@@ -9,20 +9,39 @@ import "../styles/components/rankedStatsBox.css";
 // })
 
 const getOcurrencies = (dataArray) => {
-    let count = {}
-    let max = ["UNRANKED", 0];
-    dataArray.forEach(element => {
-        count[element] = count[element] ? count[element] + 1 : 1;
-    });
+    console.log(dataArray);
+    let summaryData = [];
+    dataArray.forEach(elem=> {
+        let founded = false;
+        summaryData.forEach(sumElem => {
+            if(sumElem.championName === elem.championName && sumElem.teamPosition === elem.teamPosition){
+                founded = true;
+                sumElem.assists += elem.assists;
+                sumElem.deaths += elem.deaths;
+                sumElem.kills += elem.kills;
+                sumElem.totalMinionsKilled += elem.totalMinionsKilled;
+                sumElem.matchLength += elem.matchLength;
+                sumElem.matchPlayed = sumElem.matchPlayed + 1;
+            }
+        })
+        if(!founded){
+            summaryData.push({...elem, matchPlayed: 1});
+        }
+    })
 
-    for (const [key, value] of Object.entries(count)) {
-        if (max[1] <= value) {
-            max[0] = key;
-            max[1] = value;
+    for(let i = 0; i < summaryData.length; i++){
+        for(let j = 0; j < summaryData.length-i-1; j++){
+            if(summaryData[j].matchPlayed > summaryData[j+1].matchPlayed){
+                let temp = summaryData[j];
+                summaryData[j] = summaryData[j+1];
+                summaryData[j+1] = temp;
+            }
         }
     }
 
-    return max[0];
+    console.log(summaryData);
+    return summaryData;
+
 }
 
 const formatResult = (dataToFormat) => {
@@ -47,6 +66,10 @@ const formatResult = (dataToFormat) => {
 export class RankedStatsBox extends React.Component {
 
     render() {
+        let allData;
+        if(this.props.statsRetrieved){
+            allData = getOcurrencies(this.props.stats);
+        }
         return (
             <article className="rankedstatsbox">
                 <section className="emblem-container">
@@ -63,7 +86,13 @@ export class RankedStatsBox extends React.Component {
                     <h3>Most played lane</h3>
                     {
                         this.props.statsRetrieved ?
-                            <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `/images/ranked-positions/Position_${this.props.tier}-${formatResult(getOcurrencies(this.props.stats[3].teamPosition))}.png` :
+                            <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `/images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length-1].teamPosition)}.png` :
+                                `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
+                            <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                    }
+                                        {
+                        this.props.statsRetrieved ?
+                            <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `/images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length-2].teamPosition)}.png` :
                                 `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
                             <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
                     }
@@ -72,7 +101,13 @@ export class RankedStatsBox extends React.Component {
                     <h3>Most played champion</h3>
                     {
                         this.props.statsRetrieved ?
-                            <img alt="Most played champ" width="50" src={this.props.tier !== "Unranked" ? `http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${(getOcurrencies(this.props.stats[4].champions))}.png` :
+                            <img alt="Most played champ" width="50" src={this.props.tier !== "Unranked" ? `http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${allData[allData.length-1].championName}.png` :
+                                `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
+                            <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                    }
+                    {
+                        this.props.statsRetrieved ?
+                            <img alt="Most played champ" width="50" src={this.props.tier !== "Unranked" ? `http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${allData[allData.length-2].championName}.png` :
                                 `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
                             <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
                     }
