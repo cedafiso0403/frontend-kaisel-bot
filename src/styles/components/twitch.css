@@ -30,21 +30,36 @@
 }
 
 .twitch-grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     column-gap: 1%;
     row-gap: 3%;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 .twitch-streamer {
+    margin-top: 50px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgb(24, 26, 31, 1);
+}
+
+.twitch-game {
+    margin: 0.5em;
     border: 2px solid white;
     border-radius: 10px;
     background-color: rgb(24, 26, 31, 1);
 }
 
 .twitch-streamer:hover {
+    border: 2px solid purple;
+    border-radius: 10px;
+    background-color: rgb(24, 26, 31, 1);
+}
+
+.twitch-game:hover {
     border: 2px solid purple;
     border-radius: 10px;
     background-color: rgb(24, 26, 31, 1);
@@ -93,10 +108,13 @@
 }
 
 .games-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    row-gap: 3%;
-    justify-content: space-evenly;
-    justify-items: center;
-    align-items: center;
+    column-gap: 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.games-container h3 {
+    text-align: center;
 }
