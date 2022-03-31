@@ -50,13 +50,13 @@ function Home() {
             <h1 className="content-h1">PROJECT KAISEL</h1>
           </div>
           <p className="home-subtitle">
-            All-in-one Riot-games statistics page
+            All-in-one Riot Games statistics page
           </p>
           <p className="features-subtitle">
             Integrated with the Riot games and Twitch API,
-            Kaisel <br></br>supports statistics for <a href="https://www.leagueoflegends.com/" target="_blank" rel="noreferrer" >
-            League of Legends</a>, <a href="https://teamfighttactics.leagueoflegends.com/en-us/" target="_blank" rel="noreferrer">
-            TFT</a> and <a href="https://playvalorant.com/en-us/" target="_blank" rel="noreferrer">VALORANT</a>.
+            Kaisel <br></br>supports statistics for <a className="intro-page" href="https://www.leagueoflegends.com/" target="_blank" rel="noreferrer" >
+            League of Legends</a>, <a className="intro-page" href="https://teamfighttactics.leagueoflegends.com/en-us/" target="_blank" rel="noreferrer">
+            TFT</a> and <a className="intro-page" href="https://playvalorant.com/en-us/" target="_blank" rel="noreferrer">VALORANT</a>.
             <br></br>
             Access statistics for supported games, Twitch alerts, server moderation, and more!
           </p>  

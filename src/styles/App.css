@@ -1,13 +1,13 @@
-a {
+.intro-page {
   color: #3bafda;
   text-decoration: none;
 }
 
-a:visitied {
+.intro-page:visitied {
   color: #3bafda;
 }
 
-a:hover {
+.intro-page:hover {
   color: #55C9F4;
 }
 
