@@ -25,7 +25,7 @@ const TwitchGames = props => {
     }
 
     return <>
-        <h2>Top Games</h2>
+        <h1 className="content-h2">Top Games</h1>
         <div className="games-container">
             {games.map((game, index) => <div className="twitch-streamer" key={index}>
                 <h3>{game.name}</h3>

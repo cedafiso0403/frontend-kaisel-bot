@@ -1,6 +1,6 @@
 import React from "react";
-// import axios from 'axios';
 import api from '../api/api';
+import TwitchFeatured from './TwitchFeatured';
 import { useEffect, useState } from 'react';
 
 const thumbnail_width = '400'; 
@@ -19,17 +19,32 @@ const tft = {
     name: "Teamfight Tactics"
 }
 
+const games = [league, valorant, tft];
+
 const TwitchStreamers = props => {
     const [streamers, setStreamers] = useState([]);
+    const [featuredStreamer, setFeaturedStreamer] = useState(0);
+    const [featuredGame, setFeaturedGame] = useState(0);
     const [gameID, setgameID] = useState(league.id);
     const [gameName, setGameName] = useState(league.name);
-    const [streamerNum, setStreamerNum] = useState(5);
+    const [streamerNum, setStreamerNum] = useState(8);
+
+    useEffect(function getFeaturedStreamer() {
+        const chosenGame = games[Math.floor(Math.random() * games.length)];
+        setFeaturedGame(chosenGame);
+        const fetchData = async gameID => {
+            const streams = await api.get(`https://api.twitch.tv/helix/streams?first=100&game_id=${gameID}`);
+            const chosenStreamer = streams.data.data[Math.floor(Math.random() * streams.data.data.length)];
+            console.log(chosenStreamer);
+            setFeaturedStreamer(chosenStreamer);
+        };
+        fetchData(chosenGame.id);
+    },[]);
 
     useEffect(() => {
         const fetchData = async gameID => {
             const streams = await api.get(`https://api.twitch.tv/helix/streams?first=${streamerNum}&game_id=${gameID}`);
             setStreamers(streams.data.data);
-            // const thumbnail = await api.get(`https://static-cdn.jtvnw.net/previews-ttv/live_user_{streamers}-${thumbnail_width}x${thumbnail_height}.jpg`);
         };
         fetchData(gameID);
     },[gameID, streamerNum]);
@@ -60,8 +75,13 @@ const TwitchStreamers = props => {
     }
 
     return <>
-        <div className="twitch-form">
-            <form>
+        <section>
+            {featuredStreamer !== 0 && <TwitchFeatured featuredStreamer={featuredStreamer} chosenGame={featuredGame}/>}
+        </section>
+
+        <h1 className="content-h2">Top Streamers</h1>
+        <section className="twitch-form">
+            <div>
                 <label>Search for streamers by game</label>
                 <select onChange={selectChange} >
                     <option id={league.id} value="League of Legends">League of Legends</option>
@@ -71,24 +91,28 @@ const TwitchStreamers = props => {
                 <label>Number of top streamers</label>
                 <input type="number" placeholder="5" value={streamerNum} min="1" max="100" onChange={streamerNumberChange}/>
 
-            </form>
-        </div>
+            </div>
+        </section>
+
         <p className="features-subtitle">Current Top {gameName} Streamers:</p>
-        {streamers.map((stream, index) => <div key={index} className="twitch-streamer">
-            <h2 className="twitch-h2">{stream.user_name}</h2>
-            <div className="twitch-thumbnail">
-                <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
-            </div>
-            <p>{shortenTitle(stream.title)}</p>
-            <div className="viewer-container">
-                <div>
-                    <img className="viewer-count-img" alt="viewer count icon" src="images/twitch/view-count.png" height="25" width="25" />
+
+        <div className="twitch-grid-container">
+            {streamers.map((stream, index) => <div key={index} className="twitch-streamer">
+                <h2 className="twitch-h2">{stream.user_name}</h2>
+                <div className="twitch-thumbnail">
+                    <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
                 </div>
-                <div>
-                    <p className="viewer-count">{stream.viewer_count.toLocaleString()}</p>
+                <p>{shortenTitle(stream.title)}</p>
+                <div className="viewer-container">
+                    <div>
+                        <img className="viewer-count-img" alt="viewer count icon" src="images/twitch/view-count.png" height="25" width="25" />
+                    </div>
+                    <div>
+                        <p className="viewer-count">{stream.viewer_count.toLocaleString()}</p>
+                    </div>
                 </div>
-            </div>
-        </div>)}
+            </div>)}
+        </div>
     </>
 };
 
