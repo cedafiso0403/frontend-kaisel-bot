@@ -1,11 +1,10 @@
-/*
-This is just a testing page so I can learn how to use the API 
-*/
-
 import React from "react";
 // import axios from 'axios';
-import api from './api/api';
+import api from '../api/api';
 import { useEffect, useState } from 'react';
+
+const thumbnail_width = '400'; 
+const thumbnail_height = '250'; 
 
 const league = {
     id: "21779",
@@ -20,7 +19,7 @@ const tft = {
     name: "Teamfight Tactics"
 }
 
-const TwitchAPI = props => {
+const TwitchStreamers = props => {
     const [streamers, setStreamers] = useState([]);
     const [gameID, setgameID] = useState(league.id);
     const [gameName, setGameName] = useState(league.name);
@@ -30,6 +29,7 @@ const TwitchAPI = props => {
         const fetchData = async gameID => {
             const streams = await api.get(`https://api.twitch.tv/helix/streams?first=${streamerNum}&game_id=${gameID}`);
             setStreamers(streams.data.data);
+            // const thumbnail = await api.get(`https://static-cdn.jtvnw.net/previews-ttv/live_user_{streamers}-${thumbnail_width}x${thumbnail_height}.jpg`);
         };
         fetchData(gameID);
     },[gameID, streamerNum]);
@@ -47,6 +47,18 @@ const TwitchAPI = props => {
         setStreamerNum(e.target.value);
     };
 
+    const parseThumbnail = thumbnail => {
+        thumbnail = thumbnail.replace('{width}', thumbnail_width);
+        thumbnail = thumbnail.replace('{height}', thumbnail_height);
+        return thumbnail;
+    }
+
+    const shortenTitle = title => {
+        if (title.length > 40)
+            title = title.substring(0, 40) + '...';
+        return title;
+    }
+
     return <>
         <div className="twitch-form">
             <form>
@@ -62,8 +74,22 @@ const TwitchAPI = props => {
             </form>
         </div>
         <p className="features-subtitle">Current Top {gameName} Streamers:</p>
-        {streamers.map((stream, index) => <p key={index}>{stream.user_name}</p>)}
+        {streamers.map((stream, index) => <div key={index} className="twitch-streamer">
+            <h2 className="twitch-h2">{stream.user_name}</h2>
+            <div className="twitch-thumbnail">
+                <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
+            </div>
+            <p>{shortenTitle(stream.title)}</p>
+            <div className="viewer-container">
+                <div>
+                    <img className="viewer-count-img" alt="viewer count icon" src="images/twitch/view-count.png" height="25" width="25" />
+                </div>
+                <div>
+                    <p className="viewer-count">{stream.viewer_count.toLocaleString()}</p>
+                </div>
+            </div>
+        </div>)}
     </>
 };
 
-export default TwitchAPI;
+export default TwitchStreamers;

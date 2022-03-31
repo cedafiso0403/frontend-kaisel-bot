@@ -2,8 +2,7 @@ import Header from "../components/Header";
 import Footer from '../components/Footer';
 import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
-import Twitch from "../components/Twitch";
-import TwitchAPI from "../components/TwitchAPI";
+import TwitchIntro from "../components/TwitchIntro";
 
 import { GameCard } from "../components/GameCard";
 
@@ -30,20 +29,17 @@ document.addEventListener("scroll", () => {
 
 const propsForGameCardLeague = {
   gameName: "League of Legends",
-  activePlayers: 1234567,
-  topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
+  features: ['View current rank', 'View current winrate', 'View current Season KDA', 'Most played role', 'Most played champion']
 }
 
 const propsForGameCardTFT = {
   gameName: "Teamfight Tactics",
-  activePlayers: 1234567,
-  topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
+  features: ['View current rank', 'View current winrate', 'View current Season KDA', 'Most played role', 'Most played champion']
 }
 
 const propsForGameCardValorant = {
   gameName: "Valorant",
-  activePlayers: 1234567,
-  topStreamer: ["First streamer", "Second Streamer", "Third Streamer"]
+  features: ['View current rank', 'View current winrate', 'View current Season KDA', 'Most played role', 'Most played champion']
 }
 
 function Home() {
@@ -96,15 +92,10 @@ function Home() {
         </section>
           
         <section>
-          <Twitch />
+          <TwitchIntro />
         </section>
         
-        <section>
-          <h1>Twitch API</h1>
 
-          
-          <TwitchAPI />
-        </section>
             
       </main>
       <Footer />

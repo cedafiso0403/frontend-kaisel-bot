@@ -2,6 +2,12 @@
     text-align: center;
 }
 
+.twitch-h2 {
+    font-size: 1.75em;
+    padding: 15px;
+}
+
+
 .twitch-content img {
     border-radius: 10px;
     box-shadow: 0 0 25px white;
@@ -14,9 +20,41 @@
     justify-content: center;
 }
 
+.twitch-streamer {
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 70vh;
+    margin-right: 70vh;
+}
+
+.twitch-thumbnail {
+    display: block;
+    text-align: center;
+}
+
+.viewer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.viewer-count {
+    color: #FF7573;
+}
+
+.viewer-count-img  {
+    padding: 5px
+}
+
 .twitch-form input[type=text], .twitch-form select, input[type=number] {
     padding: 5px 20px;
     margin: 8px 0;
     display: flex;
     flex-direction: column;
+}
+
+.games-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
 }
