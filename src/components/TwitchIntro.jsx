@@ -15,7 +15,7 @@ export default class TwitchIntro extends React.Component {
                 </p>
                 <img alt="streamers" className="imgStyle" src="images/streamers.png" height="300px" width="500px" />
                 <div className="form-box">
-                    <Link to="/Twitch" className="big-add-server-button">Try Twitch Features</Link>
+                    <Link to="/Twitch" className="big-add-server-button">See Features</Link>
                 </div>
             </section>
         );

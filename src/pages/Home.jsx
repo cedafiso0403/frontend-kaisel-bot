@@ -6,14 +6,6 @@ import TwitchIntro from "../components/TwitchIntro";
 
 import { GameCard } from "../components/GameCard";
 
-
-// import api from '../components/api/api'
-// const fetchData = async () => {
-//   const streams = await api.get('https://api.twitch.tv/helix/streams?first=3&game_id=21779');
-//   const topStreamers = streams.data.data.map(stream => `${stream.user_name}`);         
-//   return topStreamers;
-// };
-
 // Event listener used for the sections fade in
 document.addEventListener("scroll", () => {
   let mainSections = document.querySelectorAll("main>section");
@@ -58,7 +50,7 @@ function Home() {
             <h1 className="content-h1">PROJECT KAISEL</h1>
           </div>
           <p className="home-subtitle">
-            All-in-one Discord gaming bot
+            All-in-one Riot-games statistics page
           </p>
           <p className="features-subtitle">
             Integrated with the Riot games and Twitch API,
@@ -94,9 +86,7 @@ function Home() {
         <section>
           <TwitchIntro />
         </section>
-        
-
-            
+           
       </main>
       <Footer />
     </div>
