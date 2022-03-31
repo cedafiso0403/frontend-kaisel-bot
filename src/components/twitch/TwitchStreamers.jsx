@@ -96,21 +96,21 @@ const TwitchStreamers = props => {
 
         <div className="twitch-grid-container">
             {streamers.map((stream, index) => <div key={index} className="twitch-streamer">
-                <h2 className="twitch-h2">{stream.user_name}</h2>
-                <div className="twitch-thumbnail">
-                    <a target="_blank" rel="noreferrer" href={`https://www.twitch.tv/${stream.user_name}`}>
-                        <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
-                    </a>
-                </div>
-                <p>{shortenTitle(stream.title)}</p>
-                <div className="viewer-container">
-                    <div>
-                        <img className="viewer-count-img" alt="viewer count icon" src="images/twitch/view-count.png" height="25" width="25" />
+                <a className="twitch-a" target="_blank" rel="noreferrer" href={`https://www.twitch.tv/${stream.user_name}`}>
+                    <h2 className="twitch-h2">{stream.user_name}</h2>
+                    <div className="twitch-thumbnail">
+                            <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
                     </div>
-                    <div>
-                        <p className="viewer-count">{stream.viewer_count.toLocaleString()}</p>
+                    <p>{shortenTitle(stream.title)}</p>
+                    <div className="viewer-container">
+                        <div>
+                            <img className="viewer-count-img" alt="viewer count icon" src="images/twitch/view-count.png" height="25" width="25" />
+                        </div>
+                        <div>
+                            <p className="viewer-count">{stream.viewer_count.toLocaleString()}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>)}
         </div>
     </>
