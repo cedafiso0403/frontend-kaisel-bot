@@ -7,7 +7,6 @@
     padding: 15px;
 }
 
-
 .twitch-content img {
     border-radius: 10px;
     box-shadow: 0 0 25px white;
@@ -18,6 +17,11 @@
     padding: 20px;
     display: flex;
     justify-content: center;
+    background-color: rgb(24, 26, 31, 1);
+    margin-top: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 40px;
 }
 
 .twitch-grid-container {
@@ -42,7 +46,20 @@
 }
 
 .twitch-featured {
+    padding-top: 20px;
     background-color: rgb(24, 26, 31, 1);
+    margin-bottom: 30px;
+}
+
+.twitch-featured-h2 {
+    color: #815fc0;
+    padding-bottom: 10px;
+}
+
+.twitch-labels {
+    font-size: 1.75em;
+    color: #815fc0;
+    font-weight: bold;
 }
 
 .twitch-thumbnail {
