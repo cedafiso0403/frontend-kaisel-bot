@@ -24,5 +24,24 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-bottom: 2em;
+}
+
+.TopPlayedButton{
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 25%;
+    height: 15%;
+    border: 2px solid white;
+    border-radius: 45px;
+    background: transparent;
+    color: white;
+    transition: 0.2s all ease-in-out;
+}
+
+.TopPlayedButton:hover{
+    cursor: pointer;
+    background-color: #1589B4;
 }

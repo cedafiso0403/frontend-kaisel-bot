@@ -2,9 +2,10 @@ import React from "react";
 import "../styles/components/userStatsBox.css"
 import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
+import ChampionStats from "./ChampionStats";
 
 // const API_KEY = "RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee";
-const API_KEYS = ["RGAPI-544319fc-85fa-47ab-9499-270a21130ea1", "RGAPI-4ee3c749-e66d-4249-9825-45f10d646668", "RGAPI-a3cda100-54af-4d87-bd60-ce86660974ae", "RGAPI-cb423937-0b5a-444b-b637-71edb7976524"];
+const API_KEYS = ["RGAPI-df76e1e5-3bea-46d4-b541-9da2c7028ca3", "RGAPI-ae79c113-037c-4b3f-8df9-0e0ff501ecc2", "RGAPI-2b4415b8-3d7a-4a3a-9f3e-98e225aeb966", "RGAPI-d61a8137-67e7-4b93-9c32-80733664a908"];
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
@@ -23,7 +24,9 @@ export class UserStatsBox extends React.Component {
                 440: [],
                 420: []
             },
-            statsRetrieved: false
+            statsRetrieved: false,
+            orderedData420: [],
+            orderedData440: []
         };
     }
 
@@ -37,6 +40,34 @@ export class UserStatsBox extends React.Component {
         }
         this.counter++;
         return API_KEYS[this.index];
+    }
+
+    setOrdererDataSolo(datas) {
+        this.setState((prevState) => {
+            if (datas.length > 0) {
+                return {
+                    orderedData420: [...datas]
+                }
+            } else {
+                return {
+                    orderedData420: [...prevState.orderedData420]
+                }
+            }
+        })
+    }
+
+    setOrdererDataFlex(datas) {
+        this.setState((prevState) => {
+            if (datas.length > 0) {
+                return {
+                    orderedData440: [...datas]
+                }
+            } else {
+                return {
+                    orderedData440: [...prevState.orderedData420]
+                }
+            }
+        })
     }
 
     searchPlayerStatistics() {
@@ -199,7 +230,7 @@ export class UserStatsBox extends React.Component {
                             let index = response.data.info.participants.findIndex((elements) => elements.summonerName === this.state.player.name);
                             if (!object.hasOwnProperty(response.data.info.queueId)) {
                                 object[response.data.info.queueId] = [];
-                                let objChamp = { };
+                                let objChamp = {};
                                 objChamp = {
                                     championName: response.data.info.participants[index].championName,
                                     kills: response.data.info.participants[index].kills,
@@ -207,11 +238,11 @@ export class UserStatsBox extends React.Component {
                                     assists: response.data.info.participants[index].assists,
                                     teamPosition: response.data.info.participants[index].teamPosition,
                                     totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
-                                    matchLength : (response.data.info.gameEndTimestamp -response.data.info.gameStartTimestamp)/60000.0
+                                    matchLength: (response.data.info.gameEndTimestamp - response.data.info.gameStartTimestamp) / 60000.0
                                 }
                                 object[response.data.info.queueId].push(objChamp);
                             } else {
-                                let objChamp = { };
+                                let objChamp = {};
                                 objChamp = {
                                     championName: response.data.info.participants[index].championName,
                                     kills: response.data.info.participants[index].kills,
@@ -219,7 +250,7 @@ export class UserStatsBox extends React.Component {
                                     assists: response.data.info.participants[index].assists,
                                     teamPosition: response.data.info.participants[index].teamPosition,
                                     totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
-                                    matchLength : (response.data.info.gameEndTimestamp -response.data.info.gameStartTimestamp)/60000.0
+                                    matchLength: (response.data.info.gameEndTimestamp - response.data.info.gameStartTimestamp) / 60000.0
                                 }
                                 object[response.data.info.queueId].push(objChamp);
                             }
@@ -252,7 +283,7 @@ export class UserStatsBox extends React.Component {
         this.searchForPlayer();
     }
 
-    radioButtonHandlerer(e){
+    radioButtonHandlerer(e) {
 
     }
 
@@ -271,7 +302,7 @@ export class UserStatsBox extends React.Component {
                 })
                 let matchsFlex = indexFlex >= 0 ? rankedStats[indexFlex].wins + rankedStats[indexFlex].losses : 0;
                 let matchsSolo = indexSolo >= 0 ? rankedStats[indexSolo].wins + rankedStats[indexSolo].losses : 0;
-                if ((matchsFlex + matchsSolo) <= (filterData[440].length + filterData[420].length)){
+                if ((matchsFlex + matchsSolo) <= (filterData[440].length + filterData[420].length)) {
                     statsRetrieved = true;
                 }
             } catch (error) {
@@ -279,65 +310,94 @@ export class UserStatsBox extends React.Component {
             }
         }
         return (
-            <div className="user-stats-box">
-                <div className="profile-picture-container">
-                    <div className="stat-container">
+            <>
+                <div className="user-stats-box">
+                    <div className="profile-picture-container">
+                        <div className="stat-container">
+                            {
+                                retrievedData ?
+                                    <h4>{player.name}</h4> :
+                                    <h4>Loading</h4>
+                            }
+                        </div>
                         {
                             retrievedData ?
-                                <h4>{player.name}</h4> :
-                                <h4>Loading</h4>
+                                <img alt="For in game" src={`http://ddragon.leagueoflegends.com/cdn/12.4.1/img/profileicon/${player.profileIconId}.png`}></img> :
+                                <img alt="For in game" src="/images/Loading.gif"></img>
                         }
                     </div>
-                    {
-                        retrievedData ?
-                            <img alt="For in game" src={`http://ddragon.leagueoflegends.com/cdn/12.4.1/img/profileicon/${player.profileIconId}.png`}></img> :
-                            <img alt="For in game" src="/images/Loading.gif"></img>
-                    }
-                </div>
-                <div className="stats-container tabs-stats" onChange={e=> this.radioButtonHandlerer(e)}>
-                    {
-                        retrievedData ?
-                            rankedStats.map((elements, i) => {
-                                if (elements.queueType !== "RANKED_TFT_PAIRS") {
-                                    let data;
-                                    if (elements.queueType === "RANKED_FLEX_SR" && statsRetrieved) {
-                                        data = filterData[440];
-                                    } else if (statsRetrieved) {
-                                        data = filterData[420];
-                                    }
-                                    
-                                    let checkedAtt = i === 0 ? {"defaultChecked":"defaultChecked"} : {};
+                    <div className="stats-container tabs-stats" onChange={e => this.radioButtonHandlerer(e)}>
+                        {
+                            retrievedData ?
+                                rankedStats.map((elements, i) => {
+                                    if (elements.queueType !== "RANKED_TFT_PAIRS") {
+                                        let data;
+                                        let functionForOrderedData;
+                                        if (elements.queueType === "RANKED_FLEX_SR" && statsRetrieved) {
+                                            data = filterData[440];
+                                            functionForOrderedData = this.setOrdererDataFlex.bind(this)
+                                        } else if (statsRetrieved) {
+                                            data = filterData[420];
+                                            functionForOrderedData = this.setOrdererDataSolo.bind(this)
+                                        }
 
-                                    if (statsRetrieved) {
-                                        return (
-                                            <>
-                                                <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs"  {...checkedAtt} key={"tab" + elements.queueType}></input>
-                                                <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
-                                                <div className="tab">
-                                                    <RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} stats={data} />
-                                                </div>
-                                            </>
-                                        )
-                                    } else {
-                                        return (
-                                            <>
-                                                <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs" {...checkedAtt} key={"tab" + elements.queueType}></input>
-                                                <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
-                                                <div className="tab">
-                                                    <RankedStatsBox key={elements.queueType} {...elements} />
-                                                </div>
-                                            </>
-                                        )
-                                    }
-                                };
-                                return null; //default return value
-                            }) :
-                            <RankedStatsBox {...{
-                                queueType: "Loading"
-                            }} />
+                                        let checkedAtt = i === 0 ? { "defaultChecked": "defaultChecked" } : {};
+
+                                        if (statsRetrieved) {
+                                            return (
+                                                <>
+                                                    <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs"  {...checkedAtt} key={"tab" + elements.queueType}></input>
+                                                    <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
+                                                    <div className="tab">
+                                                        <RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} stats={data} setOrdererData={functionForOrderedData} />
+                                                    </div>
+                                                </>
+                                            )
+                                        } else {
+                                            return (
+                                                <>
+                                                    <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs" {...checkedAtt} key={"tab" + elements.queueType}></input>
+                                                    <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
+                                                    <div className="tab">
+                                                        <RankedStatsBox key={elements.queueType} statsRetrieved={statsRetrieved} {...elements} />
+                                                    </div>
+                                                </>
+                                            )
+                                        }
+                                    };
+                                    return null; //default return value
+                                }) :
+                                <RankedStatsBox {...{
+                                    queueType: "Loading"
+                                }} />
+                        }
+                    </div>
+                </div>
+                <div>
+                    <div className="champion-stats">
+                        <p className="champion-headers">Champ</p>
+                        <p>Role</p>
+                        <p>Kills</p>
+                        <p>Deaths</p>
+                        <p>Assist</p>
+                        <p>Farm/min</p>
+                    </div>
+                    {
+                        this.state.orderedData440.length > 0 ?
+                            this.state.orderedData440.slice(this.state.orderedData440.length - 5, this.state.orderedData440.length).reverse().map((elem) => {
+                                return <ChampionStats {...elem} />
+                            })
+                            : ""
+                    }
+                    {
+                        this.state.orderedData420.length > 0 ?
+                            this.state.orderedData420.slice((this.state.orderedData420.length - 5 < 0 ? 0 : this.state.orderedData420.length - 5)).reverse().map((elem) => {
+                                return <ChampionStats {...elem} />
+                            })
+                            : ""
                     }
                 </div>
-            </div>
+            </>
         )
     }
 }

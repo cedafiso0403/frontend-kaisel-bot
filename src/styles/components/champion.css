@@ -1,0 +1,14 @@
+.champion-stats{
+    background-color: #181A20;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    border: 2px solid white;
+    width: 60%;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+
+.champion-headers{
+    margin-left: 50px;
+}
