@@ -20,7 +20,7 @@ const TwitchStreamers = props => {
     return <>
             <div className="twitch-featured">
                 <h1 className="content-h2">Featured Streamer</h1>
-                <h2 className="twitch-h2">{props.featuredStreamer.user_name} is playing {props.featuredStreamer.game_name}</h2>
+                <h2 className="twitch-featured-h2">{props.featuredStreamer.user_name} is playing {props.featuredStreamer.game_name}</h2>
                 <div className="twitch-thumbnail">
                     <img src={parseThumbnail(props.featuredStreamer.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
                 </div>

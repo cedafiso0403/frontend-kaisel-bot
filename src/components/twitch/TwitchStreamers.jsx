@@ -82,25 +82,25 @@ const TwitchStreamers = props => {
         <h1 className="content-h2">Top Streamers</h1>
         <section className="twitch-form">
             <div>
-                <label>Search for streamers by game</label>
+                <label className="twitch-labels">Search for streamers by game</label>
                 <select onChange={selectChange} >
                     <option id={league.id} value="League of Legends">League of Legends</option>
                     <option id={valorant.id} value="VALORANT">VALORANT</option>
                     <option id={tft.id} value="Teamfight Tactics">TFT</option>
                 </select>
-                <label>Number of top streamers</label>
+                <label className="twitch-labels">Number of top streamers</label>
                 <input type="number" placeholder="5" value={streamerNum} min="1" max="100" onChange={streamerNumberChange}/>
-
+                <h2 className="twitch-h2 viewer-count">Selected Game: {gameName}</h2>
             </div>
         </section>
-
-        <p className="features-subtitle">Current Top {gameName} Streamers:</p>
 
         <div className="twitch-grid-container">
             {streamers.map((stream, index) => <div key={index} className="twitch-streamer">
                 <h2 className="twitch-h2">{stream.user_name}</h2>
                 <div className="twitch-thumbnail">
-                    <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
+                    <a target="_blank" rel="noreferrer" href={`https://www.twitch.tv/${stream.user_name}`}>
+                        <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
+                    </a>
                 </div>
                 <p>{shortenTitle(stream.title)}</p>
                 <div className="viewer-container">
