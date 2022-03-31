@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.30a47ec8.css",
-    "main.js": "/static/js/main.a4d788c3.js",
+    "main.css": "/static/css/main.b9577892.css",
+    "main.js": "/static/js/main.3271d965.js",
     "static/media/ValorantCard.png": "/static/media/ValorantCard.6e7719964025bcaac69e.png",
     "static/media/bg8.png": "/static/media/bg8.ba13d35205251ddbf6c9.png",
     "static/media/LeagueCard.jpg": "/static/media/LeagueCard.9902b7736cfdd595d36a.jpg",
     "static/media/tftCard2.png": "/static/media/tftCard2.25692db066b675c1a694.png",
     "static/media/beruSad.png": "/static/media/beruSad.ed55518c0c467510d30c.png",
     "index.html": "/index.html",
-    "main.30a47ec8.css.map": "/static/css/main.30a47ec8.css.map",
-    "main.a4d788c3.js.map": "/static/js/main.a4d788c3.js.map"
+    "main.b9577892.css.map": "/static/css/main.b9577892.css.map",
+    "main.3271d965.js.map": "/static/js/main.3271d965.js.map"
   },
   "entrypoints": [
-    "static/css/main.30a47ec8.css",
-    "static/js/main.a4d788c3.js"
+    "static/css/main.b9577892.css",
+    "static/js/main.3271d965.js"
   ]
 }
