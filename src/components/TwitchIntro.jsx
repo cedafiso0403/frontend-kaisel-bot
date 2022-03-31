@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/components/twitch.css";
+import "../styles/components/mediaquery.css";
 
 
 export default class TwitchIntro extends React.Component {

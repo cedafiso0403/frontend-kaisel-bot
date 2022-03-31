@@ -28,7 +28,7 @@ const TwitchGames = props => {
         <h1 className="content-h2">Top Games</h1>
         <br></br>
         <div className="games-container">
-            {games.map((game, index) => <div className="twitch-streamer" key={index}>
+            {games.map((game, index) => <div className="twitch-game" key={index}>
                 <h3>{game.name}</h3>
                 <img alt="game card" src={setDimensions(game.box_art_url)} height={game.box_art_height} width={game.box_art_width}/>
                 
