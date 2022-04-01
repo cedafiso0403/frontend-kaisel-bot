@@ -21,5 +21,4 @@ function NotFound() {
     );
 }
 
-//<img className="features-img" alt="beru sad" hieght="400px" width="400px" src="/images/beruSad.png"></img>
 export default NotFound;

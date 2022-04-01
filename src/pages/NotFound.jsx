@@ -10,7 +10,7 @@ function NotFound() {
                     <section>
                         <h1 className="notFound-h1">404</h1>
                         <h2 className="notFound-h2">Sorry the page you are trying to <br></br>access does not exist.</h2>
-                        <h2 className="features-subtitle">Return to the <a href="/">home page</a>.</h2>
+                        <h2 className="features-subtitle">Return to the <a className="intro-page" href="/">home page</a>.</h2>
                     </section>
                     <div className="beruSad"></div>
                 </article>
