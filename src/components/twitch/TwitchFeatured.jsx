@@ -6,12 +6,6 @@ const thumbnail_width = '1000';
 const thumbnail_height = '500'; 
 
 const TwitchStreamers = props => {
-    const parseThumbnail = thumbnail => {
-        thumbnail = thumbnail.replace('{width}', thumbnail_width);
-        thumbnail = thumbnail.replace('{height}', thumbnail_height);
-        return thumbnail;
-    }
-
     const shortenTitle = title => {
         if (title.length > 40)
             title = title.substring(0, 40) + '...';
