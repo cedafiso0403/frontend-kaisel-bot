@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/Contact" element={<Contact />}></Route>
           <Route exact path="/Stats" element={<Stats />}></Route>
           <Route exact path="/Twitch" element={<Twitch />}></Route>
-          <Route path="/TestStats" element={<Stats />}></Route>
+          <Route path="/TestStats/*" element={<Stats />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
