@@ -112,3 +112,7 @@
 .games-container h3 {
     text-align: center;
 }
+
+iframe {
+    width: 100%;
+}
