@@ -57,27 +57,3 @@
     height: 750px;
   }
 }
-/* League page */
-@media only screen and (max-width: 768px) {
-  .form-box {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-  }
-  .form-container2 {
-    flex-direction: column;
-  }
-
-  .user-stats-box {
-    width: 80%;
-    margin: auto;
-  }
-
-  .chapmion-stats {
-    width: 80%;
-  }
-
-  .rankedstatsbox {
-    flex-wrap: wrap;
-    flex-direction: none;
-  }
-}
