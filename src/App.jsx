@@ -9,7 +9,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/frontend-kaisel-bot">
+      <div id="content=wrapper">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/Contact" element={<Contact />}></Route>
