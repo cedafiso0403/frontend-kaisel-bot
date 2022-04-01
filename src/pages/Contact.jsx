@@ -5,7 +5,7 @@ import { ProjectMember } from '../components/ProjectMember';
 const propsForCesar = {
   name: "Cesar Figueroa Socrarras",
   description: "Original webdesigner and responsible for the Riot Games API and integration tests.",
-  picture: "images/team/Cesar.png",
+  picture: "images/team/cesar-modified.png",
   githubLink: "https://github.com/cedafiso",
   linkedInLink: "",
 }
