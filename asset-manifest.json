@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/frontend-kaisel-bot/static/css/main.3b49f253.css",
-    "main.js": "/frontend-kaisel-bot/static/js/main.61e01869.js",
+    "main.css": "/frontend-kaisel-bot/static/css/main.2e0e0b77.css",
+    "main.js": "/frontend-kaisel-bot/static/js/main.505555c7.js",
     "static/media/ValorantCard.png": "/frontend-kaisel-bot/static/media/ValorantCard.6e7719964025bcaac69e.png",
     "static/media/bg8.png": "/frontend-kaisel-bot/static/media/bg8.ba13d35205251ddbf6c9.png",
     "static/media/LeagueCard.jpg": "/frontend-kaisel-bot/static/media/LeagueCard.9902b7736cfdd595d36a.jpg",
     "static/media/tftCard2.png": "/frontend-kaisel-bot/static/media/tftCard2.25692db066b675c1a694.png",
     "static/media/beruSad.png": "/frontend-kaisel-bot/static/media/beruSad.ed55518c0c467510d30c.png",
     "index.html": "/frontend-kaisel-bot/index.html",
-    "main.3b49f253.css.map": "/frontend-kaisel-bot/static/css/main.3b49f253.css.map",
-    "main.61e01869.js.map": "/frontend-kaisel-bot/static/js/main.61e01869.js.map"
+    "main.2e0e0b77.css.map": "/frontend-kaisel-bot/static/css/main.2e0e0b77.css.map",
+    "main.505555c7.js.map": "/frontend-kaisel-bot/static/js/main.505555c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b49f253.css",
-    "static/js/main.61e01869.js"
+    "static/css/main.2e0e0b77.css",
+    "static/js/main.505555c7.js"
   ]
 }
