@@ -87,7 +87,7 @@ export class RankedStatsBox extends React.Component {
             <>
                 <article className="rankedstatsbox">
                     <section className="emblem-container">
-                        <img alt="Tier emblem" src={this.props.tier !== undefined ? `images/ranked-emblems/Emblem_${this.props.tier}.png` : "/images/Loading.gif"}></img>
+                        <img alt="Tier emblem" src={this.props.tier !== undefined ? `images/ranked-emblems/Emblem_${this.props.tier}.png` : "images/Loading.gif"}></img>
                     </section>
                     <section className="info-container">
                         <h3>{this.props.queueType.replaceAll("_", " ")}</h3>
@@ -102,13 +102,13 @@ export class RankedStatsBox extends React.Component {
                             this.props.statsRetrieved ?
                                 <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length - 1].teamPosition)}.png` :
                                     `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
-                                <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                                <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
                         {
                             this.props.statsRetrieved ?
                                 <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length - 2].teamPosition)}.png` :
                                     `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
-                                <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                                <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
                     </section>
                     <section className="info-container">
