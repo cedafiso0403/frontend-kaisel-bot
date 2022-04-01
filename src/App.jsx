@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Stats from './pages/Stats';
 import NotFound from './pages/NotFound';
 import Twitch from './pages/Twitch';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
           <Route path="/TestStats/*" element={<Stats />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
-      </div>
     </BrowserRouter>
   );
 }
