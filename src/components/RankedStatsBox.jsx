@@ -2,14 +2,6 @@ import React from "react";
 import "../styles/components/rankedStatsBox.css";
 import "../styles/components/mediaquery.css";
 
-// import axios from 'axios';
-
-//string[0].toUpperCase() + string.substring(1)
-// let queueIds;
-// axios.get('https://static.developer.riotgames.com/docs/lol/queues.json').then((response) => {
-//     queueIds = response.data;
-// })
-
 const getOcurrencies = (dataArray) => {
     let summaryData = [];
     dataArray.forEach(elem => {
