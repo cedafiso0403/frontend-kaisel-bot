@@ -5,7 +5,6 @@ import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 import ChampionStats from "./ChampionStats";
 
-// const API_KEY = "RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee";
 const API_KEYS = ["RGAPI-673d0626-7ac3-4581-b338-8863cc0f5e33", "RGAPI-ae79c113-037c-4b3f-8df9-0e0ff501ecc2", "RGAPI-2b4415b8-3d7a-4a3a-9f3e-98e225aeb966", "RGAPI-d61a8137-67e7-4b93-9c32-80733664a908"];
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 

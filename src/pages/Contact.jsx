@@ -6,7 +6,7 @@ const propsForCesar = {
   name: "Cesar Figueroa Socrarras",
   description: "Original webdesigner and responsible for the Riot Games API and integration tests.",
   picture: "images/team/Cesar.png",
-  githubLink: "https://github.com/cedafiso0403",
+  githubLink: "https://github.com/cedafiso",
   linkedInLink: "",
 }
 
@@ -21,7 +21,7 @@ const propsForLeo = {
 const propsForLucas = {
   name: "Lucas Lee",
   description: "Webdesigner and responsible for the Valorant section of Riot Games API.",
-  picture: "images/team/lucas.png",
+  picture: "images/team/Lucas.png",
   githubLink: "https://github.com/LucasDLee",
   linkedInLink: "https://www.linkedin.com/in/lucas-l-7b0bb3201/",
 }
