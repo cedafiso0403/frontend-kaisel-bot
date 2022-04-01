@@ -91,7 +91,7 @@ export class RankedStatsBox extends React.Component {
             <>
                 <article className="rankedstatsbox">
                     <section className="emblem-container">
-                        <img alt="Tier emblem" src={this.props.tier !== undefined ? `images/ranked-emblems/Emblem_${capitalizeFirstLetter(this.props.tier.toLowerCase())}.png` : "images/Loading.gif"}></img>
+                        <img alt="Tier emblem" src={this.props.tier !== undefined ? `images/ranked-emblems/Emblem_${this.capitalizeFirstLetter(this.props.tier.toLowerCase())}.png` : "images/Loading.gif"}></img>
                     </section>
                     <section className="info-container">
                         <h3>{this.props.queueType.replaceAll("_", " ")}</h3>
@@ -104,13 +104,13 @@ export class RankedStatsBox extends React.Component {
                         <h3>Most played lane</h3>
                         {
                             this.props.statsRetrieved ?
-                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${capitalizeFirstLetter(this.props.tier.toLowerCase())}-${formatResult(allData[allData.length - 1].teamPosition)}.png` :
+                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${this.capitalizeFirstLetter(this.props.tier.toLowerCase())}-${formatResult(allData[allData.length - 1].teamPosition)}.png` :
                                     `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
                                 <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
                         {
                             this.props.statsRetrieved ?
-                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${capitalizeFirstLetter(this.props.tier.toLowerCase())}-${formatResult(allData[allData.length - 2].teamPosition)}.png` :
+                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${this.capitalizeFirstLetter(this.props.tier.toLowerCase())}-${formatResult(allData[allData.length - 2].teamPosition)}.png` :
                                     `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
                                 <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
