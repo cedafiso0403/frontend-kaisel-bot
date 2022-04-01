@@ -5,15 +5,6 @@ import { UserStatsBox } from "../components/UserStatsBox";
 import {useLocation} from "react-router-dom";
 import ValorantAPI from "../components/ValorantAPI";
 
-// let testStats = {
-//     username : "Mighty",
-//     gamesPlayed: 9856,
-//     winRate: 34,
-//     rank: "Iron",
-//     kdr: 0.34,
-//     imageSource: "/images/TestImages.jpg"
-// }
-
 function Stats() {
     const search = useLocation().search;
     let data = {
@@ -26,8 +17,10 @@ function Stats() {
         let game = data.game;
         if(game === 'valorant')
             return <ValorantAPI {...data}/>
-        else
+        else if (game === 'league')
             return <UserStatsBox {...data}/>
+        else
+            return "";
     }
 
     return (
