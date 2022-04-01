@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Stats from './pages/Stats';
 import NotFound from './pages/NotFound';
 import Twitch from './pages/Twitch';
-import { BrowserRouter, Routes, Route, HashRouter} from 'react-router-dom';
+import {Routes, Route, HashRouter} from 'react-router-dom';
 
 
 function App() {
