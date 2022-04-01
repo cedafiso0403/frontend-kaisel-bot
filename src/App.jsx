@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div id="content=wrapper">
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="" element={<Home />}></Route>
           <Route exact path="/Contact" element={<Contact />}></Route>
           <Route exact path="/Stats" element={<Stats />}></Route>
           <Route exact path="/Twitch" element={<Twitch />}></Route>
