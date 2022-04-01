@@ -35,7 +35,6 @@ const TwitchStreamers = props => {
         const fetchData = async gameID => {
             const streams = await api.get(`https://api.twitch.tv/helix/streams?first=100&game_id=${gameID}`);
             const chosenStreamer = streams.data.data[Math.floor(Math.random() * streams.data.data.length)];
-            console.log(chosenStreamer);
             setFeaturedStreamer(chosenStreamer);
         };
         fetchData(chosenGame.id);
@@ -96,7 +95,7 @@ const TwitchStreamers = props => {
 
         <div className="twitch-grid-container">
             {streamers.map((stream, index) => <div key={index} className="twitch-streamer">
-                <a className="twitch-a" target="_blank" rel="noreferrer" href={`https://www.twitch.tv/${stream.user_name}`}>
+                <a className="twitch-a" target="_blank" rel="noreferrer" href={`https://www.twitch.tv/${stream.user_login}`}>
                     <h2 className="twitch-h2">{stream.user_name}</h2>
                     <div className="twitch-thumbnail">
                             <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
