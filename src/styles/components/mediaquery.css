@@ -1,5 +1,19 @@
 /* Main page*/
 @media only screen and (max-width: 768px) {
+  .home-icon {
+    display: flex;
+    column-gap: 2em;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .home-icon img {
+    margin-bottom: 1em;
+    width: 25%;
+    height: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .gamecards-container {
     border: none;
     margin-bottom: 0.5em;
