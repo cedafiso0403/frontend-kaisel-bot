@@ -14,7 +14,7 @@ const propsForLeo = {
   name: "Leo Chung",
   description: "Responsible for media queries and unit tests.",
   picture: "images/team/Leo.png",
-  githubLink: "",
+  githubLink: "https://github.com/leochung0577",
   linkedInLink: "",
 }
 
