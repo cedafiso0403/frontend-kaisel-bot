@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/frontend-kaisel-bot">
       <div id="content=wrapper">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
