@@ -22,7 +22,7 @@ function App() {
         </Switch>
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
