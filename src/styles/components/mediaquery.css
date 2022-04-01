@@ -55,4 +55,8 @@
     flex-wrap: wrap;
     flex-direction: none;
   }
+  iframe {
+    width: 70%;
+    height: 750px;
+  }
 }
