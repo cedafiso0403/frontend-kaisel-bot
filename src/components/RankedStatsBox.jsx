@@ -74,7 +74,6 @@ export class RankedStatsBox extends React.Component {
             this.setStatsRetrieved(this.props.statsRetrieved);
         }
         if (prevState.statsRetrieved !== this.state.statsRetrieved && this.props.statsRetrieved) {
-            console.log(this.props.stats);
             this.props.setOrdererData(getOcurrencies(this.props.stats));
         }
     }
@@ -136,7 +135,7 @@ export class RankedStatsBox extends React.Component {
                         }
                     </section>
                 </article>
-                <button className="TopPlayedButton">Show 5 most played</button>
+                <button className="TopPlayedButton" onClick={e => this.props.setDisplayChamps()}>Show 5 most played</button>
             </>
         )
     }
