@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import './../styles/components/features.css';
 
 export default class Features extends React.Component {
