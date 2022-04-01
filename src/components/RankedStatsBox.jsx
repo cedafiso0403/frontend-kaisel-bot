@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/components/rankedStatsBox.css";
+import "../styles/components/mediaquery.css";
+
 // import axios from 'axios';
 
 //string[0].toUpperCase() + string.substring(1)

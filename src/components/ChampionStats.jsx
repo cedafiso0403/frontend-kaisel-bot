@@ -1,5 +1,6 @@
 import React from "react";
 import './../styles/components/champion.css';
+import "../styles/components/mediaquery.css";
 
 export default class ChampionStats extends React.Component {
     render() {

@@ -1,4 +1,5 @@
 import "../styles/components/searchbar.css"
+import "../styles/components/mediaquery.css";
 import React from "react";
 
 export default function SearchBar() {

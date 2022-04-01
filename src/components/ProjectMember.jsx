@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/components/projectmember.css";
+import "../styles/components/mediaquery.css";
 
 export class ProjectMember extends React.Component {
     render() {

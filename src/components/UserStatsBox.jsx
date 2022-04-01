@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/components/userStatsBox.css"
+import "../styles/components/mediaquery.css";
 import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 import ChampionStats from "./ChampionStats";
