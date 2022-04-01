@@ -18,8 +18,8 @@ function App() {
           <Route exact path="/Twitch" element={<Twitch />}></Route>
           <Route path="/TestStats/*" element={<Stats />}></Route>
           <Route path="*" element={<NotFound />}></Route>
-      </div>
         </Routes>
+      </div>
     </BrowserRouter>
   );
 }
