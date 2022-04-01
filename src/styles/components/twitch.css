@@ -48,18 +48,10 @@
 
 .twitch-game {
     margin: 0.5em;
-    border: 2px solid white;
-    border-radius: 10px;
     background-color: rgb(24, 26, 31, 1);
 }
 
 .twitch-streamer:hover {
-    border: 2px solid purple;
-    border-radius: 10px;
-    background-color: rgb(24, 26, 31, 1);
-}
-
-.twitch-game:hover {
     border: 2px solid purple;
     border-radius: 10px;
     background-color: rgb(24, 26, 31, 1);
