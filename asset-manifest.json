@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/frontend-kaisel-bot/static/css/main.08141f18.css",
+    "main.css": "/frontend-kaisel-bot/static/css/main.d27ab78d.css",
     "main.js": "/frontend-kaisel-bot/static/js/main.951ebc2d.js",
     "static/media/ValorantCard.png": "/frontend-kaisel-bot/static/media/ValorantCard.6e7719964025bcaac69e.png",
     "static/media/bg8.png": "/frontend-kaisel-bot/static/media/bg8.ba13d35205251ddbf6c9.png",
@@ -8,11 +8,11 @@
     "static/media/tftCard2.png": "/frontend-kaisel-bot/static/media/tftCard2.25692db066b675c1a694.png",
     "static/media/beruSad.png": "/frontend-kaisel-bot/static/media/beruSad.ed55518c0c467510d30c.png",
     "index.html": "/frontend-kaisel-bot/index.html",
-    "main.08141f18.css.map": "/frontend-kaisel-bot/static/css/main.08141f18.css.map",
+    "main.d27ab78d.css.map": "/frontend-kaisel-bot/static/css/main.d27ab78d.css.map",
     "main.951ebc2d.js.map": "/frontend-kaisel-bot/static/js/main.951ebc2d.js.map"
   },
   "entrypoints": [
-    "static/css/main.08141f18.css",
+    "static/css/main.d27ab78d.css",
     "static/js/main.951ebc2d.js"
   ]
 }
