@@ -1,4 +1,4 @@
-/* main page*/
+/* Main page*/
 @media only screen and (max-width: 768px) {
   .gamecards-container {
     border: none;
@@ -13,13 +13,13 @@
     margin-top: 1.5em;
   }
 }
-/* contacts page */
+/* Contacts page */
 @media only screen and (max-width: 768px) {
   .project-members-list {
     grid-template-columns: none;
   }
 }
-/* twitch page */
+/* Twitch page */
 @media only screen and (max-width: 768px) {
   .twitch-game {
     margin-top: 0.5em;
@@ -34,5 +34,25 @@
   .twitch-form {
     margin-right: 75%;
     margin-left: 75%;
+  }
+}
+/* League page */
+@media only screen and (max-width: 768px) {
+  .form-box {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  .user-stats-box {
+    padding-left: 0em;
+  }
+
+  .chapmion-stats {
+    width: 80%;
+  }
+
+  .rankedstatsbox {
+    flex-wrap: wrap;
+    flex-direction: none;
   }
 }
