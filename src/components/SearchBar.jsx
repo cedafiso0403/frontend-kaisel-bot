@@ -24,7 +24,7 @@ export default function SearchBar() {
     
     return (
         <div className="form-box">
-            <form className="searchBar" action="/TestStats" method="GET" name="search">
+            <form className="searchBar" action="/frontend-kaisel-bot/TestStats" method="GET" name="search">
                 <div className="form-container">
                     <input type="text" placeholder="Input a username here" id="user" name="user"/>
                     
