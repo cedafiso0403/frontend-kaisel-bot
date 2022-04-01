@@ -3,6 +3,10 @@ import Header from "../../components/Header";
 import {BrowserRouter} from 'react-router-dom';
 import '@testing-library/jest-dom';
 
+test('Renders without crashing',()=>{
+    render(<BrowserRouter><Header/></BrowserRouter>);
+});
+
 test('Renders Header Home link element',()=>{
     render(<BrowserRouter><Header/></BrowserRouter>);
     const linkElement = screen.getByText(/Home/i).closest('a');
