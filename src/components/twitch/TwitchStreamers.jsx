@@ -68,8 +68,8 @@ const TwitchStreamers = props => {
     }
 
     const shortenTitle = title => {
-        if (title.length > 40)
-            title = title.substring(0, 40) + '...';
+        if (title.length > 25)
+            title = title.substring(0, 25) + '...';
         return title;
     }
 
