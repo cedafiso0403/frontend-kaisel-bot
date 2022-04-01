@@ -1,7 +1,7 @@
 import "../styles/components/searchbar.css"
 import React from "react";
 
-export default function SearchBar(props) {
+export default function SearchBar() {
     
     //Swaps the placeholder for the chosen game
     //Will swap the regions for its chosen game in the future
@@ -20,15 +20,10 @@ export default function SearchBar(props) {
             }
         })
     }
-
-    let submitForm = (e) => {
-        e.preventDefault()
-        props.history.push('/TestStats'); // <--- The page you want to redirect your user to.
-    }
     
     return (
         <div className="form-box">
-            <form className="searchBar" onSubmit={e => submitForm(e)} method="GET" name="search">
+            <form className="searchBar" action="/TestStats" method="GET" name="search">
                 <div className="form-container">
                     <input type="text" placeholder="Input a username here" id="user" name="user"/>
                     
