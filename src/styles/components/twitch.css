@@ -40,9 +40,11 @@
 }
 
 .twitch-streamer {
+    min-height: 450px;
+    min-width: 400px;
     margin-top: 50px;
     border: 2px solid white;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: rgb(24, 26, 31, 1);
 }
 
@@ -52,8 +54,10 @@
 }
 
 .twitch-streamer:hover {
+    min-height: 450px;
+    min-width: 400px;
     border: 2px solid #6441A5;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: rgb(24, 26, 31, 1);
     box-shadow: -0.5rem 0.5rem 0.4rem #6441A5;
     transform: translate(0.5em, -0.5em);
