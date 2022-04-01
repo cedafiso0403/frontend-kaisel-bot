@@ -98,7 +98,7 @@ export class RankedStatsBox extends React.Component {
                         <h4>{this.props.tier} {this.props.rank} </h4>
                         <p>{this.props.leaguePoints} LP</p>
                         <p>{this.props.wins} W {this.props.losses} L</p>
-                        <p>Win rate: {isNaN(parseInt(this.props.wins * 100 / (this.props.wins + this.props.losses))) ? parseInt(this.props.wins * 100 / (this.props.wins + this.props.losses)) : "0"}%</p>
+                        <p>Win rate: {!isNaN(parseInt(this.props.wins * 100 / (this.props.wins + this.props.losses))) ? parseInt(this.props.wins * 100 / (this.props.wins + this.props.losses)) : "0"}%</p>
                     </section>
                     <section className="info-container">
                         <h3>Most played lane</h3>
