@@ -1,7 +1,6 @@
 .user-stats-box{
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
     border-radius: 10px;
     min-height: 300px;
     width: 60%;
@@ -11,7 +10,6 @@
 .tabs-stats{
     display: flex;
     flex-wrap: wrap;
-    height: 22em;
 }
 
 .tabs-stats input[type="radio"]{
@@ -127,3 +125,40 @@
     padding-left: 0;
     width: 80%;
 }
+/* League page */
+@media only screen and (max-width: 920px) {
+    .user-stats-box {
+        width: 75%;
+      }
+}
+@media only screen and (max-width: 768px) {
+    .form-box {
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+    }
+    .form-container2 {
+      flex-direction: column;
+    }
+
+    .user-stats-box {
+      width: 95%;
+    }
+  
+    .profile-picture-container {
+        padding-bottom: 5em;
+    }
+    .tab {
+        display: inline-block;
+        flex-wrap: wrap;
+        padding-bottom: 5em;
+    }
+    .rankedstatsbox {
+        display: inline-block;
+        flex-wrap: wrap;
+      flex-direction: none;
+    }
+    .rankedstatsbox section {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+  }
