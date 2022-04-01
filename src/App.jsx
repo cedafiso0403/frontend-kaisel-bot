@@ -11,7 +11,6 @@ function App() {
   return (
     <BrowserRouter>
     <HashRouter basename={process.env.PUBLIC_URL}>
-      <div id="content=wrapper">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/Contact" element={<Contact />}></Route>
@@ -20,7 +19,6 @@ function App() {
           <Route path="/TestStats/*" element={<Stats />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
-      </div>
     </HashRouter>
     </BrowserRouter>
   );
