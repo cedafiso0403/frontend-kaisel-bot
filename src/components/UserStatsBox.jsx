@@ -1,11 +1,11 @@
 import React from "react";
 import "../styles/components/userStatsBox.css"
+import "../styles/components/mediaquery.css";
 import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 import ChampionStats from "./ChampionStats";
 
-// const API_KEY = "RGAPI-16d77bc7-8e0a-49b8-b3fa-a39a4fb51fee";
-const API_KEYS = ["RGAPI-df76e1e5-3bea-46d4-b541-9da2c7028ca3", "RGAPI-ae79c113-037c-4b3f-8df9-0e0ff501ecc2", "RGAPI-2b4415b8-3d7a-4a3a-9f3e-98e225aeb966", "RGAPI-d61a8137-67e7-4b93-9c32-80733664a908"];
+const API_KEYS = ["RGAPI-b49d5209-7faa-4502-9c6e-b8c9dba6bca3", "RGAPI-ad1bf7cc-516d-4827-aaf7-289397a459b9", "RGAPI-1718df90-a912-4270-bae3-4c955021d589", "RGAPI-a47f89ef-3d71-4918-a759-47450c5e9a8e"];
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
@@ -26,7 +26,9 @@ export class UserStatsBox extends React.Component {
             },
             statsRetrieved: false,
             orderedData420: [],
-            orderedData440: []
+            orderedData440: [],
+            optionChoose: "Ranked_Solo/Duo",
+            displayChamps: false
         };
     }
 
@@ -70,6 +72,17 @@ export class UserStatsBox extends React.Component {
         })
     }
 
+    setDisplayChamps() {
+        this.setState((prevState) => {
+            return {
+                displayChamps: !prevState.displayChamps
+            }
+        }
+        )
+    }
+
+
+
     searchPlayerStatistics() {
         return new Promise((resolve, reject) => {
             let ApiCallString2 = `https://${this.props.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${this.state.player.id}?api_key=${UserStatsBox.returnApiKey()}`;
@@ -88,7 +101,7 @@ export class UserStatsBox extends React.Component {
                         if (response2.data[0].queueType === "RANKED_FLEX_SR") {
                             return {
                                 rankedStats: [...response2.data, {
-                                    queueType: "Ranked Solo Duo 5x5",
+                                    queueType: "Ranked Solo/Duo",
                                     tier: "Unranked",
                                     rank: " ",
                                     leaguePoints: 0,
@@ -149,7 +162,6 @@ export class UserStatsBox extends React.Component {
             });
             this.searchPlayerStatistics().then(() => {
                 this.getAllStat(420).then(() => {
-
                 }).then(() => {
                     this.getAllStat(440).then(() => {
                         this.getAllInformationFromMatchs();
@@ -171,7 +183,7 @@ export class UserStatsBox extends React.Component {
                         wins: 0,
                         losses: 0
                     }, {
-                        queueType: "Ranked Solo Duo 5x5",
+                        queueType: "Ranked Solo/Duo",
                         tier: "Unranked",
                         rank: " ",
                         leaguePoints: 0,
@@ -237,7 +249,7 @@ export class UserStatsBox extends React.Component {
                                     deaths: response.data.info.participants[index].deaths,
                                     assists: response.data.info.participants[index].assists,
                                     teamPosition: response.data.info.participants[index].teamPosition,
-                                    totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
+                                    totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled + response.data.info.participants[index].neutralMinionsKilled,
                                     matchLength: (response.data.info.gameEndTimestamp - response.data.info.gameStartTimestamp) / 60000.0
                                 }
                                 object[response.data.info.queueId].push(objChamp);
@@ -249,7 +261,7 @@ export class UserStatsBox extends React.Component {
                                     deaths: response.data.info.participants[index].deaths,
                                     assists: response.data.info.participants[index].assists,
                                     teamPosition: response.data.info.participants[index].teamPosition,
-                                    totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled,
+                                    totalMinionsKilled: response.data.info.participants[index].totalMinionsKilled + response.data.info.participants[index].neutralMinionsKilled,
                                     matchLength: (response.data.info.gameEndTimestamp - response.data.info.gameStartTimestamp) / 60000.0
                                 }
                                 object[response.data.info.queueId].push(objChamp);
@@ -284,22 +296,42 @@ export class UserStatsBox extends React.Component {
     }
 
     radioButtonHandlerer(e) {
+        this.setState((prevState) => {
+            return {
+                optionChoose: e.target.value.split(" ").join("_")
+            }
+        }
+        )
+        this.setState((prevState) => {
+            return {
+                displayChamps: false
+            }
+        }
+        )
 
     }
 
     render() {
         const { retrievedData, player, rankedStats, filterData } = this.state;
-        //console.log(filterData);
         let statsRetrieved = false;
         if (rankedStats !== null) {
             try {
                 let indexFlex = rankedStats.findIndex((element) => {
-                    return element.queueType === "RANKED_FLEX_SR"
+                    return element.queueType === "RANKED_FLEX_SR" || element.queueType === "Ranked Flex"
                 })
 
+                if (indexFlex >= 0) {
+                    rankedStats[indexFlex].queueType = "Ranked Flex"
+                }
+
                 let indexSolo = rankedStats.findIndex((element) => {
-                    return element.queueType === "RANKED_SOLO_5x5"
+                    return element.queueType === "RANKED_SOLO_5x5" || element.queueType === "Ranked Solo/Duo"
                 })
+
+                if (indexSolo >= 0) {
+                    rankedStats[indexSolo].queueType = "Ranked Solo/Duo"
+                }
+
                 let matchsFlex = indexFlex >= 0 ? rankedStats[indexFlex].wins + rankedStats[indexFlex].losses : 0;
                 let matchsSolo = indexSolo >= 0 ? rankedStats[indexSolo].wins + rankedStats[indexSolo].losses : 0;
                 if ((matchsFlex + matchsSolo) <= (filterData[440].length + filterData[420].length)) {
@@ -333,7 +365,7 @@ export class UserStatsBox extends React.Component {
                                     if (elements.queueType !== "RANKED_TFT_PAIRS") {
                                         let data;
                                         let functionForOrderedData;
-                                        if (elements.queueType === "RANKED_FLEX_SR" && statsRetrieved) {
+                                        if (elements.queueType === "Ranked Flex" && statsRetrieved) {
                                             data = filterData[440];
                                             functionForOrderedData = this.setOrdererDataFlex.bind(this)
                                         } else if (statsRetrieved) {
@@ -341,25 +373,25 @@ export class UserStatsBox extends React.Component {
                                             functionForOrderedData = this.setOrdererDataSolo.bind(this)
                                         }
 
-                                        let checkedAtt = i === 0 ? { "defaultChecked": "defaultChecked" } : {};
+                                        let checkedAtt = elements.queueType !== "Ranked Flex" ? { "defaultChecked": "defaultChecked" } : {};
 
                                         if (statsRetrieved) {
                                             return (
                                                 <>
-                                                    <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs"  {...checkedAtt} key={"tab" + elements.queueType}></input>
-                                                    <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
-                                                    <div className="tab">
-                                                        <RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} stats={data} setOrdererData={functionForOrderedData} />
+                                                    <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs"  {...checkedAtt} key={"radio" + elements.queueType} value={elements.queueType}></input>
+                                                    <label htmlFor={"tab" + elements.queueType} key={"label" + elements.queueType}>{elements.queueType}</label>
+                                                    <div className="tab" key={"tab" + elements.queueType}>
+                                                        <RankedStatsBox key={elements.queueType} {...elements} statsRetrieved={statsRetrieved} stats={data} setOrdererData={functionForOrderedData} setDisplayChamps={this.setDisplayChamps.bind(this)} />
                                                     </div>
                                                 </>
                                             )
                                         } else {
                                             return (
                                                 <>
-                                                    <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs" {...checkedAtt} key={"tab" + elements.queueType}></input>
-                                                    <label htmlFor={"tab" + elements.queueType}>{elements.queueType}</label>
-                                                    <div className="tab">
-                                                        <RankedStatsBox key={elements.queueType} statsRetrieved={statsRetrieved} {...elements} />
+                                                    <input type="radio" id={"tab" + elements.queueType} name="Ranked-tabs" {...checkedAtt} key={"radio" + elements.queueType} value={elements.queueType}></input>
+                                                    <label htmlFor={"tab" + elements.queueType} key={"label" + elements.queueType}>{elements.queueType}</label>
+                                                    <div className="tab" key={"tab" + elements.queueType}>
+                                                        <RankedStatsBox key={elements.queueType} statsRetrieved={statsRetrieved} {...elements} setDisplayChamps={this.setDisplayChamps.bind(this)} />
                                                     </div>
                                                 </>
                                             )
@@ -373,30 +405,34 @@ export class UserStatsBox extends React.Component {
                         }
                     </div>
                 </div>
-                <div>
-                    <div className="champion-stats">
-                        <p className="champion-headers">Champ</p>
-                        <p>Role</p>
-                        <p>Kills</p>
-                        <p>Deaths</p>
-                        <p>Assist</p>
-                        <p>Farm/min</p>
-                    </div>
-                    {
-                        this.state.orderedData440.length > 0 ?
-                            this.state.orderedData440.slice(this.state.orderedData440.length - 5, this.state.orderedData440.length).reverse().map((elem) => {
-                                return <ChampionStats {...elem} />
-                            })
-                            : ""
-                    }
-                    {
-                        this.state.orderedData420.length > 0 ?
-                            this.state.orderedData420.slice((this.state.orderedData420.length - 5 < 0 ? 0 : this.state.orderedData420.length - 5)).reverse().map((elem) => {
-                                return <ChampionStats {...elem} />
-                            })
-                            : ""
-                    }
-                </div>
+                {
+                    this.state.displayChamps ? (statsRetrieved ? (<>
+                        <div className="champion-stats">
+                            <p className="champion-headers">Champ</p>
+                            <p>Role</p>
+                            <p>Kills</p>
+                            <p>Deaths</p>
+                            <p>Assist</p>
+                            <p>CS/min</p>
+                        </div>
+                        {
+                            (this.state.orderedData440.length > 0 && this.state.optionChoose === "Ranked_Flex") ?
+                                this.state.orderedData440.slice(this.state.orderedData440.length - 5, this.state.orderedData440.length).reverse().map((elem) => {
+                                    return <ChampionStats key={elem.championName + "" + elem.teamPosition} {...elem} />
+                                })
+                                : ""
+                        }
+                        {
+                            (this.state.orderedData420.length > 0 && this.state.optionChoose === "Ranked_Solo/Duo") ?
+                                this.state.orderedData420.slice((this.state.orderedData420.length - 5 < 0 ? 0 : this.state.orderedData420.length - 5)).reverse().map((elem) => {
+                                    return <ChampionStats key={elem.championName + "" + elem.teamPosition} {...elem} />
+                                })
+                                : ""
+                        }
+                    </>) : <div className="champion-stats">
+                        <p>Loading...</p>
+                    </div>) : ""
+                }
             </>
         )
     }

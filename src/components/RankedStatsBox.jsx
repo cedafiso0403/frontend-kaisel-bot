@@ -1,12 +1,6 @@
 import React from "react";
 import "../styles/components/rankedStatsBox.css";
-// import axios from 'axios';
-
-//string[0].toUpperCase() + string.substring(1)
-// let queueIds;
-// axios.get('https://static.developer.riotgames.com/docs/lol/queues.json').then((response) => {
-//     queueIds = response.data;
-// })
+import "../styles/components/mediaquery.css";
 
 const getOcurrencies = (dataArray) => {
     let summaryData = [];
@@ -72,7 +66,6 @@ export class RankedStatsBox extends React.Component {
             this.setStatsRetrieved(this.props.statsRetrieved);
         }
         if (prevState.statsRetrieved !== this.state.statsRetrieved && this.props.statsRetrieved) {
-            console.log(this.props.stats);
             this.props.setOrdererData(getOcurrencies(this.props.stats));
         }
     }
@@ -94,7 +87,7 @@ export class RankedStatsBox extends React.Component {
             <>
                 <article className="rankedstatsbox">
                     <section className="emblem-container">
-                        <img alt="Tier emblem" src={this.props.tier !== undefined ? `/images/ranked-emblems/Emblem_${this.props.tier}.png` : "/images/Loading.gif"}></img>
+                        <img alt="Tier emblem" src={this.props.tier !== undefined ? `images/ranked-emblems/Emblem_${this.props.tier}.png` : "images/Loading.gif"}></img>
                     </section>
                     <section className="info-container">
                         <h3>{this.props.queueType.replaceAll("_", " ")}</h3>
@@ -107,15 +100,15 @@ export class RankedStatsBox extends React.Component {
                         <h3>Most played lane</h3>
                         {
                             this.props.statsRetrieved ?
-                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `/images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length - 1].teamPosition)}.png` :
-                                    `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
-                                <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length - 1].teamPosition)}.png` :
+                                    `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
+                                <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
                         {
                             this.props.statsRetrieved ?
-                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `/images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length - 2].teamPosition)}.png` :
-                                    `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
-                                <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                                <img alt="Team role" width="50" src={this.props.tier !== "Unranked" ? `images/ranked-positions/Position_${this.props.tier}-${formatResult(allData[allData.length - 2].teamPosition)}.png` :
+                                    `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
+                                <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
                     </section>
                     <section className="info-container">
@@ -123,18 +116,18 @@ export class RankedStatsBox extends React.Component {
                         {
                             this.props.statsRetrieved ?
                                 <img alt="Most played champ" width="50" src={this.props.tier !== "Unranked" ? `http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${allData[allData.length - 1].championName}.png` :
-                                    `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
-                                <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                                    `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
+                                <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
                         {
                             this.props.statsRetrieved ?
                                 <img alt="Most played champ" width="50" src={this.props.tier !== "Unranked" ? `http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/${allData[allData.length - 2].championName}.png` :
-                                    `/images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
-                                <img alt="Loading Team role" width="25" src="/images/ranked-positions/Loading-position.gif"></img>
+                                    `images/ranked-positions/Position_Unranked-UNRANKED.png`}></img> :
+                                <img alt="Loading Team role" width="25" src="images/ranked-positions/Loading-position.gif"></img>
                         }
                     </section>
                 </article>
-                <button className="TopPlayedButton">Show 5 most played</button>
+                <button className="TopPlayedButton" onClick={e => this.props.setDisplayChamps()}>Show 5 most played</button>
             </>
         )
     }
