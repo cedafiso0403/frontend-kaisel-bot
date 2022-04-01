@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f6deb17.css",
-    "main.js": "/static/js/main.28faa87c.js",
-    "static/media/ValorantCard.png": "/static/media/ValorantCard.6e7719964025bcaac69e.png",
-    "static/media/bg8.png": "/static/media/bg8.ba13d35205251ddbf6c9.png",
-    "static/media/LeagueCard.jpg": "/static/media/LeagueCard.9902b7736cfdd595d36a.jpg",
-    "static/media/tftCard2.png": "/static/media/tftCard2.25692db066b675c1a694.png",
-    "static/media/beruSad.png": "/static/media/beruSad.ed55518c0c467510d30c.png",
-    "index.html": "/index.html",
-    "main.6f6deb17.css.map": "/static/css/main.6f6deb17.css.map",
-    "main.28faa87c.js.map": "/static/js/main.28faa87c.js.map"
+    "main.css": "/frontend-kaisel-bot/static/css/main.3b49f253.css",
+    "main.js": "/frontend-kaisel-bot/static/js/main.28faa87c.js",
+    "static/media/ValorantCard.png": "/frontend-kaisel-bot/static/media/ValorantCard.6e7719964025bcaac69e.png",
+    "static/media/bg8.png": "/frontend-kaisel-bot/static/media/bg8.ba13d35205251ddbf6c9.png",
+    "static/media/LeagueCard.jpg": "/frontend-kaisel-bot/static/media/LeagueCard.9902b7736cfdd595d36a.jpg",
+    "static/media/tftCard2.png": "/frontend-kaisel-bot/static/media/tftCard2.25692db066b675c1a694.png",
+    "static/media/beruSad.png": "/frontend-kaisel-bot/static/media/beruSad.ed55518c0c467510d30c.png",
+    "index.html": "/frontend-kaisel-bot/index.html",
+    "main.3b49f253.css.map": "/frontend-kaisel-bot/static/css/main.3b49f253.css.map",
+    "main.28faa87c.js.map": "/frontend-kaisel-bot/static/js/main.28faa87c.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f6deb17.css",
+    "static/css/main.3b49f253.css",
     "static/js/main.28faa87c.js"
   ]
 }
