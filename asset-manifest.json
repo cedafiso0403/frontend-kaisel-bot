@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ec7495ac.css",
-    "main.js": "/static/js/main.72cf7fae.js",
+    "main.js": "/static/js/main.17430982.js",
     "static/media/ValorantCard.png": "/static/media/ValorantCard.6e7719964025bcaac69e.png",
     "static/media/bg8.png": "/static/media/bg8.ba13d35205251ddbf6c9.png",
     "static/media/LeagueCard.jpg": "/static/media/LeagueCard.9902b7736cfdd595d36a.jpg",
@@ -9,10 +9,10 @@
     "static/media/beruSad.png": "/static/media/beruSad.ed55518c0c467510d30c.png",
     "index.html": "/index.html",
     "main.ec7495ac.css.map": "/static/css/main.ec7495ac.css.map",
-    "main.72cf7fae.js.map": "/static/js/main.72cf7fae.js.map"
+    "main.17430982.js.map": "/static/js/main.17430982.js.map"
   },
   "entrypoints": [
     "static/css/main.ec7495ac.css",
-    "static/js/main.72cf7fae.js"
+    "static/js/main.17430982.js"
   ]
 }
