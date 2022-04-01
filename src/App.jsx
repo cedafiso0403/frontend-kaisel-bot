@@ -4,12 +4,12 @@ import Home from "./pages/Home";
 import Stats from './pages/Stats';
 import NotFound from './pages/NotFound';
 import Twitch from './pages/Twitch';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/frontend-kaisel-bot">
       <div id="content=wrapper">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
