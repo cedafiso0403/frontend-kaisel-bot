@@ -38,7 +38,7 @@ export default function SearchBar() {
                         <option value="valorant">Valorant</option>
                     </select>
                     {selectedGame === 'league' && <select name="region" id="region">
-                        <option value="na1">LoL NA</option>
+                        <option value="na1">NA</option>
                         <option value="eun1">EUN</option>
                         <option value="euw1">EUW</option>
                         <option value="jp1">JP</option>
@@ -50,7 +50,7 @@ export default function SearchBar() {
                         <option value="tr1">TR</option>
                     </select>}
                     {selectedGame === 'valorant' && <select name="region" id="region">
-                        <option value="na">Valorant NA</option>
+                        <option value="na">NA</option>
                         <option value="ap">AP</option>
                         <option value="br">BR</option>
                         <option value="eu">EU</option>
