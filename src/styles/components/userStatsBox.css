@@ -94,7 +94,7 @@
     width: 20%;
     justify-content: center;
     align-items: center;
-    height: 21.6em;
+    /* height: 21.6em; */
     border: 0.20em solid white;
     border-right: none;
     border-top: 0.20em solid white;
@@ -106,7 +106,8 @@
 .profile-picture-container img{
     margin: 0;
     max-width: 250px;
-    width: 90%;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     border: 2px solid white;
 }
