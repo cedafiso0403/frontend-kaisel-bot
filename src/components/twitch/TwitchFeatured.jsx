@@ -31,7 +31,7 @@ const TwitchStreamers = props => {
 
     return <>
             <div className="twitch-featured">
-                <h1 className="content-h2">Featured Streamer</h1>
+                <h1 className="content-h2">⭐Featured Streamer⭐</h1>
                 <h2 className="twitch-featured-h2">{props.featuredStreamer.user_name} is playing {props.featuredStreamer.game_name}</h2>
                 <div className="twitch-thumbnail">
                     <ReactTwitchEmbedVideo 
