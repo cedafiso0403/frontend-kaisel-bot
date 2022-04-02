@@ -176,7 +176,40 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .user-stats-box{
+        flex-direction: column;
+        border-radius: 10px;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+    }
     .profile-picture-container {
-        padding-bottom: 100%;
+        padding-bottom: 10%;
+    }
+
+    .profile-picture-container{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border: 0.20em solid white;
+        border-right: 0.20em solid white;;
+        border-top: 0.20em solid white;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .stats-container{
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .tabs-stats label{
+        margin: 0;
+        width: 100%;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom: 1px solid white;
     }
 }
