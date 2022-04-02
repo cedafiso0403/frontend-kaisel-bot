@@ -1,12 +1,38 @@
 footer {
-    height: 8vh;
+    height: 4vh;
     background-image: linear-gradient(#0C0E13, #0C0E13, #0C0E13);
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 1em;
+    justify-content: space-around;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
     border-top: 1px solid #454751;
     color: white;
+}
+
+footer img {
+    padding-right: 1em;
+}
+
+
+footer p {
+    font-size: 2em;
+    color: lightgrey;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-item-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer-item-container p{
+    margin: 0;
     padding: 0;
 }
 

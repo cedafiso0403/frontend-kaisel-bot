@@ -21,6 +21,13 @@
     padding: 0.75em;
 }
 
+.features-list {
+    text-align: center;
+    color: #3bafda;
+    font-weight: bold;
+    font-size: 2em;
+}
+
 .features-subtitle {
     text-align: center;
     color: lightgrey;
@@ -31,4 +38,10 @@
     display: table;
     margin: 0 auto;
     padding-bottom: 1em;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
 }

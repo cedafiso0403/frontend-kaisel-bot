@@ -3,8 +3,8 @@ import api from '../api/api';
 
 import { useEffect, useState } from 'react';
 
-const box_art_width = '200'; 
-const box_art_height = '250'; 
+const box_art_width = '300'; 
+const box_art_height = '400'; 
 
 const TwitchGames = props => {
 

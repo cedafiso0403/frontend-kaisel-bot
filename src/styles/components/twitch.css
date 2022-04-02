@@ -118,7 +118,7 @@
 }
 
 iframe {
-    width: 85%;
+    width: 60%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -126,5 +126,4 @@ iframe {
        margin-left: 10%; 
        margin-right: 10%;
     }
-    
 }
