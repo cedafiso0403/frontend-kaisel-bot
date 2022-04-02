@@ -1,19 +1,50 @@
+.userTitleAndRank {
+    clear: both;
+}
+
+.valorantPlayers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    padding: 0 1em;
+}
+
 .valorantUser {
+    align-items: center;
     background: linear-gradient(#52545D, #20222b);
     box-shadow: 10px 10px 5px #181a1f;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    margin: 2em auto;
+    flex-direction: row;
     min-height: 200px;
-    width: 60%;
+    min-width: 450px;
     padding: 1em;
 }
 
-.valorantUser>h3, .valorantUser>p {
+.valorantUser h2, .valorantUser p {
     text-align: left;
 }
 
-.valorantUser>h3 {
-    border-bottom: 1px solid white;
+.valorantUser h2 {
+    display: inline-block;
+    font-size: 2em;
+    padding-right: 1rem;
+}
+
+.valorantUser h3 {
+    display: inline-block;
+}
+
+.valorantUser:first-child h2, .valorantUser:first-child h3 {
+    color: gold;
+}
+
+.valorantUser:nth-child(2) h2, .valorantUser:nth-child(2) h3 {
+    color: silver;
+}
+
+.valorantUser:nth-child(3) h2, .valorantUser:nth-child(3) h3 {
+    color: #B08D57;
 }

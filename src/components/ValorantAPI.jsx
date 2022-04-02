@@ -4,6 +4,7 @@ import { UserStatsBox } from './UserStatsBox';
 import "../styles/components/valorant.css";
 
 var validRegions = ['AP', 'BR', 'EU', 'KR', 'LATAM', 'NA'];
+let heightAndWidth = 150;
 
 export default class ValorantAPI extends React.Component {
 	constructor(props) {
@@ -34,6 +35,7 @@ export default class ValorantAPI extends React.Component {
 			.then(res => {
 			const usernames = res.data;
 			this.setState({ usernames: usernames });
+			console.log(usernames);
 		})
 	}
 
@@ -58,15 +60,23 @@ export default class ValorantAPI extends React.Component {
 
 	render() {
 		return (
-			<section>
+			<section className='valorantPlayers'>
 				{this.displayError(this.state.correctRegionChosen)}
 				{this.getPlayers().map(item => {
 					return (
 						<article className='valorantUser' key={item.leaderboardRank}>
-							<h3>{item.leaderboardRank}: {item.gameName ? item.gameName : "Unknown User Found"}</h3>
-							<p>Tagline: {item.tagLine ? item.tagLine : "Tag line could not be found"}</p>
-							<p>Ranked Rating: {item.rankedRating}</p>
-							<p>Number of Wins: {item.numberOfWins}</p>
+							<img src="images/radiant.png" width={heightAndWidth} height={heightAndWidth} alt="Competitive rank"></img>
+							<div>
+								<div className='userTitleAndRank'>
+									<h2>{item.leaderboardRank}</h2>
+									<h3>{item.gameName ? item.gameName : "Unknown User Found"}</h3>	
+								</div>
+								<p>Tagline: {item.tagLine ? item.tagLine : "Tag line could not be found"}</p>
+								<p>Ranked Rating: {item.rankedRating}</p>
+								<p>Number of Wins: {item.numberOfWins}</p>	
+							</div>
+
+							
 						</article>
 					)
 				})}
