@@ -1,10 +1,12 @@
 import React from "react";
-import api from '../api/api';
+import axios from "axios";
 import TwitchFeatured from './TwitchFeatured';
 import { useEffect, useState } from 'react';
 
-const thumbnail_width = '400'; 
-const thumbnail_height = '250'; 
+const thumbnail_width = '400';
+const thumbnail_height = '250';
+
+const token = '7mt6hn5kple31chm21slkaugf9pcyx';
 
 const league = {
     id: "21779",
@@ -30,23 +32,50 @@ const TwitchStreamers = props => {
     const [streamerNum, setStreamerNum] = useState(8);
 
     useEffect(function getFeaturedStreamer() {
+        let flag = true;
         const chosenGame = games[Math.floor(Math.random() * games.length)];
         setFeaturedGame(chosenGame);
         const fetchData = async gameID => {
-            const streams = await api.get(`https://api.twitch.tv/helix/streams?first=100&game_id=${gameID}`);
-            const chosenStreamer = streams.data.data[Math.floor(Math.random() * streams.data.data.length)];
-            setFeaturedStreamer(chosenStreamer);
+            axios.get(`https://api.twitch.tv/helix/streams?first=100&game_id=${gameID}`, {
+                headers: {
+                    'Client-ID': '3acfejfs22gh634bp8agsttdmcfftb',
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+            ).then(result =>{
+                if (flag){
+                    const chosenStreamer = result.data.data[Math.floor(Math.random() * result.data.data.length)];
+                    setFeaturedStreamer(chosenStreamer);
+                }
+            }).catch();;
+           
         };
         fetchData(chosenGame.id);
-    },[]);
+
+        return () => {
+            flag = false;
+        }
+    }, []);
 
     useEffect(() => {
+        let flag = true;
         const fetchData = async gameID => {
-            const streams = await api.get(`https://api.twitch.tv/helix/streams?first=${streamerNum}&game_id=${gameID}`);
-            setStreamers(streams.data.data);
+            axios.get(`https://api.twitch.tv/helix/streams?first=${streamerNum}&game_id=${gameID}`, {
+                headers: {
+                    'Client-ID': '3acfejfs22gh634bp8agsttdmcfftb',
+                    'Authorization': `Bearer ${token}`
+                }
+            }).then(result =>{
+                if (flag)
+                    setStreamers(result.data.data);
+            }).catch();
         };
         fetchData(gameID);
-    },[gameID, streamerNum]);
+
+        return () => {
+            flag = false;
+        }
+    }, [gameID, streamerNum]);
 
     const selectChange = event => {
         //https://stackoverflow.com/questions/63264788/how-to-get-id-of-selected-option-in-react-js#:~:text=You%20can%20add%20an%20onChange,id%20from%20the%20selected%20option.&text=This%20is%20a%20bit%20of%20an%20anti%2Dpattern%20for%20React.
@@ -75,20 +104,20 @@ const TwitchStreamers = props => {
 
     return <>
         <section>
-            {featuredStreamer !== 0 && <TwitchFeatured featuredStreamer={featuredStreamer} chosenGame={featuredGame}/>}
+            {featuredStreamer !== 0 && <TwitchFeatured featuredStreamer={featuredStreamer} chosenGame={featuredGame} />}
         </section>
 
         <h1 className="content-h2">Top Streamers</h1>
         <section className="twitch-form">
             <div>
                 <label className="twitch-labels">Search for streamers by game</label>
-                <select onChange={selectChange} >
+                <select data-testid="select-option" onChange={selectChange} name="Games">
                     <option id={league.id} value="League of Legends">League of Legends</option>
                     <option id={valorant.id} value="VALORANT">VALORANT</option>
                     <option id={tft.id} value="Teamfight Tactics">TFT</option>
                 </select>
                 <label className="twitch-labels">Number of top streamers</label>
-                <input type="number" placeholder="5" value={streamerNum} min="1" max="100" onChange={streamerNumberChange}/>
+                <input type="number" placeholder="5" value={streamerNum} min="1" max="100" onChange={streamerNumberChange} />
                 <h2 className="twitch-h2 viewer-count">Selected Game: {gameName}</h2>
             </div>
         </section>
@@ -98,7 +127,7 @@ const TwitchStreamers = props => {
                 <a className="twitch-a" target="_blank" rel="noreferrer" href={`https://www.twitch.tv/${stream.user_login}`}>
                     <h2 className="twitch-h2">{stream.user_name}</h2>
                     <div className="twitch-thumbnail">
-                            <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
+                        <img src={parseThumbnail(stream.thumbnail_url)} alt="stream thumbnail" height={thumbnail_height} width={thumbnail_width} />
                     </div>
                     <p>{shortenTitle(stream.title)}</p>
                     <div className="viewer-container">
