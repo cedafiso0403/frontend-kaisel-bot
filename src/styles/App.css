@@ -149,3 +149,12 @@ main hr {
   opacity: 1;
   transform: translate(0, 0);
 }
+
+@media only screen and (max-width: 768px) {
+  .beruSad {
+    display: none;
+  }
+  .container-notFound {
+    padding: 0;
+  }
+}

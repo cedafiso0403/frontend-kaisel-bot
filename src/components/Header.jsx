@@ -6,7 +6,7 @@ function Header() {
     return (
         <header>
             <nav className="nav-container">
-                <Link to="/" className="navbar-item"><img alt="Kaisel Logo" id="navbar-icon" src="images/KaiselCircle2.png" width="50"></img></Link>
+                <Link to="/" title="Home_Link"className="navbar-item"><img alt="Kaisel Logo" id="navbar-icon" src="images/KaiselCircle2.png" width="50"></img></Link>
                 <ul>
                     <li><Link to="/" className="navbar-item">Home</Link></li>
                     <li><Link to="/Statistics" className="navbar-item">Statistics</Link></li>

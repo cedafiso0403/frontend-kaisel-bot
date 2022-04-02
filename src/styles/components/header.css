@@ -65,3 +65,20 @@ header img {
 .navbar-item-button:hover{
     opacity: 0.8;
 }
+
+@media only screen and (max-width: 520px) {
+    header img {
+        display: none;
+    }
+    header {
+        padding : 0;
+    }
+    .nav-container ul{
+        align-items: center;
+    }
+
+    .nav-container ul li{
+        margin-right: 1em;
+        margin-left: 1em;
+    }
+  }
