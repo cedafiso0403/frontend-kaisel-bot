@@ -35,8 +35,8 @@ jobs:
     - name: Build project
       run: npm run build --if-present
       
-    # - name: Run Tests #we don't have any unit tests at the moment
-    #   run: npm run test
+    - name: Run Tests 
+      run: npm run test
     
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2

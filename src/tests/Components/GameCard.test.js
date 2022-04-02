@@ -11,28 +11,3 @@ test('Render without crashing', ()=>{
     render(<GameCard {...propsForGameCardLeague}/>)
 })
 
-test('Render learn more heading', ()=>{
-    render(<GameCard {...propsForGameCardLeague}/>)
-    const learnTitle = screen.getByText("Learn more").closest('h2');
-    expect(learnTitle).toBeInTheDocument();
-})
-
-test('Render active player heading', ()=>{
-    render(<GameCard {...propsForGameCardLeague}/>)
-    const activePlayerTitle = screen.getByText("Active Players").closest('h4');
-    expect(activePlayerTitle).toBeInTheDocument();
-})
-
-test('Render features heading', ()=>{
-    render(<GameCard {...propsForGameCardLeague}/>)
-    const featuresTitle = screen.getByText("Features").closest('h4');
-    expect(featuresTitle).toBeInTheDocument();
-})
-
-test('Render feature list heading', ()=>{
-    render(<GameCard {...propsForGameCardLeague}/>)
-    const featuresTitle = screen.getAllByRole("listitem");
-    featuresTitle.forEach(element => {
-        expect(element).toBeInTheDocument();
-    });
-})
