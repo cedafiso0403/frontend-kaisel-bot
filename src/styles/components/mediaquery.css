@@ -39,12 +39,7 @@
     margin-right: 0.5em;
   }
 }
-/* Contacts page */
-@media only screen and (max-width: 768px) {
-  .project-members-list {
-    grid-template-columns: none;
-  }
-}
+
 /* Twitch page */
 @media only screen and (max-width: 768px) {
   .twitch-game {
