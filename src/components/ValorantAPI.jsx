@@ -65,7 +65,7 @@ export default class ValorantAPI extends React.Component {
 				{this.getPlayers().map(item => {
 					return (
 						<article className='valorantUser' key={item.leaderboardRank}>
-							<img src="images/radiant.png" width={heightAndWidth} height={heightAndWidth}></img>
+							<img src="images/radiant.png" width={heightAndWidth} height={heightAndWidth} alt="Competitive rank image"></img>
 							<div>
 								<div className='userTitleAndRank'>
 									<h2>{item.leaderboardRank}</h2>
