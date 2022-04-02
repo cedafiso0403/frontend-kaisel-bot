@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 import Features from "../components/Features";
 import TwitchIntro from "../components/TwitchIntro";
 
-import { GameCard } from "../components/GameCard";
+import GameCard from "../components/GameCard";
 
 // Event listener used for the sections fade in
 document.addEventListener("scroll", () => {
