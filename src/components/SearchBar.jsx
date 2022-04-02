@@ -33,7 +33,6 @@ export default function SearchBar() {
                 <div className="form-container2">
                     <select name="game" id="game" onChange={swapGameRegions}>
                         <option value="league">League of Legends</option>
-                        <option value="tft">Teamfight Tactics</option>
                         <option value="valorant">Valorant</option>
                     </select>
                     <select name="region" id="region">
