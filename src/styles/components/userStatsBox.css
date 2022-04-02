@@ -145,20 +145,28 @@
     }
   
     .profile-picture-container {
-        padding-bottom: 5em;
+      padding-bottom: 35%;
     }
     .tab {
-        display: inline-block;
-        flex-wrap: wrap;
-        padding-bottom: 5em;
+      display: inline-block;
+      flex-wrap: wrap;
+      padding-bottom: 5em;
     }
-    .rankedstatsbox {
-        display: inline-block;
-        flex-wrap: wrap;
-      flex-direction: none;
-    }
+
     .rankedstatsbox section {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
     }
-  }
+    .rankedstatsbox .emblem-container {
+        padding: 0px;
+        width: 150px;
+        height: 150px;
+        padding-top: 5em;
+    }
+}
+
+@media only screen and (max-width: 716px) {
+    .profile-picture-container {
+        padding-bottom: 40%;
+    }
+}
