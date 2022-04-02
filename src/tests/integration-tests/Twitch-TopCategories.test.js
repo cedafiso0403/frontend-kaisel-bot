@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import TwitchGames from "../../components/twitch/TwitchGames";
 import axios from 'axios';
 
@@ -39,12 +39,17 @@ describe('Testing Twitch API Feature #2', ()=>{
         axios.get.mockImplementation(() => Promise.resolve(mockResponseTwitchGames));
     })
 
-    test('Renders without crashing', ()=>{
-        render(<TwitchGames/>);
+    test('Renders without crashing', async ()=>{
+        await waitFor(() => {
+            render(<TwitchGames/>);
+        });
+
     })
 
-    test('Renders heading Top Categories', ()=>{
-        render(<TwitchGames/>);
+    test('Renders heading Top Categories', async ()=>{
+        await waitFor(() => {
+            render(<TwitchGames/>);
+        });
         let topCategoriesHeading = screen.getByText("Top Categories").closest('h1');
         expect(topCategoriesHeading).toBeInTheDocument();
     })
