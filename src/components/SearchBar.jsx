@@ -58,7 +58,6 @@ export default function SearchBar() {
                         <option value="latam">LATAM</option>
                     </select>}
 
-                    
                 </div>
             </form>
         </div>
