@@ -53,3 +53,8 @@
   } 
   
 }
+@media only screen and (max-width: 480px) {
+    .TopPlayedButton {
+       width: 55%;
+    }
+}

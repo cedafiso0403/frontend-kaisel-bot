@@ -18,3 +18,9 @@
     width: 90%;
   }
 }
+
+@media only screen and (max-width: 480px) {
+    .champion-headers {
+        margin-left: 17.5px;
+    }
+}
