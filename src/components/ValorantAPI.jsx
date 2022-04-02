@@ -11,7 +11,7 @@ export default class ValorantAPI extends React.Component {
 		super(props);
 		this.state = {
 			usernames: [],
-			correctRegionChosen: true,
+			correctRegionChosen: false,
 		}
 	}
 
@@ -35,7 +35,6 @@ export default class ValorantAPI extends React.Component {
 			.then(res => {
 			const usernames = res.data;
 			this.setState({ usernames: usernames });
-			console.log(usernames);
 		})
 	}
 
@@ -51,36 +50,32 @@ export default class ValorantAPI extends React.Component {
 		return players;
 	}
 
-	displayError(error) {
-		if(!error) {
-			return <h2>Something went wrong with your query. Please select a valid region.</h2>;
-		}
-		return "";
-	}
-
 	render() {
 		return (
-			<section className='valorantPlayers'>
-				{this.displayError(this.state.correctRegionChosen)}
-				{this.getPlayers().map(item => {
-					return (
-						<article className='valorantUser' key={item.leaderboardRank}>
-							<img src="images/radiant.png" width={heightAndWidth} height={heightAndWidth} alt="Competitive rank"></img>
-							<div>
-								<div className='userTitleAndRank'>
-									<h2>{item.leaderboardRank}</h2>
-									<h3>{item.gameName ? item.gameName : "Unknown User Found"}</h3>	
+			<div>
+				{this.state.correctRegionChosen ? <h2>You have chosen the {(this.props.region).toUpperCase()} region.</h2>: <h2>Sorry, your inquiry was not recognized.</h2>}
+				<section className='valorantPlayers'>
+					{this.getPlayers().map(item => {
+						return (
+							<article className='valorantUser' key={item.leaderboardRank}>
+								<img src="images/radiant.png" width={heightAndWidth} height={heightAndWidth} alt="Competitive rank"></img>
+								<div>
+									<div className='userTitleAndRank'>
+										<h2>{item.leaderboardRank}</h2>
+										<h3>{item.gameName ? item.gameName : "Unknown User Found"}</h3>	
+									</div>
+									<p>Tagline: {item.tagLine ? item.tagLine : "Tag line could not be found"}</p>
+									<p>Ranked Rating: {item.rankedRating}</p>
+									<p>Number of Wins: {item.numberOfWins}</p>	
 								</div>
-								<p>Tagline: {item.tagLine ? item.tagLine : "Tag line could not be found"}</p>
-								<p>Ranked Rating: {item.rankedRating}</p>
-								<p>Number of Wins: {item.numberOfWins}</p>	
-							</div>
 
-							
-						</article>
-					)
-				})}
-			</section>
+								
+							</article>
+						)
+					})}
+				</section>	
+			</div>
+			
 		)
 	}
 }
