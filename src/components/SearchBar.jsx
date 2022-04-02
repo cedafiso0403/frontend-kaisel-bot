@@ -30,7 +30,6 @@ export default function SearchBar() {
             <form className="searchBar" action="/frontend-kaisel-bot/TestStats" method="GET" name="search">
                 <div className="form-container">
                     <input type="text" placeholder="Input a username here" id="user" name="user"/>
-                    
                     <button className="searchBarButton"><img src="images/search-icon.png" alt="search button" width="30" height="30"></img></button>
                 </div>
                 <div className="form-container2">
