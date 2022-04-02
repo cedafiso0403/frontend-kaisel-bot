@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend-kaisel-bot/static/css/main.8f8ab51d.css",
-    "main.js": "/frontend-kaisel-bot/static/js/main.5314deee.js",
+    "main.js": "/frontend-kaisel-bot/static/js/main.0c9ac217.js",
     "static/media/ValorantCard.png": "/frontend-kaisel-bot/static/media/ValorantCard.6e7719964025bcaac69e.png",
     "static/media/bg8.png": "/frontend-kaisel-bot/static/media/bg8.ba13d35205251ddbf6c9.png",
     "static/media/LeagueCard.jpg": "/frontend-kaisel-bot/static/media/LeagueCard.9902b7736cfdd595d36a.jpg",
@@ -9,10 +9,10 @@
     "static/media/beruSad.png": "/frontend-kaisel-bot/static/media/beruSad.ed55518c0c467510d30c.png",
     "index.html": "/frontend-kaisel-bot/index.html",
     "main.8f8ab51d.css.map": "/frontend-kaisel-bot/static/css/main.8f8ab51d.css.map",
-    "main.5314deee.js.map": "/frontend-kaisel-bot/static/js/main.5314deee.js.map"
+    "main.0c9ac217.js.map": "/frontend-kaisel-bot/static/js/main.0c9ac217.js.map"
   },
   "entrypoints": [
     "static/css/main.8f8ab51d.css",
-    "static/js/main.5314deee.js"
+    "static/js/main.0c9ac217.js"
   ]
 }
