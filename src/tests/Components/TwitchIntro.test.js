@@ -10,13 +10,13 @@ test('Render without crashing', ()=>{
 
 test('Render heading for element', ()=>{
     render(<BrowserRouter><TwitchIntro /></BrowserRouter>)
-    const heading = screen.getByText("Get notified for your favorite streamers").closest('h2');
+    const heading = screen.getByText("Watch your favorite streamers live").closest('h2');
     expect(heading).toBeInTheDocument();
 })
 
 test('Render content feature for element', ()=>{
     render(<BrowserRouter><TwitchIntro /></BrowserRouter>)
-    const line1 = screen.getByText(/Kaisel can display/i).closest('p');
+    const line1 = screen.getByText(/View the top streamers/i).closest('p');
     expect(line1).toBeInTheDocument();
 })
 

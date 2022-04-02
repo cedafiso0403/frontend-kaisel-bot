@@ -15,8 +15,8 @@ test('Renders Header Home link element',()=>{
 
 test('Renders Header Stats link element',()=>{
     render(<BrowserRouter><Header/></BrowserRouter>);
-    const linkElement = screen.getByText(/Stats/i).closest('a');
-    expect(linkElement).toHaveAttribute("href", "/Stats");
+    const linkElement = screen.getByText(/Statistics/i).closest('a');
+    expect(linkElement).toHaveAttribute("href", "/Statistics");
 });
 
 test('Renders Header Twitch link element',()=>{
