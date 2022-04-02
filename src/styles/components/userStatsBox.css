@@ -169,4 +169,7 @@
     .profile-picture-container {
         padding-bottom: 40%;
     }
+    .searchBar {
+        width: 80%;
+    }
 }
