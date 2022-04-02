@@ -39,11 +39,11 @@
   .project-members-list {
     grid-template-columns: none;
   }
-  }
+}
   
-  @media only screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   .memberSection {
     width: 99%;
     height: 99%;
   }
-  }
+}
