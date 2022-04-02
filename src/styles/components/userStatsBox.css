@@ -167,9 +167,15 @@
 
 @media only screen and (max-width: 716px) {
     .profile-picture-container {
-        padding-bottom: 40%;
+        padding-bottom: 55%;
     }
     .searchBar {
         width: 80%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .profile-picture-container {
+        padding-bottom: 100%;
     }
 }
