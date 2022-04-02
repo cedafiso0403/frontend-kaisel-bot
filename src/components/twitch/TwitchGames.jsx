@@ -43,7 +43,7 @@ const TwitchGames = props => {
             {games.map((game, index) => <a className="twitch-a" href={`https://www.twitch.tv/directory/game/${game.name}`} target="_blank" rel="noreferrer">
                 <div className="twitch-game" key={index}>
                 <h3>{game.name}</h3>
-                <img alt="game card" src={setDimensions(game.box_art_url)} height={game.box_art_height} width={game.box_art_width}/>
+                <img alt={"game card"+index} src={setDimensions(game.box_art_url)} height={game.box_art_height} width={game.box_art_width}/>
             </div>
         </a>)}
         </div>
