@@ -5,7 +5,7 @@ import axios from 'axios';
 import { RankedStatsBox } from "./RankedStatsBox";
 import ChampionStats from "./ChampionStats";
 
-const API_KEYS = ["RGAPI-8d94c36b-aeb1-48dc-914d-496e45302939", "RGAPI-79b531c7-52b4-4409-9752-057403a5debf", "RGAPI-807b4b9b-fc5a-4a68-80a2-3b3bd501b8a8", "RGAPI-a052925c-6285-4bfe-82e0-faa699a45542"];
+const API_KEYS = ["RGAPI-c22b4623-0f7d-49a9-ab01-e2ba6bff106b", "RGAPI-08225533-8975-48b5-9af0-6be6e8fca202", "RGAPI-807b4b9b-fc5a-4a68-80a2-3b3bd501b8a8", "RGAPI-4b7bc04f-c7b0-49f4-89a3-9da958bc5db7"];
 const SEASON_12_BEGINS_TIMESTAMP = 1641297600;
 
 export class UserStatsBox extends React.Component {
